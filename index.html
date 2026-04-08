@@ -279,6 +279,118 @@
             .port-card:hover { transform: none; }
         }
 
+        /* ─── Team Member Card ─── */
+        .tmc-wrap {
+            position: relative;
+            margin: 64px 0;
+        }
+        .tmc-job {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+        .tmc-wrap.tmc-right .tmc-job { text-align: right; }
+        .tmc-inner {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .tmc-portrait {
+            position: relative;
+            width: 290px;
+            height: 400px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .tmc-wrap.tmc-right .tmc-portrait { order: 1; }
+        .tmc-portrait::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.22) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .tmc-portrait img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+        }
+        .tmc-portrait:hover img { transform: scale(1.05); }
+        .tmc-info {
+            position: relative;
+            left: -32px;
+            z-index: 2;
+            width: calc(100% - 270px);
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+        .tmc-wrap.tmc-right .tmc-info {
+            left: auto;
+            right: -32px;
+            align-items: flex-end;
+        }
+        .tmc-name {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.2rem, 4vw, 3.6rem);
+            line-height: 1.1;
+            font-weight: 200;
+            letter-spacing: -0.04em;
+            color: var(--text-primary);
+        }
+        .tmc-name span { font-weight: 500; }
+        .tmc-details {
+            display: flex;
+            align-items: flex-start;
+            gap: 28px;
+        }
+        .tmc-wrap.tmc-right .tmc-details { flex-direction: row-reverse; }
+        .tmc-cta {
+            width: 70px; height: 70px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: transparent;
+            display: inline-flex;
+            align-items: center; justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: border-color 0.3s, background 0.3s, transform 0.2s;
+            color: var(--text-muted);
+        }
+        .tmc-cta:hover {
+            border-color: rgba(147,51,234,0.6);
+            background: rgba(147,51,234,0.12);
+            color: var(--text-primary);
+            transform: scale(1.1);
+        }
+        .tmc-cta svg { transition: transform 0.3s; }
+        .tmc-cta:hover svg { transform: rotate(-45deg); }
+        .tmc-wrap.tmc-right .tmc-cta svg { transform: rotate(180deg); }
+        .tmc-wrap.tmc-right .tmc-cta:hover svg { transform: rotate(225deg); }
+        .tmc-bio {
+            width: 42%;
+            font-size: 0.875rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+        .tmc-wrap.tmc-right .tmc-bio { text-align: right; }
+        /* tmc reveal animations */
+        .tmc-wrap .tmc-job     { opacity:0; transform:translateX(-18px); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .tmc-wrap .tmc-portrait{ opacity:0; transform:translateY(28px) scale(0.97); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.15s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.15s; }
+        .tmc-wrap .tmc-info    { opacity:0; transform:translateX(36px); transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1) 0.3s, transform 0.6s cubic-bezier(0.22,1,0.36,1) 0.3s; }
+        .tmc-wrap.v .tmc-job, .tmc-wrap.v .tmc-portrait, .tmc-wrap.v .tmc-info { opacity:1; transform:none; }
+        @media (max-width: 768px) {
+            .tmc-inner { flex-direction: column; justify-content: flex-start; }
+            .tmc-portrait { width: 100%; height: 340px; order: 0 !important; }
+            .tmc-info { left: 0 !important; right: 0 !important; width: 100%; align-items: flex-start !important; margin-top: 28px; }
+            .tmc-details { flex-direction: row !important; }
+            .tmc-bio { width: 60%; text-align: left !important; }
+            .tmc-wrap.tmc-right .tmc-job { text-align: left; }
+        }
+
         /* ─── Footer2 link grid ─── */
         .ft2-grid { grid-template-columns: repeat(4, 1fr); }
         @media (max-width: 768px) { .ft2-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -761,6 +873,67 @@
 
 
 <!-- ═══════════════════════════════════════════════
+     TEAM
+════════════════════════════════════════════════ -->
+<section style="padding:96px 24px; background:var(--bg-primary);">
+    <div style="max-width:1180px; margin:0 auto;">
+
+        <div style="text-align:center; margin-bottom:16px;">
+            <div class="section-tag reveal" style="margin:0 auto 18px;">
+                <svg width="7" height="7" viewBox="0 0 7 7"><circle cx="3.5" cy="3.5" r="3.5" fill="var(--accent-light)"/></svg>
+                Das Team
+            </div>
+            <h2 class="f-display reveal d1" style="font-size:clamp(1.9rem, 5vw, 3.4rem); font-weight:800; letter-spacing:-0.03em; line-height:1.1;">
+                Die Menschen hinter<br>Upprime Connect.
+            </h2>
+        </div>
+
+        <!-- Card 1 — left -->
+        <div class="tmc-wrap tmc-left">
+            <p class="tmc-job">Creative Director & Co-Founder</p>
+            <div class="tmc-inner">
+                <div class="tmc-portrait">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&fit=crop&crop=face" alt="Alexander Müller" loading="lazy" />
+                </div>
+                <div class="tmc-info">
+                    <p class="tmc-name">Alexander<br><span>Müller</span></p>
+                    <div class="tmc-details">
+                        <button class="tmc-cta" aria-label="Profil ansehen">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <p class="tmc-bio">Alexander leitet die kreative Vision von Upprime Connect. Mit über 8 Jahren Erfahrung in Brand Identity und UI/UX entwickelt er digitale Erlebnisse, die Marken unvergesslich machen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="div-line" style="margin:8px 0;"></div>
+
+        <!-- Card 2 — right -->
+        <div class="tmc-wrap tmc-right">
+            <p class="tmc-job">Head of Development & Co-Founder</p>
+            <div class="tmc-inner">
+                <div class="tmc-portrait">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&fit=crop&crop=face" alt="Sarah Becker" loading="lazy" />
+                </div>
+                <div class="tmc-info">
+                    <p class="tmc-name">Sarah<br><span>Becker</span></p>
+                    <div class="tmc-details">
+                        <button class="tmc-cta" aria-label="Profil ansehen">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <p class="tmc-bio">Sarah verantwortet die technische Exzellenz aller Projekte. Ihr Fokus auf Performance, Core Web Vitals und saubere Architektur sorgt dafür, dass jede Website so schnell ist wie sie aussieht.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
      TESTIMONIALS
 ════════════════════════════════════════════════ -->
 <section style="padding:96px 24px; background:var(--bg-primary);">
@@ -1221,6 +1394,12 @@ const io = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 setTimeout(() => { document.querySelectorAll('#hero .reveal').forEach(el => el.classList.add('v')); }, 80);
+
+// Team member card reveal
+const tmcObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); tmcObs.unobserve(e.target); } });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.tmc-wrap').forEach(el => tmcObs.observe(el));
 
 
 // ═══════════════════════════════════════════════
