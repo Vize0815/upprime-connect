@@ -240,20 +240,67 @@
         .f-link { color: var(--text-muted); font-size: 0.88rem; text-decoration: none; transition: color 0.2s; cursor: pointer; }
         .f-link:hover { color: var(--text-primary); }
 
-        /* ─── Hero shader canvas ─── */
-        #shader-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-
-        /* ─── Hero grid overlay ─── */
-        .hero-grid-overlay {
-            position: absolute; inset: 0; z-index: 1; pointer-events: none;
-            background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-            background-size: 64px 64px;
+        /* ─── HeroGeometric shapes ─── */
+        @keyframes hsgEntry {
+            from { opacity: 0; transform: translateY(-150px) rotate(calc(var(--rot) - 15deg)); }
+            to   { opacity: 1; transform: translateY(0px)    rotate(var(--rot)); }
         }
-
-        /* ─── Hero bottom fade ─── */
-        .hero-fade {
-            position: absolute; bottom: 0; left: 0; right: 0; height: 220px; z-index: 1; pointer-events: none;
-            background: linear-gradient(to bottom, transparent, var(--bg-primary));
+        @keyframes hsgFloat {
+            0%, 100% { transform: translateY(0px); }
+            50%       { transform: translateY(15px); }
+        }
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .hsg {
+            position: absolute;
+            animation: hsgEntry 2.4s var(--delay, 0s) cubic-bezier(0.23, 0.86, 0.39, 0.96) both;
+            transform: rotate(var(--rot));
+        }
+        .hsg-inner {
+            animation: hsgFloat 12s ease-in-out infinite;
+        }
+        .hsg-pill {
+            border-radius: 9999px;
+            background: linear-gradient(to right, var(--g-from), transparent);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            border: 2px solid rgba(255,255,255,0.15);
+            box-shadow: 0 8px 32px rgba(255,255,255,0.07);
+            position: relative;
+            width: var(--w); height: var(--h);
+        }
+        .hsg-pill::after {
+            content: '';
+            position: absolute; inset: 0; border-radius: 9999px;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.18), transparent 70%);
+        }
+        .hero-geo-fade {
+            position: absolute; left: 0; right: 0; height: 200px; z-index: 1; pointer-events: none;
+        }
+        .hero-geo-fade-t { top: 0;    background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%); }
+        .hero-geo-fade-b { bottom: 0; background: linear-gradient(to top,    var(--bg-primary) 0%, transparent 100%); }
+        .hero-geo-content {
+            position: relative; z-index: 2; width: 100%;
+            max-width: 860px; margin: 0 auto; padding: 0 24px 80px;
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 6px 16px; border-radius: 9999px;
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 40px;
+            animation: heroFadeUp 1s 0.5s both;
+        }
+        .hero-badge span { font-size: 0.875rem; color: rgba(255,255,255,0.6); letter-spacing: 0.04em; }
+        .hero-h1-line1 {
+            background: linear-gradient(to bottom, #fff, rgba(255,255,255,0.82));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .hero-h1-line2 {
+            background: linear-gradient(to right, #a5b4fc, rgba(255,255,255,0.92), #f9a8d4);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
 
         /* ─── Responsive ─── */
@@ -478,36 +525,79 @@
 
 
 <!-- ═══════════════════════════════════════════════
-     HERO  —  WebGL Shader Background
+     HERO  —  HeroGeometric
 ════════════════════════════════════════════════ -->
-<section id="hero" style="min-height:100vh; display:flex; align-items:center; position:relative; overflow:hidden; padding-top:90px;">
+<section id="hero" style="min-height:100vh; display:flex; align-items:center; position:relative; overflow:hidden; padding-top:90px; background:var(--bg-primary);">
 
-    <!-- WebGL shader canvas fills the section -->
-    <canvas id="shader-canvas"></canvas>
+    <!-- Ambient background gradient -->
+    <div style="position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 20% 50%, rgba(99,102,241,0.05), transparent), radial-gradient(ellipse 60% 50% at 80% 50%, rgba(244,63,94,0.04), transparent); pointer-events:none;"></div>
 
-    <!-- Grid overlay -->
-    <div class="hero-grid-overlay"></div>
+    <!-- Floating shapes layer -->
+    <div style="position:absolute; inset:0; overflow:hidden; pointer-events:none;">
 
-    <!-- Bottom fade to next section -->
-    <div class="hero-fade"></div>
-
-    <!-- Content -->
-    <div style="position:relative; z-index:2; width:100%; max-width:1180px; margin:0 auto; padding:0 24px 80px;">
-
-        <div class="section-tag reveal" style="margin-bottom:26px;">
-            <svg width="7" height="7" viewBox="0 0 7 7"><circle cx="3.5" cy="3.5" r="3.5" fill="var(--accent-light)"/></svg>
-            Webdesign · SEO · Branding Agentur
+        <!-- Shape 1: large indigo pill, top-left, rotate 12° -->
+        <div class="hsg" style="--rot:12deg; --delay:0.3s; left:-10%; top:20%;">
+            <div class="hsg-inner">
+                <div class="hsg-pill" style="--w:600px; --h:140px; --g-from:rgba(99,102,241,0.18);"></div>
+            </div>
         </div>
 
-        <h1 class="f-display reveal d1" style="font-size:clamp(2.6rem, 7.5vw, 6.8rem); font-weight:800; line-height:1.04; letter-spacing:-0.03em; color:var(--text-primary); max-width:880px; margin-bottom:26px;">
-            Wir bauen Marken,<br>die <span class="grad-text">bleiben.</span>
+        <!-- Shape 2: rose pill, bottom-right, rotate -15° -->
+        <div class="hsg" style="--rot:-15deg; --delay:0.5s; right:-3%; top:72%;">
+            <div class="hsg-inner">
+                <div class="hsg-pill" style="--w:500px; --h:120px; --g-from:rgba(244,63,94,0.15);"></div>
+            </div>
+        </div>
+
+        <!-- Shape 3: violet pill, bottom-left, rotate -8° -->
+        <div class="hsg" style="--rot:-8deg; --delay:0.4s; left:8%; bottom:8%;">
+            <div class="hsg-inner">
+                <div class="hsg-pill" style="--w:300px; --h:80px; --g-from:rgba(167,139,250,0.15);"></div>
+            </div>
+        </div>
+
+        <!-- Shape 4: amber pill, top-right, rotate 20° -->
+        <div class="hsg" style="--rot:20deg; --delay:0.6s; right:18%; top:13%;">
+            <div class="hsg-inner">
+                <div class="hsg-pill" style="--w:200px; --h:60px; --g-from:rgba(251,191,36,0.13);"></div>
+            </div>
+        </div>
+
+        <!-- Shape 5: cyan pill, top-center-left, rotate -25° -->
+        <div class="hsg" style="--rot:-25deg; --delay:0.7s; left:22%; top:8%;">
+            <div class="hsg-inner">
+                <div class="hsg-pill" style="--w:150px; --h:40px; --g-from:rgba(34,211,238,0.13);"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Top / bottom fades -->
+    <div class="hero-geo-fade hero-geo-fade-t"></div>
+    <div class="hero-geo-fade hero-geo-fade-b"></div>
+
+    <!-- Content -->
+    <div class="hero-geo-content">
+
+        <!-- Badge -->
+        <div class="hero-badge">
+            <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="rgba(244,63,94,0.8)"/></svg>
+            <span>Webdesign · SEO · Branding Agentur</span>
+        </div>
+
+        <!-- Heading -->
+        <h1 class="f-display" style="font-size:clamp(2.6rem,7.5vw,6.5rem); font-weight:800; line-height:1.04; letter-spacing:-0.03em; margin-bottom:28px; animation:heroFadeUp 1s 0.7s both;">
+            <span class="hero-h1-line1">Wir bauen Marken,</span><br>
+            <span class="hero-h1-line2">die bleiben.</span>
         </h1>
 
-        <p class="reveal d2" style="font-size:clamp(1rem, 1.8vw, 1.18rem); color:rgba(200,190,255,0.75); max-width:540px; line-height:1.75; margin-bottom:44px;">
+        <!-- Subtitle -->
+        <p style="font-size:clamp(1rem,1.8vw,1.18rem); color:rgba(255,255,255,0.4); max-width:520px; line-height:1.78; margin:0 auto 44px; font-weight:300; letter-spacing:0.01em; animation:heroFadeUp 1s 0.9s both;">
             Von einzigartigen Logos und leistungsstarken Websites bis hin zu SEO-Strategien, die nachhaltig Sichtbarkeit schaffen — wir sind Ihr Partner für digitales Wachstum.
         </p>
 
-        <div class="reveal d3" style="display:flex; flex-wrap:wrap; gap:14px; align-items:center; margin-bottom:60px;">
+        <!-- Buttons -->
+        <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:center; margin-bottom:60px; animation:heroFadeUp 1s 1.1s both;">
             <a href="#contact" class="btn-primary" style="font-size:0.97rem; padding:15px 30px;">
                 Projekt starten
                 <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M3 8.5H14M14 8.5L9.5 4M14 8.5L9.5 13" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -516,7 +606,7 @@
         </div>
 
         <!-- Trust bar -->
-        <div class="reveal d4" style="display:flex; flex-wrap:wrap; gap:28px; align-items:center; padding-top:36px; border-top:1px solid rgba(147,51,234,0.2);">
+        <div style="display:flex; flex-wrap:wrap; gap:28px; align-items:center; justify-content:center; padding-top:36px; border-top:1px solid rgba(255,255,255,0.07); animation:heroFadeUp 1s 1.3s both;">
             <div style="display:flex; align-items:center; gap:10px;">
                 <div style="display:flex;">
                     <div class="avatar" style="background:linear-gradient(135deg,#9333EA,#C084FC); border:2px solid rgba(10,5,20,0.8); margin-right:-7px; z-index:3;">MW</div>
@@ -536,6 +626,7 @@
                 <span style="color:rgba(180,170,220,0.7); font-size:0.84rem;">5.0 Kundenbewertung</span>
             </div>
         </div>
+
     </div>
 </section>
 
@@ -1180,178 +1271,7 @@
 
 
 <script>
-// ═══════════════════════════════════════════════
-//  WebGL Shader Background  (ported from React component)
-// ═══════════════════════════════════════════════
-(function initShader() {
-    const canvas = document.getElementById('shader-canvas');
-    if (!canvas) return;
-
-    const gl = canvas.getContext('webgl');
-    if (!gl) { console.warn('WebGL not supported'); return; }
-
-    const vsSource = `
-        attribute vec4 aVertexPosition;
-        void main() {
-            gl_Position = aVertexPosition;
-        }
-    `;
-
-    const fsSource = `
-        precision highp float;
-        uniform vec2 iResolution;
-        uniform float iTime;
-
-        const float overallSpeed = 0.2;
-        const float gridSmoothWidth = 0.015;
-        const float axisWidth = 0.05;
-        const float majorLineWidth = 0.025;
-        const float minorLineWidth = 0.0125;
-        const float majorLineFrequency = 5.0;
-        const float minorLineFrequency = 1.0;
-        const vec4 gridColor = vec4(0.5);
-        const float scale = 5.0;
-        const vec4 lineColor = vec4(0.4, 0.2, 0.8, 1.0);
-        const float minLineWidth = 0.01;
-        const float maxLineWidth = 0.2;
-        const float lineSpeed = 1.0 * overallSpeed;
-        const float lineAmplitude = 1.0;
-        const float lineFrequency = 0.2;
-        const float warpSpeed = 0.2 * overallSpeed;
-        const float warpFrequency = 0.5;
-        const float warpAmplitude = 1.0;
-        const float offsetFrequency = 0.5;
-        const float offsetSpeed = 1.33 * overallSpeed;
-        const float minOffsetSpread = 0.6;
-        const float maxOffsetSpread = 2.0;
-        const int linesPerGroup = 16;
-
-        #define drawCircle(pos, radius, coord) smoothstep(radius + gridSmoothWidth, radius, length(coord - (pos)))
-        #define drawSmoothLine(pos, halfWidth, t) smoothstep(halfWidth, 0.0, abs(pos - (t)))
-        #define drawCrispLine(pos, halfWidth, t) smoothstep(halfWidth + gridSmoothWidth, halfWidth, abs(pos - (t)))
-        #define drawPeriodicLine(freq, width, t) drawCrispLine(freq / 2.0, width, abs(mod(t, freq) - (freq) / 2.0))
-
-        float drawGridLines(float axis) {
-            return drawCrispLine(0.0, axisWidth, axis)
-                 + drawPeriodicLine(majorLineFrequency, majorLineWidth, axis)
-                 + drawPeriodicLine(minorLineFrequency, minorLineWidth, axis);
-        }
-
-        float drawGrid(vec2 space) {
-            return min(1.0, drawGridLines(space.x) + drawGridLines(space.y));
-        }
-
-        float random(float t) {
-            return (cos(t) + cos(t * 1.3 + 1.3) + cos(t * 1.4 + 1.4)) / 3.0;
-        }
-
-        float getPlasmaY(float x, float horizontalFade, float offset) {
-            return random(x * lineFrequency + iTime * lineSpeed) * horizontalFade * lineAmplitude + offset;
-        }
-
-        void main() {
-            vec2 fragCoord = gl_FragCoord.xy;
-            vec4 fragColor;
-            vec2 uv = fragCoord.xy / iResolution.xy;
-            vec2 space = (fragCoord - iResolution.xy / 2.0) / iResolution.x * 2.0 * scale;
-
-            float horizontalFade = 1.0 - (cos(uv.x * 6.28) * 0.5 + 0.5);
-            float verticalFade = 1.0 - (cos(uv.y * 6.28) * 0.5 + 0.5);
-
-            space.y += random(space.x * warpFrequency + iTime * warpSpeed) * warpAmplitude * (0.5 + horizontalFade);
-            space.x += random(space.y * warpFrequency + iTime * warpSpeed + 2.0) * warpAmplitude * horizontalFade;
-
-            vec4 lines = vec4(0.0);
-            vec4 bgColor1 = vec4(0.1, 0.1, 0.3, 1.0);
-            vec4 bgColor2 = vec4(0.3, 0.1, 0.5, 1.0);
-
-            for(int l = 0; l < linesPerGroup; l++) {
-                float normalizedLineIndex = float(l) / float(linesPerGroup);
-                float offsetTime = iTime * offsetSpeed;
-                float offsetPosition = float(l) + space.x * offsetFrequency;
-                float rand = random(offsetPosition + offsetTime) * 0.5 + 0.5;
-                float halfWidth = mix(minLineWidth, maxLineWidth, rand * horizontalFade) / 2.0;
-                float offset = random(offsetPosition + offsetTime * (1.0 + normalizedLineIndex)) * mix(minOffsetSpread, maxOffsetSpread, horizontalFade);
-                float linePosition = getPlasmaY(space.x, horizontalFade, offset);
-                float line = drawSmoothLine(linePosition, halfWidth, space.y) / 2.0 + drawCrispLine(linePosition, halfWidth * 0.15, space.y);
-
-                float circleX = mod(float(l) + iTime * lineSpeed, 25.0) - 12.0;
-                vec2 circlePosition = vec2(circleX, getPlasmaY(circleX, horizontalFade, offset));
-                float circle = drawCircle(circlePosition, 0.01, space) * 4.0;
-
-                line = line + circle;
-                lines += line * lineColor * rand;
-            }
-
-            fragColor = mix(bgColor1, bgColor2, uv.x);
-            fragColor *= verticalFade;
-            fragColor.a = 1.0;
-            fragColor += lines;
-
-            gl_FragColor = fragColor;
-        }
-    `;
-
-    // Compile shader helper
-    function loadShader(type, source) {
-        const shader = gl.createShader(type);
-        gl.shaderSource(shader, source);
-        gl.compileShader(shader);
-        if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-            console.error('Shader error:', gl.getShaderInfoLog(shader));
-            gl.deleteShader(shader);
-            return null;
-        }
-        return shader;
-    }
-
-    const vertShader = loadShader(gl.VERTEX_SHADER, vsSource);
-    const fragShader = loadShader(gl.FRAGMENT_SHADER, fsSource);
-    if (!vertShader || !fragShader) return;
-
-    const program = gl.createProgram();
-    gl.attachShader(program, vertShader);
-    gl.attachShader(program, fragShader);
-    gl.linkProgram(program);
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-        console.error('Program link error:', gl.getProgramInfoLog(program));
-        return;
-    }
-
-    // Full-screen quad
-    const posBuf = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, posBuf);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
-
-    const posLoc      = gl.getAttribLocation(program, 'aVertexPosition');
-    const resLoc      = gl.getUniformLocation(program, 'iResolution');
-    const timeLoc     = gl.getUniformLocation(program, 'iTime');
-
-    function resize() {
-        const hero = document.getElementById('hero');
-        canvas.width  = hero.offsetWidth;
-        canvas.height = hero.offsetHeight;
-        gl.viewport(0, 0, canvas.width, canvas.height);
-    }
-    window.addEventListener('resize', resize, { passive: true });
-    resize();
-
-    const startTime = Date.now();
-    function render() {
-        const t = (Date.now() - startTime) / 1000;
-        gl.clearColor(0, 0, 0, 1);
-        gl.clear(gl.COLOR_BUFFER_BIT);
-        gl.useProgram(program);
-        gl.uniform2f(resLoc, canvas.width, canvas.height);
-        gl.uniform1f(timeLoc, t);
-        gl.bindBuffer(gl.ARRAY_BUFFER, posBuf);
-        gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
-        gl.enableVertexAttribArray(posLoc);
-        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-        requestAnimationFrame(render);
-    }
-    render();
-})();
+// Hero uses pure CSS animations (HeroGeometric) — no JS needed.
 
 
 // ═══════════════════════════════════════════════
