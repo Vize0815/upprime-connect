@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:500px;height:500px;overflow:hidden;background:#05050A;display:flex;align-items:center;justify-content:center}
+  .bg{position:absolute;inset:0}
+  .blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+  .b1{width:340px;height:340px;background:#9333EA;opacity:.35;top:-80px;left:-80px}
+  .b2{width:280px;height:280px;background:#4F8EF7;opacity:.2;bottom:-60px;right:-60px}
+  .b3{width:200px;height:200px;background:#C084FC;opacity:.18;bottom:40px;left:40px}
+  .mark{position:relative;z-index:2;width:220px;height:220px;background:linear-gradient(135deg,#9333EA 0%,#C084FC 100%);border-radius:52px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 80px rgba(147,51,234,.6),0 0 160px rgba(147,51,234,.25)}
+</style>
+</head>
+<body>
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+  <div class="mark">
+    <svg width="110" height="110" viewBox="0 0 17 17" fill="none">
+      <path d="M8.5 1.5L14 4.8V11.2L8.5 14.5L3 11.2V4.8L8.5 1.5Z" stroke="white" stroke-width="1.2" stroke-linejoin="round"/>
+      <path d="M8.5 1.5V8.5M8.5 8.5L14 4.8M8.5 8.5L3 4.8" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+  </div>
+</body>
+</html>
