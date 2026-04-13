@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
     <style>
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        body{background:#05050A;color:#F0F0FF;font-family:'DM Sans',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+        body{background:#05050A;color:#F0F0FF;font-family:'DM Sans',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow-x:hidden;overflow-y:auto;padding:24px 0}
         .blob{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;opacity:.18}
         .blob-1{width:600px;height:600px;background:#9333EA;top:-200px;left:-200px}
         .blob-2{width:500px;height:500px;background:#4F8EF7;bottom:-150px;right:-150px}
@@ -46,7 +46,20 @@
         .social-wrap{display:flex;justify-content:center;margin-top:16px;animation:fadeIn .8s .9s both}
         .fb-btn{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:rgba(24,119,242,.08);border:1px solid rgba(24,119,242,.25);color:rgba(106,171,255,.7);text-decoration:none;transition:background .2s,border-color .2s,color .2s}
         .fb-btn:hover{background:rgba(24,119,242,.18);border-color:rgba(24,119,242,.5);color:#fff}
-        @media(max-width:480px){.card{padding:48px 28px}}
+        @media(max-width:480px){
+            .card{padding:32px 20px;width:calc(100% - 32px);border-radius:18px}
+            .logo{margin-bottom:24px}
+            .spinner-wrap{margin-bottom:20px}
+            .spinner{width:40px;height:40px}
+            .badge{margin-bottom:16px}
+            h1{font-size:1.7rem;margin-bottom:12px}
+            p.sub{font-size:.88rem;margin-bottom:24px}
+            .portrait{width:72px;height:72px}
+            .portrait-wrap{margin-bottom:14px}
+            .email-btn{font-size:.82rem;padding:11px 18px}
+            .divider{margin:24px 0}
+            .note{font-size:.72rem}
+        }
     </style>
 </head>
 <body>
