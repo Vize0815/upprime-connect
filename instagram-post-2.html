@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:1080px;height:1080px;overflow:hidden;background:#05050A;font-family:'DM Sans',sans-serif;position:relative}
+
+  /* Blobs */
+  .blob{position:absolute;border-radius:50%;filter:blur(130px);pointer-events:none}
+  .b1{width:680px;height:680px;background:#9333EA;opacity:.18;bottom:-200px;left:-180px}
+  .b2{width:500px;height:500px;background:#4F8EF7;opacity:.11;top:-160px;right:-120px}
+  .b3{width:320px;height:320px;background:#C084FC;opacity:.12;top:300px;right:100px}
+
+  /* Shapes */
+  .shape{position:absolute;border-radius:9999px;border:1.5px solid rgba(255,255,255,.08)}
+  .s1{width:620px;height:130px;background:linear-gradient(to right,rgba(167,139,250,.14),transparent);top:-15px;left:-70px;transform:rotate(-9deg)}
+  .s2{width:480px;height:105px;background:linear-gradient(to right,rgba(99,102,241,.13),transparent);bottom:-10px;right:-50px;transform:rotate(11deg)}
+  .s3{width:240px;height:58px;background:linear-gradient(to right,rgba(244,63,94,.11),transparent);top:180px;right:-20px;transform:rotate(-16deg)}
+  .s4{width:150px;height:40px;background:linear-gradient(to right,rgba(251,191,36,.09),transparent);bottom:200px;left:50px;transform:rotate(8deg)}
+
+  /* Grid */
+  .grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.035) 1px,transparent 1px);background-size:46px 46px}
+
+  /* Diagonal accent line */
+  .accent-line{position:absolute;top:0;right:180px;width:2px;height:100%;background:linear-gradient(to bottom,transparent,rgba(147,51,234,.18),transparent);transform:rotate(12deg);transform-origin:top center}
+
+  /* Layout */
+  .wrap{position:absolute;inset:0;display:flex;flex-direction:column;padding:72px 80px;justify-content:space-between}
+
+  /* Header */
+  .header{display:flex;align-items:center;justify-content:space-between}
+  .logo-row{display:flex;align-items:center;gap:13px}
+  .logo-mark{width:48px;height:48px;background:linear-gradient(135deg,#9333EA,#C084FC);border-radius:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 28px rgba(147,51,234,.5)}
+  .logo-name{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:#F0F0FF;letter-spacing:-.02em}
+  .logo-name span{color:#C084FC}
+  .post-num{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2)}
+
+  /* Big quote */
+  .quote-wrap{display:flex;flex-direction:column;gap:0}
+  .quote-mark{font-family:'Syne',sans-serif;font-size:9rem;line-height:.7;font-weight:800;color:rgba(147,51,234,.2);margin-bottom:8px;margin-left:-8px}
+  .quote-text{font-family:'Syne',sans-serif;font-size:3.55rem;font-weight:800;letter-spacing:-.04em;line-height:1.06;color:#F0F0FF}
+  .quote-text .g{background:linear-gradient(to right,#a5b4fc,#C084FC);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .quote-author{margin-top:28px;display:flex;align-items:center;gap:14px}
+  .author-line{width:32px;height:2px;background:linear-gradient(to right,#9333EA,#C084FC);border-radius:2px;flex-shrink:0}
+  .author-text{font-size:.9rem;font-weight:300;color:rgba(255,255,255,.38);letter-spacing:.02em}
+
+  /* Insight card */
+  .insight{display:flex;flex-direction:column;gap:14px}
+  .insight-label{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+  .insight-points{display:flex;gap:12px}
+  .point{flex:1;padding:18px 20px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;gap:8px}
+  .point-icon{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center}
+  .pi-1{background:rgba(147,51,234,.15);border:1px solid rgba(147,51,234,.25)}
+  .pi-2{background:rgba(79,142,247,.15);border:1px solid rgba(79,142,247,.25)}
+  .pi-3{background:rgba(192,132,252,.15);border:1px solid rgba(192,132,252,.25)}
+  .point-title{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;color:#F0F0FF}
+  .point-desc{font-size:.72rem;font-weight:300;color:rgba(255,255,255,.32);line-height:1.5}
+
+  /* Footer */
+  .footer{display:flex;align-items:center;justify-content:space-between}
+  .tag{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:9999px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);font-family:'Syne',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+  .tdot{width:5px;height:5px;border-radius:50%;background:#9333EA;box-shadow:0 0 5px rgba(147,51,234,.8)}
+  .bio-cta{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
+  .bio-label{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.2)}
+  .bio-link{font-family:'Syne',sans-serif;font-size:.92rem;font-weight:700;color:#C084FC;display:inline-flex;align-items:center;gap:5px}
+</style>
+</head>
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="shape s1"></div>
+  <div class="shape s2"></div>
+  <div class="shape s3"></div>
+  <div class="shape s4"></div>
+  <div class="grid"></div>
+  <div class="accent-line"></div>
+
+  <div class="wrap">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="logo-row">
+        <div class="logo-mark">
+          <svg width="26" height="26" viewBox="0 0 17 17" fill="none">
+            <path d="M8.5 1.5L14 4.8V11.2L8.5 14.5L3 11.2V4.8L8.5 1.5Z" stroke="white" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M8.5 1.5V8.5M8.5 8.5L14 4.8M8.5 8.5L3 4.8" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-name">Upprime <span>Connect</span></div>
+      </div>
+      <div class="post-num">#02 — Branding</div>
+    </div>
+
+    <!-- Quote -->
+    <div class="quote-wrap">
+      <div class="quote-mark">"</div>
+      <div class="quote-text">
+        Dein Logo ist<br>dein <span class="g">erster<br>Eindruck.</span>
+      </div>
+      <div class="quote-author">
+        <div class="author-line"></div>
+        <div class="author-text">Und du bekommst keine zweite Chance dafür.</div>
+      </div>
+    </div>
+
+    <!-- Insight points -->
+    <div class="insight">
+      <div class="insight-label">Warum deine Markenidentität entscheidend ist</div>
+      <div class="insight-points">
+        <div class="point">
+          <div class="point-icon pi-1">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z" stroke="#C084FC" stroke-width="1.3"/><path d="M8 5v3l2 2" stroke="#C084FC" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+          <div class="point-title">0,05 Sekunden</div>
+          <div class="point-desc">So lange braucht ein Mensch, um sich einen ersten Eindruck zu bilden.</div>
+        </div>
+        <div class="point">
+          <div class="point-icon pi-2">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L10 6H14L11 9l1 4L8 11l-4 2 1-4-3-3h4L8 2Z" stroke="#4F8EF7" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="point-title">Vertrauen</div>
+          <div class="point-desc">Ein starkes Logo signalisiert Professionalität — noch bevor du ein Wort sagst.</div>
+        </div>
+        <div class="point">
+          <div class="point-icon pi-3">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L7 9M7 9l2 2 4-6M7 9L5 7" stroke="#C084FC" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="point-title">Wiedererkennung</div>
+          <div class="point-desc">Konsistentes Branding macht deine Marke unvergesslich.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="tag"><div class="tdot"></div>Logo & Branding</div>
+      <div class="bio-cta">
+        <div class="bio-label">Marke aufbauen</div>
+        <div class="bio-link">
+          Link in Bio
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="#C084FC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
