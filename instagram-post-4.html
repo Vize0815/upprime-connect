@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:1080px;height:1080px;overflow:hidden;background:#05050A;font-family:'DM Sans',sans-serif;position:relative}
+
+  .blob{position:absolute;border-radius:50%;filter:blur(140px);pointer-events:none}
+  .b1{width:680px;height:680px;background:#9333EA;opacity:.13;bottom:-260px;right:-200px}
+  .b2{width:500px;height:500px;background:#22C55E;opacity:.07;top:-180px;left:-160px}
+  .b3{width:300px;height:300px;background:#C084FC;opacity:.09;top:380px;left:60px}
+
+  .grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.03) 1px,transparent 1px);background-size:46px 46px}
+
+  .shape{position:absolute;border-radius:9999px;border:1.5px solid rgba(255,255,255,.06)}
+  .s1{width:560px;height:110px;background:linear-gradient(to right,rgba(34,197,94,.07),transparent);top:-8px;left:-50px;transform:rotate(-6deg)}
+  .s2{width:420px;height:95px;background:linear-gradient(to right,rgba(147,51,234,.08),transparent);bottom:-5px;right:-40px;transform:rotate(7deg)}
+
+  .wrap{position:absolute;inset:0;display:flex;flex-direction:column;padding:68px 80px;justify-content:space-between}
+
+  /* Header */
+  .header{display:flex;align-items:center;justify-content:space-between}
+  .logo-row{display:flex;align-items:center;gap:13px}
+  .logo-mark{width:48px;height:48px;background:linear-gradient(135deg,#9333EA,#C084FC);border-radius:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 28px rgba(147,51,234,.5)}
+  .logo-name{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:#F0F0FF;letter-spacing:-.02em}
+  .logo-name span{color:#C084FC}
+  .post-num{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2)}
+
+  /* Hero */
+  .hero{display:flex;flex-direction:column;gap:13px}
+  .eyebrow{display:flex;align-items:center;gap:10px}
+  .eyebrow-line{width:28px;height:2px;background:linear-gradient(to right,#22C55E,#4ADE80);border-radius:2px;flex-shrink:0}
+  .eyebrow-text{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4ADE80}
+  .headline{font-family:'Syne',sans-serif;font-size:3.15rem;font-weight:800;letter-spacing:-.04em;line-height:1.06;color:#F0F0FF}
+  .headline .g{background:linear-gradient(to right,#4ADE80,#22C55E);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .sub-text{font-size:.9rem;font-weight:300;color:rgba(255,255,255,.38);line-height:1.65;max-width:600px}
+
+  /* Ranking list */
+  .ranking{display:flex;flex-direction:column;gap:10px}
+  .rank-label{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:2px}
+  .rank-row{display:flex;align-items:center;gap:16px;padding:14px 20px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);position:relative;overflow:hidden}
+  .rank-row.top{background:rgba(34,197,94,.06);border-color:rgba(34,197,94,.2)}
+  .rank-fill{position:absolute;left:0;top:0;height:100%;border-radius:14px;opacity:.06}
+  .rf-1{background:#22C55E;width:92%}
+  .rf-2{background:#FBBF24;width:52%}
+  .rf-3{background:#F97316;width:32%}
+  .rf-rest{background:#EF4444;width:8%}
+  .rank-pos{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;color:rgba(255,255,255,.3);width:22px;flex-shrink:0;z-index:1}
+  .rank-pos.p1{color:#4ADE80}
+  .rank-bar-wrap{flex:1;display:flex;flex-direction:column;gap:5px;z-index:1}
+  .rank-title{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:#F0F0FF}
+  .rank-bar-track{width:100%;height:5px;background:rgba(255,255,255,.07);border-radius:999px;overflow:hidden}
+  .rank-bar{height:100%;border-radius:999px}
+  .rb-1{width:92%;background:linear-gradient(to right,#22C55E,#4ADE80)}
+  .rb-2{width:52%;background:linear-gradient(to right,#F59E0B,#FBBF24)}
+  .rb-3{width:32%;background:linear-gradient(to right,#F97316,#FB923C)}
+  .rb-rest{width:8%;background:linear-gradient(to right,#EF4444,#F87171)}
+  .rank-pct{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:800;letter-spacing:-.02em;z-index:1;flex-shrink:0}
+  .rp-1{color:#4ADE80}
+  .rp-2{color:#FBBF24}
+  .rp-3{color:#FB923C}
+  .rp-rest{color:#F87171}
+  .rank-sub{font-size:.62rem;font-weight:300;color:rgba(255,255,255,.28)}
+
+  /* Footer */
+  .footer{display:flex;align-items:center;justify-content:space-between}
+  .tag{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:9999px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);font-family:'Syne',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+  .tdot{width:5px;height:5px;border-radius:50%;background:#22C55E;box-shadow:0 0 5px rgba(34,197,94,.8)}
+  .bio-cta{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
+  .bio-label{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.2)}
+  .bio-link{font-family:'Syne',sans-serif;font-size:.92rem;font-weight:700;color:#C084FC;display:inline-flex;align-items:center;gap:5px}
+</style>
+</head>
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="shape s1"></div>
+  <div class="shape s2"></div>
+  <div class="grid"></div>
+
+  <div class="wrap">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="logo-row">
+        <div class="logo-mark">
+          <svg width="26" height="26" viewBox="0 0 17 17" fill="none">
+            <path d="M8.5 1.5L14 4.8V11.2L8.5 14.5L3 11.2V4.8L8.5 1.5Z" stroke="white" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M8.5 1.5V8.5M8.5 8.5L14 4.8M8.5 8.5L3 4.8" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-name">Upprime <span>Connect</span></div>
+      </div>
+      <div class="post-num">#04 — SEO</div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-text">Suchmaschinenoptimierung</div>
+      </div>
+      <div class="headline">Seite 2 bei Google?<br><span class="g">Unsichtbar.</span></div>
+      <div class="sub-text">75% aller Nutzer klicken nur auf Seite 1. Wer dort nicht auftaucht, existiert für potenzielle Kunden schlicht nicht.</div>
+    </div>
+
+    <!-- Ranking list -->
+    <div class="ranking">
+      <div class="rank-label">Klickrate nach Google-Position</div>
+
+      <div class="rank-row top">
+        <div class="rank-fill rf-1"></div>
+        <div class="rank-pos p1">#1</div>
+        <div class="rank-bar-wrap">
+          <div class="rank-title">Platz 1 — Du wirst gefunden</div>
+          <div class="rank-bar-track"><div class="rank-bar rb-1"></div></div>
+          <div class="rank-sub">Quelle: Backlinko / Google CTR Study</div>
+        </div>
+        <div class="rank-pct rp-1">27,6%</div>
+      </div>
+
+      <div class="rank-row">
+        <div class="rank-fill rf-2"></div>
+        <div class="rank-pos">#2</div>
+        <div class="rank-bar-wrap">
+          <div class="rank-title">Platz 2 — Fast da</div>
+          <div class="rank-bar-track"><div class="rank-bar rb-2"></div></div>
+          <div class="rank-sub">Schon halb so viele Klicks wie Platz 1</div>
+        </div>
+        <div class="rank-pct rp-2">15,8%</div>
+      </div>
+
+      <div class="rank-row">
+        <div class="rank-fill rf-3"></div>
+        <div class="rank-pos">#3</div>
+        <div class="rank-bar-wrap">
+          <div class="rank-title">Platz 3 — Kaum noch sichtbar</div>
+          <div class="rank-bar-track"><div class="rank-bar rb-3"></div></div>
+          <div class="rank-sub">Über 60% weniger Klicks als Platz 1</div>
+        </div>
+        <div class="rank-pct rp-3">11%</div>
+      </div>
+
+      <div class="rank-row">
+        <div class="rank-fill rf-rest"></div>
+        <div class="rank-pos">2+</div>
+        <div class="rank-bar-wrap">
+          <div class="rank-title">Seite 2+ — Praktisch unsichtbar</div>
+          <div class="rank-bar-track"><div class="rank-bar rb-rest"></div></div>
+          <div class="rank-sub">Nur 0,63% aller Nutzer klicken auf Seite 2</div>
+        </div>
+        <div class="rank-pct rp-rest">0,6%</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="tag"><div class="tdot"></div>SEO & Rankings</div>
+      <div class="bio-cta">
+        <div class="bio-label">Jetzt ranken</div>
+        <div class="bio-link">
+          Link in Bio
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="#C084FC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
