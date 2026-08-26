@@ -15,3 +15,6 @@ Nutze ggf. 21st.dev für Component-Inspiration (falls vorgegeben)
 Keine generischen AI-Aesthetics
 Bold, distinctive Design-Choices
 Performance-optimiert (Core Web Vitals)
+
+## Allgemeine Regeln
+Verwende keine Bindestriche (außer es wird vorgegeben) sondern verwende einen Punkt, ein Komma oder Bindewörter wie 'und' 'oder' 'als' 

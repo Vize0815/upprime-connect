@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Datenschutzerklärung von Alexander Kroes e.U. (Upprime Connect) gemäß DSGVO und österreichischem DSG.">
+    <title>Datenschutz — Upprime Connect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Kiona';
+            src: url('./fonts/Kiona-Regular.ttf') format('truetype');
+            font-weight: 400 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --bg-primary: #05050A;
+            --bg-secondary: #0A0A16;
+            --accent: #9333EA;
+            --accent-light: #C084FC;
+            --accent-blue: #4F8EF7;
+            --text-primary: #F0F0FF;
+            --text-muted: #7878A0;
+            --text-body: #B4B4CC;
+            --border: rgba(255,255,255,0.07);
+            --card-bg: rgba(255,255,255,0.028);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: rgba(147,51,234,0.4); border-radius: 3px; }
+
+        .f-display { font-family: 'Kiona', 'Syne', sans-serif; letter-spacing: 0.02em; }
+
+        a {
+            color: var(--accent-light);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover { color: var(--accent); }
+
+        /* Top bar */
+        .imp-topbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(5,5,10,0.72);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+        .imp-topbar-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .imp-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+        .imp-back:hover {
+            color: var(--text-primary);
+            border-color: rgba(147,51,234,0.35);
+            background: rgba(147,51,234,0.05);
+        }
+        .imp-brand {
+            font-family: 'Kiona', 'Syne', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+        }
+
+        /* Hero header */
+        .imp-hero {
+            position: relative;
+            padding: 88px 24px 64px;
+            overflow: hidden;
+        }
+        .imp-hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .imp-blob-a {
+            position: absolute;
+            top: -160px;
+            left: -140px;
+            width: 460px;
+            height: 460px;
+            background: radial-gradient(circle, rgba(147,51,234,0.18) 0%, transparent 65%);
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .imp-blob-b {
+            position: absolute;
+            top: 40px;
+            right: -180px;
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(79,142,247,0.11) 0%, transparent 65%);
+            filter: blur(70px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .imp-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 16px;
+            border: 1px solid rgba(147,51,234,0.28);
+            background: rgba(147,51,234,0.06);
+            border-radius: 999px;
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            margin-bottom: 22px;
+        }
+        .imp-pill svg { width: 8px; height: 8px; }
+        h1.imp-title {
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .imp-lede {
+            color: var(--text-body);
+            font-size: 1.05rem;
+            max-width: 620px;
+            line-height: 1.72;
+        }
+        .imp-updated {
+            margin-top: 22px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            font-family: 'Kiona','Syne',sans-serif;
+            font-weight: 600;
+        }
+
+        /* TOC */
+        .imp-toc {
+            max-width: 900px;
+            margin: 0 auto 24px;
+            padding: 0 24px;
+        }
+        .imp-toc-inner {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 26px 28px;
+        }
+        .imp-toc-title {
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .imp-toc-title::before {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background: rgba(192,132,252,0.55);
+        }
+        .imp-toc ol {
+            list-style: none;
+            counter-reset: toc;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px 24px;
+        }
+        @media (max-width: 620px) {
+            .imp-toc ol { grid-template-columns: 1fr; }
+        }
+        .imp-toc li {
+            counter-increment: toc;
+            font-size: 0.9rem;
+        }
+        .imp-toc li a {
+            color: var(--text-body);
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            padding: 4px 0;
+        }
+        .imp-toc li a::before {
+            content: counter(toc, decimal-leading-zero);
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent-light);
+            letter-spacing: 0.08em;
+            min-width: 26px;
+        }
+        .imp-toc li a:hover { color: var(--text-primary); }
+
+        /* Main content */
+        main.imp-main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px 24px 120px;
+        }
+        section.imp-section {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            scroll-margin-top: 100px;
+        }
+        section.imp-section:first-child { border-top: none; padding-top: 8px; }
+
+        h2.imp-h2 {
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        h2.imp-h2::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: rgba(192,132,252,0.55);
+        }
+        h2.imp-h2 .imp-h2-num {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 0.14em;
+        }
+
+        h3.imp-section-title {
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        h4.imp-h4 {
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: var(--text-primary);
+            margin-top: 22px;
+            margin-bottom: 8px;
+        }
+
+        p.imp-p {
+            color: var(--text-body);
+            font-size: 1rem;
+            line-height: 1.75;
+            max-width: 70ch;
+            margin-bottom: 14px;
+        }
+        p.imp-p:last-child { margin-bottom: 0; }
+
+        ul.imp-ul, ol.imp-ol {
+            color: var(--text-body);
+            font-size: 1rem;
+            line-height: 1.75;
+            padding-left: 24px;
+            margin-bottom: 14px;
+            max-width: 70ch;
+        }
+        ul.imp-ul li, ol.imp-ol li { margin-bottom: 8px; }
+        ul.imp-ul li::marker { color: var(--accent-light); }
+        ol.imp-ol li::marker { color: var(--accent-light); font-family: 'Kiona','Syne',sans-serif; font-weight: 700; }
+
+        /* Callout box */
+        .imp-callout {
+            background: rgba(147,51,234,0.06);
+            border: 1px solid rgba(147,51,234,0.22);
+            border-radius: 14px;
+            padding: 18px 22px;
+            margin: 20px 0;
+            max-width: 70ch;
+        }
+        .imp-callout-label {
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .imp-callout-text {
+            color: var(--text-body);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Data card for service disclosures */
+        .imp-service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 24px 26px;
+            margin: 20px 0;
+        }
+        .imp-service-card h4 {
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+        .imp-service-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 14px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            font-family: 'Kiona','Syne',sans-serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .imp-service-meta span { display: inline-flex; align-items: center; gap: 6px; }
+        .imp-service-meta span::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: rgba(192,132,252,0.55);
+        }
+        .imp-service-card p {
+            color: var(--text-body);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        .imp-service-card p:last-child { margin-bottom: 0; }
+
+        strong { color: var(--text-primary); font-weight: 600; }
+
+        /* Footer2 (matches Startseite) */
+        .ft2-grid { display: grid; gap: 48px; padding: 56px 0 40px; grid-template-columns: 1.4fr 1fr 1fr; }
+        @media (max-width: 768px) { .ft2-grid { grid-template-columns: 1fr 1fr !important; } }
+        @media (max-width: 520px) { .ft2-grid { grid-template-columns: 1fr !important; } }
+        .ft2-link {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: color 0.2s;
+            cursor: pointer;
+            display: block;
+        }
+        .ft2-link:hover { color: var(--text-primary); }
+    </style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="imp-topbar">
+    <div class="imp-topbar-inner">
+        <a href="./index.html" class="imp-back">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Zurück zur Startseite
+        </a>
+        <div class="imp-brand">Upprime Connect</div>
+    </div>
+</div>
+
+<!-- Hero header -->
+<header class="imp-hero">
+    <div class="imp-blob-a"></div>
+    <div class="imp-blob-b"></div>
+    <div class="imp-hero-inner">
+        <div class="imp-pill">
+            <svg viewBox="0 0 8 8" fill="none"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            Datenschutz
+        </div>
+        <h1 class="imp-title">Datenschutzerklärung.</h1>
+        <p class="imp-lede">
+            Der Schutz deiner personenbezogenen Daten ist uns wichtig. Diese Erklärung informiert dich transparent darüber, welche Daten wir erheben, warum wir das tun und welche Rechte du hast.
+        </p>
+        <div class="imp-updated">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            Stand Juli 2026
+        </div>
+    </div>
+</header>
+
+<!-- Table of contents -->
+<div class="imp-toc">
+    <div class="imp-toc-inner">
+        <div class="imp-toc-title">Inhalt</div>
+        <ol>
+            <li><a href="#verantwortlicher">Verantwortlicher</a></li>
+            <li><a href="#rechte">Deine Rechte</a></li>
+            <li><a href="#hosting">Hosting und Server Log Dateien</a></li>
+            <li><a href="#ssl">Datensicherheit und SSL</a></li>
+            <li><a href="#cookies">Cookies</a></li>
+            <li><a href="#kontakt">Kontaktformular und E-Mail</a></li>
+            <li><a href="#calendly">Terminbuchung via Calendly</a></li>
+            <li><a href="#zoom">Videokonferenzen via Zoom</a></li>
+            <li><a href="#fonts">Google Fonts</a></li>
+            <li><a href="#social">Social Media und externe Links</a></li>
+            <li><a href="#speicher">Speicherdauer</a></li>
+            <li><a href="#drittlaender">Datenübermittlung in Drittländer</a></li>
+            <li><a href="#beschwerde">Beschwerderecht</a></li>
+            <li><a href="#aenderungen">Änderungen dieser Erklärung</a></li>
+        </ol>
+    </div>
+</div>
+
+<main class="imp-main">
+
+    <!-- 1. Verantwortlicher -->
+    <section class="imp-section" id="verantwortlicher">
+        <h2 class="imp-h2"><span class="imp-h2-num">01</span> Verantwortlicher</h2>
+        <h3 class="imp-section-title">Wer ist für die Datenverarbeitung verantwortlich.</h3>
+        <p class="imp-p">
+            Verantwortlicher im Sinne der Datenschutzgrundverordnung (DSGVO) und des österreichischen Datenschutzgesetzes (DSG) ist:
+        </p>
+        <div class="imp-service-card">
+            <p><strong>Alexander Kroes e.U.</strong><br>
+            Glatzham 19<br>
+            6252 Breitenbach am Inn<br>
+            Österreich</p>
+            <p>
+                Telefon: <a href="tel:+43533820105">+43 (0) 5338 20105</a><br>
+                E-Mail: <a href="mailto:support@upprime-connect.at">support@upprime-connect.at</a><br>
+                Web: <a href="https://upprime-connect.at" target="_blank" rel="noopener">upprime-connect.at</a>
+            </p>
+        </div>
+        <p class="imp-p">
+            Bei Fragen zum Datenschutz oder zur Ausübung deiner Rechte kannst du dich jederzeit direkt an die oben genannten Kontaktdaten wenden. Ein externer Datenschutzbeauftragter ist gesetzlich nicht bestellt.
+        </p>
+    </section>
+
+    <!-- 2. Rechte -->
+    <section class="imp-section" id="rechte">
+        <h2 class="imp-h2"><span class="imp-h2-num">02</span> Deine Rechte</h2>
+        <h3 class="imp-section-title">Deine Rechte als betroffene Person.</h3>
+        <p class="imp-p">
+            Nach der DSGVO stehen dir folgende Rechte zu:
+        </p>
+        <ul class="imp-ul">
+            <li><strong>Auskunft</strong> darüber, welche Daten wir zu deiner Person verarbeiten (Art. 15 DSGVO)</li>
+            <li><strong>Berichtigung</strong> unrichtiger oder unvollständiger Daten (Art. 16 DSGVO)</li>
+            <li><strong>Löschung</strong> deiner Daten, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen (Art. 17 DSGVO)</li>
+            <li><strong>Einschränkung</strong> der Verarbeitung (Art. 18 DSGVO)</li>
+            <li><strong>Datenübertragbarkeit</strong> in einem strukturierten, gängigen und maschinenlesbaren Format (Art. 20 DSGVO)</li>
+            <li><strong>Widerspruch</strong> gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 21 DSGVO)</li>
+            <li><strong>Widerruf</strong> erteilter Einwilligungen mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)</li>
+            <li><strong>Beschwerde</strong> bei der zuständigen Aufsichtsbehörde (Art. 77 DSGVO)</li>
+        </ul>
+        <p class="imp-p">
+            Zur Ausübung deiner Rechte genügt eine formlose Nachricht an <a href="mailto:support@upprime-connect.at">support@upprime-connect.at</a>.
+        </p>
+    </section>
+
+    <!-- 3. Hosting -->
+    <section class="imp-section" id="hosting">
+        <h2 class="imp-h2"><span class="imp-h2-num">03</span> Hosting</h2>
+        <h3 class="imp-section-title">Server Log Dateien und Webhosting.</h3>
+        <p class="imp-p">
+            Diese Website wird bei Hostinger International Ltd., 61 Lordou Vironos Street, 6023 Larnaca, Zypern, gehostet. Beim Aufruf der Website werden automatisch technische Informationen erfasst, die dein Browser übermittelt:
+        </p>
+        <ul class="imp-ul">
+            <li>IP-Adresse (in gekürzter oder anonymisierter Form)</li>
+            <li>Datum und Uhrzeit des Zugriffs</li>
+            <li>Aufgerufene Seite und übertragene Datenmenge</li>
+            <li>Referrer URL (zuvor besuchte Seite)</li>
+            <li>Verwendeter Browser und Betriebssystem</li>
+        </ul>
+        <p class="imp-p">
+            <strong>Zweck</strong>: Sicherstellung eines störungsfreien Betriebs, Systemsicherheit und statistische Auswertung.<br>
+            <strong>Rechtsgrundlage</strong>: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer sicheren und funktionsfähigen Website).<br>
+            <strong>Speicherdauer</strong>: Log Dateien werden nach maximal 30 Tagen automatisch gelöscht oder anonymisiert.
+        </p>
+    </section>
+
+    <!-- 4. SSL -->
+    <section class="imp-section" id="ssl">
+        <h2 class="imp-h2"><span class="imp-h2-num">04</span> Datensicherheit</h2>
+        <h3 class="imp-section-title">SSL Verschlüsselung schützt die Übertragung.</h3>
+        <p class="imp-p">
+            Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL beziehungsweise TLS Verschlüsselung. Eine verschlüsselte Verbindung erkennst du an "https://" in der Adresszeile deines Browsers sowie am Schloss Symbol.
+        </p>
+        <p class="imp-p">
+            Wenn die SSL oder TLS Verschlüsselung aktiviert ist, können die Daten, die du an uns übermittelst, nicht von Dritten mitgelesen werden.
+        </p>
+    </section>
+
+    <!-- 5. Cookies -->
+    <section class="imp-section" id="cookies">
+        <h2 class="imp-h2"><span class="imp-h2-num">05</span> Cookies</h2>
+        <h3 class="imp-section-title">Welche Cookies wir setzen.</h3>
+        <p class="imp-p">
+            Cookies sind kleine Textdateien, die dein Browser auf deinem Endgerät speichert. Wir unterscheiden zwischen technisch notwendigen Cookies und Cookies, die eine Einwilligung erfordern.
+        </p>
+        <h4 class="imp-h4">Technisch notwendige Cookies</h4>
+        <p class="imp-p">
+            Diese Cookies sind erforderlich, damit die Website ordnungsgemäß funktioniert (z.B. Session Verwaltung). Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.
+        </p>
+        <h4 class="imp-h4">Cookies eingebundener Dienste</h4>
+        <p class="imp-p">
+            Wenn du das Calendly Widget oder Zoom nutzt, können durch diese Dienste eigene Cookies gesetzt werden. Details findest du in den jeweiligen Abschnitten weiter unten.
+        </p>
+        <div class="imp-callout">
+            <div class="imp-callout-label">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+                Widerruf und Verwaltung
+            </div>
+            <div class="imp-callout-text">
+                Du kannst dein Einwilligungsverhalten über die Cookie Einstellungen auf der Startseite anpassen. Zusätzlich kannst du in deinem Browser Cookies löschen oder das Speichern von Cookies deaktivieren.
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Kontaktformular -->
+    <section class="imp-section" id="kontakt">
+        <h2 class="imp-h2"><span class="imp-h2-num">06</span> Kontakt</h2>
+        <h3 class="imp-section-title">Kontaktformular und E-Mail Kontakt.</h3>
+        <p class="imp-p">
+            Wenn du uns über das Kontaktformular auf der Website oder per E-Mail eine Nachricht sendest, verarbeiten wir die von dir mitgeteilten Daten zur Bearbeitung deiner Anfrage.
+        </p>
+        <ul class="imp-ul">
+            <li><strong>Verarbeitete Daten</strong>: Name, E-Mail-Adresse, optional Telefonnummer, Firmenname, Inhalt deiner Nachricht sowie Zeitpunkt der Übermittlung</li>
+            <li><strong>Zweck</strong>: Beantwortung deiner Anfrage, Angebotserstellung, Anbahnung eines Vertragsverhältnisses</li>
+            <li><strong>Rechtsgrundlage</strong>: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung)</li>
+            <li><strong>Speicherdauer</strong>: Bis zur vollständigen Erledigung deiner Anfrage, längstens bis zum Ablauf gesetzlicher Aufbewahrungsfristen (grundsätzlich 7 Jahre nach §132 BAO bei geschäftsrelevanten Vorgängen)</li>
+        </ul>
+        <p class="imp-p">
+            Eine Weitergabe deiner Daten an Dritte findet ohne deine Einwilligung nicht statt.
+        </p>
+    </section>
+
+    <!-- 7. Calendly -->
+    <section class="imp-section" id="calendly">
+        <h2 class="imp-h2"><span class="imp-h2-num">07</span> Terminbuchung</h2>
+        <h3 class="imp-section-title">Terminbuchung via Calendly.</h3>
+        <p class="imp-p">
+            Für die Buchung von Erstgesprächen setzen wir das Terminvereinbarungstool Calendly ein, eingebettet als Inline Widget auf unserer Website.
+        </p>
+        <div class="imp-service-card">
+            <h4>Calendly</h4>
+            <div class="imp-service-meta">
+                <span>Anbieter Calendly LLC</span>
+                <span>USA</span>
+                <span>Art. 6 Abs. 1 lit. b DSGVO</span>
+            </div>
+            <p><strong>Anbieter</strong>: Calendly LLC, 271 17th St NW, Atlanta, GA 30363, USA.</p>
+            <p><strong>Verarbeitete Daten</strong>: Name, E-Mail-Adresse, gewählter Termin, Zeitzone, optional weitere Angaben aus dem Buchungsformular, IP-Adresse, Browser- und Geräteinformationen.</p>
+            <p><strong>Zweck</strong>: Bereitstellung und Verwaltung von Terminvereinbarungen.</p>
+            <p><strong>Rechtsgrundlage</strong>: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung und vorvertragliche Maßnahmen).</p>
+            <p><strong>Datenübermittlung USA</strong>: Calendly ist unter dem EU US Data Privacy Framework zertifiziert. Zusätzlich bestehen Standardvertragsklauseln gemäß Art. 46 Abs. 2 lit. c DSGVO.</p>
+            <p><strong>Weitere Informationen</strong>: <a href="https://calendly.com/de/pages/privacy" target="_blank" rel="noopener">calendly.com/de/pages/privacy</a></p>
+        </div>
+    </section>
+
+    <!-- 8. Zoom -->
+    <section class="imp-section" id="zoom">
+        <h2 class="imp-h2"><span class="imp-h2-num">08</span> Zoom</h2>
+        <h3 class="imp-section-title">Videokonferenzen via Zoom.</h3>
+        <p class="imp-p">
+            Für Erstgespräche, Online Beratungen und Meetings nutzen wir den Videokonferenzdienst Zoom.
+        </p>
+        <div class="imp-service-card">
+            <h4>Zoom</h4>
+            <div class="imp-service-meta">
+                <span>Anbieter Zoom Video Communications Inc.</span>
+                <span>USA</span>
+                <span>Art. 6 Abs. 1 lit. b und f DSGVO</span>
+            </div>
+            <p><strong>Anbieter</strong>: Zoom Video Communications, Inc., 55 Almaden Blvd, Suite 600, San Jose, CA 95113, USA.</p>
+            <p><strong>Verarbeitete Daten</strong>: Vorname, Nachname, E-Mail-Adresse, Meetingdaten (Thema, Datum, Uhrzeit, Dauer), Audio, Video und Chat Inhalte während des Meetings, Geräte- und IP-Daten.</p>
+            <p><strong>Zweck</strong>: Durchführung von Online Beratungen und Meetings.</p>
+            <p><strong>Rechtsgrundlage</strong>: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an effizienter Kommunikation).</p>
+            <p><strong>Datenübermittlung USA</strong>: Zoom nimmt am EU US Data Privacy Framework teil. Ergänzend bestehen Standardvertragsklauseln gemäß Art. 46 Abs. 2 lit. c DSGVO.</p>
+            <p><strong>Aufzeichnung</strong>: Meetings werden standardmäßig nicht aufgezeichnet. Sollte eine Aufzeichnung erforderlich sein, wirst du vorab informiert und wir holen eine separate Einwilligung ein.</p>
+            <p><strong>Weitere Informationen</strong>: <a href="https://zoom.us/de/privacy" target="_blank" rel="noopener">zoom.us/de/privacy</a></p>
+        </div>
+    </section>
+
+    <!-- 9. Google Fonts -->
+    <section class="imp-section" id="fonts">
+        <h2 class="imp-h2"><span class="imp-h2-num">09</span> Google Fonts</h2>
+        <h3 class="imp-section-title">Einbindung von Google Fonts.</h3>
+        <p class="imp-p">
+            Diese Website bindet Schriftarten von Google Fonts ein, um eine einheitliche Darstellung zu gewährleisten. Beim Aufruf der Seite lädt dein Browser die benötigten Fonts von den Google Servern.
+        </p>
+        <div class="imp-service-card">
+            <h4>Google Fonts</h4>
+            <div class="imp-service-meta">
+                <span>Anbieter Google Ireland Ltd.</span>
+                <span>Irland und USA</span>
+                <span>Art. 6 Abs. 1 lit. f DSGVO</span>
+            </div>
+            <p><strong>Anbieter</strong>: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland (Mutterunternehmen Google LLC, USA).</p>
+            <p><strong>Verarbeitete Daten</strong>: IP-Adresse, technische Anfrage nach der Schriftart.</p>
+            <p><strong>Zweck</strong>: Konsistente und schnelle Darstellung der Website.</p>
+            <p><strong>Rechtsgrundlage</strong>: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer ansprechenden Gestaltung).</p>
+            <p><strong>Weitere Informationen</strong>: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+        </div>
+    </section>
+
+    <!-- 10. Social Media -->
+    <section class="imp-section" id="social">
+        <h2 class="imp-h2"><span class="imp-h2-num">10</span> Social Media</h2>
+        <h3 class="imp-section-title">Externe Links und Social Media.</h3>
+        <p class="imp-p">
+            Unsere Website kann Links zu Social Media Plattformen wie Instagram oder LinkedIn enthalten. Diese Links sind reine Verweise (keine Plugins). Beim Klick auf einen dieser Links wirst du auf die externe Plattform weitergeleitet, ab diesem Zeitpunkt gelten die Datenschutzbedingungen des jeweiligen Anbieters.
+        </p>
+        <p class="imp-p">
+            Für die Inhalte und die Datenverarbeitung auf verlinkten externen Seiten sind ausschließlich die dortigen Anbieter verantwortlich.
+        </p>
+    </section>
+
+    <!-- 11. Speicherdauer -->
+    <section class="imp-section" id="speicher">
+        <h2 class="imp-h2"><span class="imp-h2-num">11</span> Speicherdauer</h2>
+        <h3 class="imp-section-title">Wie lange wir deine Daten speichern.</h3>
+        <p class="imp-p">
+            Wir speichern personenbezogene Daten nur so lange, wie es für den jeweiligen Zweck erforderlich ist oder gesetzliche Aufbewahrungspflichten dies verlangen.
+        </p>
+        <ul class="imp-ul">
+            <li><strong>Anfragen ohne Vertragsabschluss</strong>: Löschung nach Abschluss der Kommunikation, spätestens nach 12 Monaten.</li>
+            <li><strong>Vertragsdaten</strong>: 7 Jahre gemäß §132 BAO (steuerliche Aufbewahrungspflicht).</li>
+            <li><strong>Rechnungsdaten</strong>: 7 Jahre gemäß §132 BAO.</li>
+            <li><strong>Server Log Dateien</strong>: Anonymisierung oder Löschung nach maximal 30 Tagen.</li>
+        </ul>
+    </section>
+
+    <!-- 12. Drittländer -->
+    <section class="imp-section" id="drittlaender">
+        <h2 class="imp-h2"><span class="imp-h2-num">12</span> Drittländer</h2>
+        <h3 class="imp-section-title">Datenübermittlung in Drittländer.</h3>
+        <p class="imp-p">
+            Einige der von uns eingesetzten Dienste (Calendly, Zoom, Google Fonts) haben ihren Sitz in den USA. Die Datenübermittlung erfolgt entweder auf Grundlage des EU US Data Privacy Framework (Angemessenheitsbeschluss der Europäischen Kommission vom 10. Juli 2023) oder auf Grundlage von Standardvertragsklauseln gemäß Art. 46 Abs. 2 lit. c DSGVO.
+        </p>
+        <p class="imp-p">
+            Trotz dieser Schutzmaßnahmen kann nicht vollständig ausgeschlossen werden, dass US Behörden im Rahmen von Überwachungsgesetzen Zugriff auf personenbezogene Daten erlangen.
+        </p>
+    </section>
+
+    <!-- 13. Beschwerderecht -->
+    <section class="imp-section" id="beschwerde">
+        <h2 class="imp-h2"><span class="imp-h2-num">13</span> Beschwerde</h2>
+        <h3 class="imp-section-title">Beschwerderecht bei der Aufsichtsbehörde.</h3>
+        <p class="imp-p">
+            Wenn du der Ansicht bist, dass die Verarbeitung deiner personenbezogenen Daten gegen die DSGVO verstößt, hast du das Recht auf Beschwerde bei einer Aufsichtsbehörde.
+        </p>
+        <div class="imp-service-card">
+            <h4>Österreichische Datenschutzbehörde</h4>
+            <p>
+                Barichgasse 40-42<br>
+                1030 Wien<br>
+                Österreich
+            </p>
+            <p>
+                Telefon: +43 1 52 152 25 69<br>
+                E-Mail: <a href="mailto:dsb@dsb.gv.at">dsb@dsb.gv.at</a><br>
+                Web: <a href="https://www.dsb.gv.at" target="_blank" rel="noopener">dsb.gv.at</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- 14. Änderungen -->
+    <section class="imp-section" id="aenderungen">
+        <h2 class="imp-h2"><span class="imp-h2-num">14</span> Änderungen</h2>
+        <h3 class="imp-section-title">Änderungen dieser Datenschutzerklärung.</h3>
+        <p class="imp-p">
+            Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen umzusetzen. Für deinen erneuten Besuch gilt dann die aktualisierte Fassung.
+        </p>
+        <p class="imp-p">
+            Aktueller Stand dieser Datenschutzerklärung: <strong>Juli 2026</strong>.
+        </p>
+    </section>
+
+</main>
+
+<!-- Dotted grid transition -->
+<div style="position:relative; height:100px; overflow:hidden; background:var(--bg-secondary);">
+    <div aria-hidden="true" style="pointer-events:none; position:absolute; inset:0;
+        background-image: radial-gradient(rgba(255,255,255,0.07) 0.8px, transparent 0.8px);
+        background-size: 14px 14px;
+        -webkit-mask-image: radial-gradient(circle at 50% 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 80%);
+        mask-image: radial-gradient(circle at 50% 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 80%);">
+    </div>
+</div>
+
+<footer style="background:rgba(10,10,20,0.6); backdrop-filter:blur(12px); border-top:1px solid rgba(255,255,255,0.07);">
+    <div style="max-width:1180px; margin:0 auto; padding:0 24px;">
+
+        <!-- 3-column layout: Logo/Desc | Agentur | Kontakt -->
+        <div class="ft2-grid">
+
+            <!-- Logo + description -->
+            <div>
+                <img src="./upprime-connect-logo.png" alt="Upprime Connect" width="500" height="500" style="height:96px; width:auto; aspect-ratio:1/1; display:block; margin-bottom:20px;" loading="lazy" decoding="async">
+                <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.7; max-width:340px;">
+                    Webdesign, SEO und Branding Agentur aus Österreich. Wir bauen digitale Auftritte, die verkaufen und dauerhaft sichtbar bleiben.
+                </p>
+            </div>
+
+            <!-- Agentur -->
+            <div>
+                <h3 class="f-display" style="font-size:0.72rem; font-weight:700; color:var(--text-primary); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:20px;">Agentur</h3>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
+                    <li><a href="./index.html#services" class="ft2-link">Leistungen</a></li>
+                    <li><a href="./index.html#portfolio" class="ft2-link">Kundenstimmen</a></li>
+                    <li><a href="./index.html#about" class="ft2-link">Über uns</a></li>
+                    <li><a href="./index.html#contact" class="ft2-link">Kontakt</a></li>
+                </ul>
+            </div>
+
+            <!-- Kontakt -->
+            <div>
+                <h3 class="f-display" style="font-size:0.72rem; font-weight:700; color:var(--text-primary); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:20px;">Kontakt</h3>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
+                    <li><a href="mailto:support@upprime-connect.at" class="ft2-link">support@upprime-connect.at</a></li>
+                    <li><a href="tel:+43533820105" class="ft2-link">+43 (0) 5338 20105</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Divider -->
+        <div style="height:1px; background:rgba(255,255,255,0.07);"></div>
+
+        <!-- Bottom bar: Copyright + legal links -->
+        <div style="padding:20px 0; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; color:var(--text-muted); font-size:0.78rem;">
+            <div>
+                © 2026 Upprime Connect. Alle Rechte vorbehalten.
+            </div>
+            <div style="display:flex; gap:28px; flex-wrap:wrap;">
+                <a href="./impressum.html" class="ft2-link" style="font-size:0.78rem;">Impressum</a>
+                <a href="./datenschutz.html" class="ft2-link" style="font-size:0.78rem;">Datenschutz</a>
+                <a href="./index.html#cookie-settings" class="ft2-link" style="font-size:0.78rem;">Cookie Einstellungen</a>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>
