@@ -1,0 +1,91 @@
+name: Deploy auf Hostinger
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Website-Dateien einsammeln
+        run: |
+          set -e
+          mkdir -p dist/fonts
+          cp index.html impressum.html datenschutz.html dist/
+          cp upprime-connect-logo.png \
+             alexander-kroes.webp \
+             bernadette-artmann.webp \
+             dk.webp \
+             MS.webp \
+             rs-aero.webp \
+             provenexpert.webp \
+             dist/
+          cp fonts/Kiona-Regular.ttf fonts/Kiona-Itallic.ttf dist/fonts/
+
+      - name: Vollstaendigkeit pruefen
+        run: |
+          set -e
+          fehlt=0
+          refs=$(grep -ohE '\./[A-Za-z0-9._/-]+\.(png|webp|jpe?g|svg|gif|ttf|woff2?)' dist/*.html | sed 's|^\./||' | sort -u)
+          for f in $refs; do
+            if [ ! -f "dist/$f" ]; then
+              echo "::error::Im HTML referenziert, aber nicht im Upload: $f"
+              fehlt=1
+            fi
+          done
+          if [ "$fehlt" = "1" ]; then
+            echo "Deploy abgebrochen. Datei oben unter 'Website-Dateien einsammeln' ergaenzen."
+            exit 1
+          fi
+          echo "Alle referenzierten Dateien sind dabei:"
+          find dist -type f | sort
+
+      - name: Upload per FTPS
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          set -e
+          if [ -z "$FTP_HOST" ] || [ -z "$FTP_USER" ] || [ -z "$FTP_PASSWORD" ]; then
+            echo "::error::FTP_HOST, FTP_USER oder FTP_PASSWORD fehlen in den Repository Secrets."
+            exit 1
+          fi
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lftp
+          lftp -u "$FTP_USER","$FTP_PASSWORD" "$FTP_HOST" -e '
+            set ftp:ssl-force true;
+            set ftp:ssl-protect-data true;
+            set ssl:verify-certificate no;
+            set net:max-retries 3;
+            set net:timeout 20;
+            mirror --reverse --verbose --only-newer --parallel=4 dist/ public_html/;
+            bye
+          '
+
+      - name: Live nachmessen
+        run: |
+          set -e
+          sleep 5
+          fehler=0
+          for p in "" impressum.html datenschutz.html upprime-connect-logo.png \
+                   alexander-kroes.webp bernadette-artmann.webp dk.webp MS.webp \
+                   rs-aero.webp provenexpert.webp fonts/Kiona-Regular.ttf \
+                   fonts/Kiona-Itallic.ttf; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 20 "https://upprime-connect.at/$p")
+            printf '%-30s %s\n' "/$p" "$code"
+            if [ "$code" != "200" ]; then fehler=1; fi
+          done
+          if [ "$fehler" != "0" ]; then
+            echo "::error::Mindestens eine Datei antwortet nicht mit 200."
+            exit 1
+          fi
+          echo "Alles erreichbar."
