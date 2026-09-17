@@ -20,6 +20,7 @@ jobs:
           set -e
           mkdir -p dist/fonts
           cp index.html impressum.html datenschutz.html dist/
+          cp AGB_Upprime_Connect_Stand_15-04-2026.pdf dist/
           cp upprime-connect-logo.png \
              alexander-kroes.webp \
              bernadette-artmann.webp \
@@ -34,7 +35,7 @@ jobs:
         run: |
           set -e
           fehlt=0
-          refs=$(grep -ohE '\./[A-Za-z0-9._/-]+\.(png|webp|jpe?g|svg|gif|ttf|woff2?)' dist/*.html | sed 's|^\./||' | sort -u)
+          refs=$(grep -ohE '\./[A-Za-z0-9._/-]+\.(pdf|png|webp|jpe?g|svg|gif|ttf|woff2?)' dist/*.html | sed 's|^\./||' | sort -u)
           for f in $refs; do
             if [ ! -f "dist/$f" ]; then
               echo "::error::Im HTML referenziert, aber nicht im Upload: $f"
@@ -77,6 +78,7 @@ jobs:
           sleep 5
           fehler=0
           for p in "" impressum.html datenschutz.html upprime-connect-logo.png \
+                   AGB_Upprime_Connect_Stand_15-04-2026.pdf \
                    alexander-kroes.webp bernadette-artmann.webp dk.webp MS.webp \
                    rs-aero.webp provenexpert.webp fonts/Kiona-Regular.ttf \
                    fonts/Kiona-Itallic.ttf; do
