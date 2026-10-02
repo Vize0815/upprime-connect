@@ -1,0 +1,39 @@
+# Upprime Connect, Zugriffsschutz fuer interne Dateien
+#
+# Hintergrund: die Auslieferung spiegelt das gesamte Repository ins public_html.
+# Dadurch waren Arbeitsdateien wie CLAUDE.md, package.json oder die Social Media
+# Vorlagen oeffentlich abrufbar. Diese Datei sperrt sie wieder.
+#
+# Die Website selbst braucht nur index.html, impressum.html, datenschutz.html,
+# die AGB als PDF, sieben Bilder und den Ordner fonts. Alles andere darf zu.
+
+# Verzeichnislisten aus, falls sie je eingeschaltet werden
+Options -Indexes
+
+# Diese Datei selbst
+<Files ".htaccess">
+    Require all denied
+</Files>
+
+# Dateiendungen, die nie oeffentlich gehoeren
+<FilesMatch "\.(md|json|yml|yaml|lock|sh|log|bak|sql|env|config)$">
+    Require all denied
+</FilesMatch>
+
+# Punktdateien, etwa .gitignore
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Interne Werkzeuge
+<FilesMatch "^(server|screenshot.*)\.js$">
+    Require all denied
+</FilesMatch>
+
+# Vorlagen fuer Social Media, kein Teil der Website
+<FilesMatch "^(instagram-.*|facebook-header)\.(html|png|jpg|jpeg|webp)$">
+    Require all denied
+</FilesMatch>
+
+# Ordner, die nur zur Entwicklung gehoeren
+RedirectMatch 404 ^/(\.github|\.git|\.claude|\.agents|node_modules)(/|$)
