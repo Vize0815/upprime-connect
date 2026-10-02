@@ -32,6 +32,8 @@ jobs:
              provenexpert.webp \
              dist/
           cp fonts/Kiona-Regular.ttf fonts/Kiona-Itallic.ttf dist/fonts/
+          cp fonts/syne-latin.woff2 fonts/syne-latin-ext.woff2 dist/fonts/
+          cp fonts/dm-sans-latin.woff2 fonts/dm-sans-latin-ext.woff2 dist/fonts/
 
       - name: Vollstaendigkeit pruefen
         run: |
@@ -83,7 +85,9 @@ jobs:
                    AGB_Upprime_Connect_Stand_15-04-2026.pdf \
                    alexander-kroes.webp bernadette-artmann.webp dk.webp MS.webp \
                    rs-aero.webp provenexpert.webp fonts/Kiona-Regular.ttf \
-                   fonts/Kiona-Itallic.ttf; do
+                   fonts/Kiona-Itallic.ttf \
+                   fonts/syne-latin.woff2 fonts/syne-latin-ext.woff2 \
+                   fonts/dm-sans-latin.woff2 fonts/dm-sans-latin-ext.woff2; do
             code=$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 20 "https://upprime-connect.at/$p")
             printf '%-30s %s\n' "/$p" "$code"
             if [ "$code" != "200" ]; then fehler=1; fi
