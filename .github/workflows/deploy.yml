@@ -21,6 +21,7 @@ jobs:
           mkdir -p dist/fonts
           cp index.html impressum.html datenschutz.html dist/
           cp .htaccess dist/
+          cp robots.txt sitemap.xml dist/
           cp AGB_Upprime_Connect_Stand_15-04-2026.pdf dist/
           cp upprime-connect-logo.png \
              alexander-kroes.webp \

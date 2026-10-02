@@ -1,0 +1,19 @@
+# Upprime Connect
+# Die Website besteht aus drei Seiten. Alles andere im Verzeichnis sind
+# Arbeitsdateien, die zusaetzlich per .htaccess gesperrt sind.
+
+User-agent: *
+Allow: /
+
+# Interne Dateien und Ordner gar nicht erst abrufen
+Disallow: /.github/
+Disallow: /node_modules/
+Disallow: /server.js
+Disallow: /screenshot
+Disallow: /instagram-
+Disallow: /facebook-header
+Disallow: /*.json$
+Disallow: /*.md$
+Disallow: /*.yml$
+
+Sitemap: https://upprime-connect.at/sitemap.xml
