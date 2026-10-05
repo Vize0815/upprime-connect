@@ -1774,9 +1774,11 @@
         }
 
         /* ═══════════════════════════════════════════════
-           BIRDVIEW KOOPERATIONS POPUP
+           GEBURTSTAGSAKTION: ZWEI ONEPAGER FUER GRUENDER
+           Laeuft vom 6.10.2026 bis 20.10.2026. Ausserhalb dieser
+           Tage schaltet das Skript den Dialog gar nicht erst ein.
         ════════════════════════════════════════════════ */
-        .bvp-backdrop {
+        .gbp-backdrop {
             position: fixed;
             inset: 0;
             background: rgba(4,4,10,0.74);
@@ -1784,23 +1786,27 @@
             -webkit-backdrop-filter: blur(6px);
             z-index: 9400;
             opacity: 0;
+            visibility: hidden;
             pointer-events: none;
-            transition: opacity 260ms cubic-bezier(0.23,1,0.32,1);
+            transition: opacity 260ms cubic-bezier(0.23,1,0.32,1), visibility 260ms;
         }
-        .bvp-backdrop.bvp-show { opacity: 1; pointer-events: auto; }
+        .gbp-backdrop.gbp-show { opacity: 1; visibility: visible; pointer-events: auto; }
 
-        .bvp-modal {
+        .gbp-modal {
             position: fixed;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%) scale(0.96);
             transform-origin: center;
             z-index: 9450;
-            width: min(560px, calc(100vw - 28px));
+            width: min(580px, calc(100vw - 28px));
             max-height: calc(100vh - 40px);
-            overflow-y: auto;
-            overscroll-behavior: contain;
-            padding: 38px 38px 32px;
+            /* Spalte aus scrollendem Text und festem Fuss. Der
+               Bewerbungsknopf darf nie unter den Rand rutschen. */
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 0;
             border-radius: 24px;
             background: radial-gradient(115% 80% at 50% -8%, rgba(147,51,234,0.26) 0%, rgba(147,51,234,0) 60%),
                         linear-gradient(160deg, #12102A 0%, #0A0A16 62%);
@@ -1808,20 +1814,28 @@
             box-shadow: 0 40px 110px rgba(0,0,0,0.62), 0 0 0 1px rgba(255,255,255,0.03) inset;
             font-family: 'DM Sans', sans-serif;
             opacity: 0;
+            /* visibility nimmt den Dialog auch aus der Tabreihenfolge und
+               aus der Vorlesereihenfolge, solange er zu ist. */
+            visibility: hidden;
             pointer-events: none;
             transition: opacity 260ms cubic-bezier(0.23,1,0.32,1),
-                        transform 280ms cubic-bezier(0.23,1,0.32,1);
+                        transform 280ms cubic-bezier(0.23,1,0.32,1),
+                        visibility 280ms;
         }
-        .bvp-modal.bvp-show { opacity: 1; pointer-events: auto; transform: translate(-50%, -50%) scale(1); }
+        .gbp-modal.gbp-show { opacity: 1; visibility: visible; pointer-events: auto; transform: translate(-50%, -50%) scale(1); }
 
-        .bvp-close {
+        .gbp-close {
             position: absolute;
             top: 16px; right: 16px;
             z-index: 2;
             width: 40px; height: 40px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.09);
+            /* Der Knopf steht ueber dem scrollenden Text, deshalb deckt er
+               ab statt durchscheinen zu lassen. */
+            background: rgba(18,16,42,0.82);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.11);
             color: var(--text-muted);
             display: inline-flex; align-items: center; justify-content: center;
             cursor: pointer;
@@ -1829,58 +1843,130 @@
                         color 180ms cubic-bezier(0.23,1,0.32,1),
                         transform 150ms cubic-bezier(0.23,1,0.32,1);
         }
-        .bvp-close:active { transform: scale(0.92); }
+        .gbp-close:active { transform: scale(0.92); }
 
-        .bvp-tag {
-            display: inline-flex; align-items: center; gap: 8px;
+        .gbp-body {
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            padding: 30px 38px 4px;
+        }
+        .gbp-fuss {
+            position: relative;
+            flex-shrink: 0;
+            padding: 0 38px 24px;
+        }
+        /* Weicher Auslauf ueber der letzten sichtbaren Textzeile. Er
+           erscheint nur, solange darunter wirklich noch etwas steht,
+           sonst liegt ohne Grund ein Schleier auf dem Dialog. */
+        .gbp-fuss::before {
+            content: '';
+            position: absolute;
+            left: 0; right: 0; bottom: 100%;
+            height: 52px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 220ms cubic-bezier(0.23,1,0.32,1);
+            background: linear-gradient(to top, #0A0A16 14%, rgba(10,10,22,0) 100%);
+        }
+        .gbp-modal.gbp-mehr .gbp-fuss::before { opacity: 1; }
+
+        /* Jubilaeumsmarke: das Bild vom Geburtstag, daneben der Anlass. */
+        .gbp-marke { display: flex; align-items: center; gap: 15px; }
+        .gbp-bild {
+            flex-shrink: 0;
+            width: 64px;
+            height: 64px;
+            border-radius: 15px;
+            object-fit: cover;
+            display: block;
+            border: 1px solid rgba(192,132,252,0.3);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.45);
+        }
+        .gbp-marke-text {
             font-family: 'Syne', sans-serif;
-            font-size: 0.78rem; font-weight: 700;
-            letter-spacing: 0.14em; text-transform: uppercase;
-            color: var(--accent-light);
-            padding: 6px 14px;
-            border-radius: 100px;
-            background: rgba(147,51,234,0.12);
-            border: 1px solid rgba(147,51,234,0.26);
+            font-size: 0.73rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            line-height: 1.6;
+            color: var(--text-muted);
+            padding-left: 15px;
+            border-left: 1px solid var(--border);
         }
+        .gbp-marke-text b { display: block; color: var(--accent-light); font-weight: 700; }
 
-        /* Größe und Laufweite kommen aus h2.f-display (uppercase, weight 400) */
-        .bvp-title {
-            font-size: 1.5rem;
-            line-height: 1.28;
+        /* Groesse und Laufweite kommen aus h2.f-display */
+        .gbp-title {
+            font-size: 1.62rem;
+            line-height: 1.22;
             color: var(--text-primary);
-            margin: 20px 0 14px;
+            margin: 18px 0 12px;
+            text-wrap: balance;
         }
-        .bvp-text {
+        .gbp-text {
             color: var(--text-muted);
             font-size: 1rem;
             line-height: 1.72;
             text-wrap: pretty;
         }
-        .bvp-text + .bvp-text { margin-top: 10px; }
 
-        .bvp-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
-
-        .bvp-partner {
-            display: flex; align-items: center; gap: 14px;
-            margin-top: 26px; padding-top: 22px;
-            border-top: 1px solid var(--border);
+        /* Die drei Eckdaten. Mehr muss im Dialog nicht stehen, alles
+           Weitere steht auf der Seite mit den Teilnahmebedingungen. */
+        .gbp-fakten {
+            margin-top: 22px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: rgba(255,255,255,0.025);
+            padding: 4px 2px;
         }
-        .bvp-partner-label {
+        .gbp-zeile { display: grid; grid-template-columns: max-content 1fr; }
+        .gbp-fakten dt, .gbp-fakten dd {
+            padding: 11px 18px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .gbp-fakten dt {
             font-family: 'Syne', sans-serif;
-            font-size: 0.78rem; font-weight: 700;
-            letter-spacing: 0.14em; text-transform: uppercase;
-            color: var(--text-muted);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            padding-right: 14px;
             white-space: nowrap;
         }
+        .gbp-fakten dd {
+            color: var(--text-muted);
+            font-size: 0.93rem;
+            line-height: 1.55;
+        }
+        .gbp-zeile:last-child dt, .gbp-zeile:last-child dd { border-bottom: none; }
 
-        .bvp-actions { display: flex; gap: 12px; margin-top: 26px; }
-        .bvp-btn {
+        /* Restlaufzeit. Der Text kommt aus dem Skript, damit hier nie
+           eine Frist steht, die laengst abgelaufen ist. */
+        .gbp-frist {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-top: 18px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: rgba(147,51,234,0.11);
+            border: 1px solid rgba(147,51,234,0.3);
+            color: var(--accent-light);
+            font-size: 0.86rem;
+            font-weight: 600;
+        }
+        .gbp-frist[hidden] { display: none; }
+
+        .gbp-actions { display: flex; gap: 12px; padding-top: 22px; }
+        .gbp-btn {
             font-family: 'DM Sans', sans-serif;
             font-size: 0.96rem; font-weight: 600;
             padding: 14px 22px;
             border-radius: 100px;
             border: 1px solid transparent;
             cursor: pointer;
+            text-decoration: none;
             display: inline-flex; align-items: center; justify-content: center; gap: 9px;
             white-space: nowrap;
             transition: background 200ms cubic-bezier(0.23,1,0.32,1),
@@ -1889,49 +1975,71 @@
                         box-shadow 200ms cubic-bezier(0.23,1,0.32,1),
                         transform 150ms cubic-bezier(0.23,1,0.32,1);
         }
-        .bvp-btn:active { transform: scale(0.97); }
-        .bvp-btn-primary {
+        .gbp-btn:active { transform: scale(0.97); }
+        .gbp-btn-primary {
             flex: 1;
             background: linear-gradient(135deg, #9333EA 0%, #7C22CE 100%);
             color: #fff;
             box-shadow: 0 12px 30px rgba(147,51,234,0.34);
         }
-        .bvp-btn-ghost {
+        .gbp-btn-ghost {
             background: transparent;
             color: var(--text-muted);
             border-color: rgba(255,255,255,0.10);
         }
-        .bvp-arrow { transition: transform 200ms cubic-bezier(0.23,1,0.32,1); }
+        .gbp-arrow { transition: transform 200ms cubic-bezier(0.23,1,0.32,1); }
+
+        .gbp-klein {
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+            font-size: 0.78rem;
+            line-height: 1.6;
+            color: #6E6E90;
+        }
+        .gbp-klein a { color: var(--accent-light); text-decoration: underline; text-underline-offset: 2px; }
 
         @media (hover: hover) and (pointer: fine) {
-            .bvp-close:hover { background: rgba(147,51,234,0.2); color: var(--text-primary); }
-            .bvp-btn-primary:hover { box-shadow: 0 16px 40px rgba(147,51,234,0.48); }
-            .bvp-btn-primary:hover .bvp-arrow { transform: translateX(3px); }
-            .bvp-btn-ghost:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.2); }
-        }
-
-        /* Kurzes Hervorheben der Leistungskarte nach dem Sprung */
-        .bvp-flash { animation: bvpFlash 1.6s cubic-bezier(0.23,1,0.32,1); }
-        @keyframes bvpFlash {
-            0%   { box-shadow: 0 0 0 0 rgba(147,51,234,0.0); }
-            18%  { box-shadow: 0 0 0 3px rgba(192,132,252,0.55), 0 0 44px rgba(147,51,234,0.42); }
-            100% { box-shadow: 0 0 0 0 rgba(147,51,234,0.0); }
+            .gbp-close:hover { background: rgba(147,51,234,0.2); color: var(--text-primary); }
+            .gbp-btn-primary:hover { box-shadow: 0 16px 40px rgba(147,51,234,0.48); color: #fff; }
+            .gbp-btn-primary:hover .gbp-arrow { transform: translateX(3px); }
+            .gbp-btn-ghost:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.2); }
+            .gbp-klein a:hover { color: var(--text-primary); }
         }
 
         @media (max-width: 560px) {
-            .bvp-modal { padding: 30px 22px 24px; border-radius: 20px; }
-            .bvp-title { font-size: 1.34rem; }
-            .bvp-actions { flex-direction: column; }
-            .bvp-btn { width: 100%; }
-            .bvp-partner { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .gbp-modal { border-radius: 20px; }
+            .gbp-body { padding: 28px 22px 4px; }
+            .gbp-fuss { padding: 0 22px 22px; }
+            .gbp-fuss::before { height: 44px; }
+            .gbp-title { font-size: 1.3rem; margin: 18px 0 12px; }
+            .gbp-text { font-size: 0.95rem; line-height: 1.62; }
+            .gbp-bild { width: 58px; height: 58px; border-radius: 13px; }
+            .gbp-fakten { margin-top: 18px; }
+            .gbp-fakten dt, .gbp-fakten dd { padding: 10px 16px; }
+            .gbp-fakten dd { font-size: 0.89rem; line-height: 1.5; }
+            .gbp-frist { margin-top: 14px; padding: 7px 14px; font-size: 0.82rem; }
+            .gbp-actions { padding-top: 16px; }
+            .gbp-btn { flex: 1; padding: 13px 16px; font-size: 0.92rem; }
+            .gbp-klein { margin-top: 14px; padding-top: 12px; font-size: 0.72rem; line-height: 1.52; }
+        }
+        /* Auf sehr schmalen Telefonen passen Begriff und Erklaerung nicht
+           nebeneinander, sie stehen dann untereinander. */
+        @media (max-width: 400px) {
+            .gbp-zeile { grid-template-columns: 1fr; }
+            .gbp-fakten dt { padding: 10px 16px 2px; border-bottom: none; }
+            .gbp-fakten dd { padding: 0 16px 10px; }
+            /* Nebeneinander waere jeder Knopf zu schmal fuer seine Beschriftung. */
+            .gbp-actions { flex-direction: column; }
+            .gbp-btn { width: 100%; }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .bvp-modal { transition: opacity 200ms ease; transform: translate(-50%, -50%) scale(1); }
-            .bvp-modal.bvp-show { transform: translate(-50%, -50%) scale(1); }
-            .bvp-btn:active, .bvp-close:active { transform: none; }
-            .bvp-arrow { transition: none; }
-            .bvp-flash { animation: none; }
+            .gbp-modal { transition: opacity 200ms ease, visibility 200ms; transform: translate(-50%, -50%) scale(1); }
+            .gbp-modal.gbp-show { transform: translate(-50%, -50%) scale(1); }
+            .gbp-btn:active, .gbp-close:active { transform: none; }
+            .gbp-arrow { transition: none; }
+            .gbp-fuss::before { transition: none; }
         }
     </style>
 
@@ -3211,6 +3319,7 @@
                 <a href="./AGB_Upprime_Connect_Stand_15-04-2026.pdf" class="ft2-link" style="font-size:0.84rem;" download target="_blank" rel="noopener">AGB</a>
                 <a href="./impressum.html" class="ft2-link" style="font-size:0.84rem;">Impressum</a>
                 <a href="./datenschutz.html" class="ft2-link" style="font-size:0.84rem;">Datenschutz</a>
+                <a href="./teilnahmebedingungen.html" class="ft2-link" style="font-size:0.84rem;">Teilnahmebedingungen</a>
                 <a href="#cookie-settings" class="ft2-link" style="font-size:0.84rem;">Cookie Einstellungen</a>
             </div>
         </div>
@@ -3503,25 +3612,61 @@ if (document.readyState === 'loading') {
 }
 
 // ═══════════════════════════════════════════════
-//  BIRDVIEW KOOPERATIONS POPUP
+//  GEBURTSTAGSAKTION: ZWEI ONEPAGER FUER GRUENDER
 // ═══════════════════════════════════════════════
-function initBirdviewPromo() {
-    const PROMO_KEY   = 'upc-birdview-promo-v1';
+function initGeburtstagsAktion() {
+    const AKTION_KEY  = 'upc-geburtstag-2026';
     const CONSENT_KEY = 'upc-consent-v2';
 
-    const modal    = document.getElementById('bvp-modal');
-    const backdrop = document.getElementById('bvp-backdrop');
-    const target   = document.getElementById('videoproduktion');
+    /* Laufzeit der Aktion, in UTC gerechnet. Besucher koennen aus jeder
+       Zeitzone kommen, die Uhr ihres Geraets darf nicht entscheiden.
+       Oesterreich liegt im Oktober bis zum 25. auf UTC+2, also ist der
+       6.10. um 00:01 Uhr Wiener Zeit der 5.10. um 22:01 Uhr UTC. */
+    const START = Date.UTC(2026, 9, 5, 22, 1, 0);     /* 6.10.2026, 00:01 Uhr */
+    const ENDE  = Date.UTC(2026, 9, 20, 21, 59, 59);  /* 20.10.2026, 23:59 Uhr */
+
+    const modal    = document.getElementById('gbp-modal');
+    const backdrop = document.getElementById('gbp-backdrop');
     if (!modal || !backdrop) return;
 
-    // Bereits gesehen? Dann nie wieder zeigen.
-    try { if (localStorage.getItem(PROMO_KEY)) return; } catch (e) {}
+    /* Vor dem Start und nach dem Ende passiert gar nichts. */
+    const jetzt = Date.now();
+    if (jetzt < START || jetzt > ENDE) return;
+
+    /* Einmal gesehen reicht. */
+    try { if (localStorage.getItem(AKTION_KEY)) return; } catch (e) {}
+
+    /* Verbleibende Tage einsetzen, sonst bleibt die Zeile weg. */
+    const frist     = document.getElementById('gbp-frist');
+    const fristText = document.getElementById('gbp-frist-text');
+    if (frist && fristText) {
+        const tage = Math.ceil((ENDE - jetzt) / 86400000);
+        /* Das Datum steht mit in der Pille. Sie sitzt im festen Fuss und
+           ist damit die einzige Stelle, die auf jedem Telefon ohne
+           Scrollen zu sehen ist. */
+        fristText.textContent = tage > 1
+            ? 'Noch ' + tage + ' Tage, bis 20.10.2026'
+            : 'Letzter Tag, bis 23:59 Uhr';
+        frist.hidden = false;
+    }
+
+    /* Zeigt den Auslauf, solange im Textteil noch etwas nach unten folgt. */
+    const koerper = modal.querySelector('.gbp-body');
+    function pruefeAuslauf() {
+        if (!koerper) return;
+        const rest = koerper.scrollHeight - koerper.clientHeight - koerper.scrollTop;
+        modal.classList.toggle('gbp-mehr', rest > 8);
+    }
+    if (koerper) {
+        koerper.addEventListener('scroll', pruefeAuslauf, { passive: true });
+        window.addEventListener('resize', pruefeAuslauf);
+    }
 
     let lastFocus = null;
     let isOpen    = false;
 
     function markSeen() {
-        try { localStorage.setItem(PROMO_KEY, JSON.stringify({ seen: true, ts: Date.now() })); }
+        try { localStorage.setItem(AKTION_KEY, JSON.stringify({ seen: true, ts: Date.now() })); }
         catch (e) {}
     }
 
@@ -3529,39 +3674,40 @@ function initBirdviewPromo() {
         if (isOpen) return;
         isOpen = true;
         lastFocus = document.activeElement;
-        backdrop.classList.add('bvp-show');
-        modal.classList.add('bvp-show');
+        modal.removeAttribute('aria-hidden');
+        backdrop.classList.add('gbp-show');
+        modal.classList.add('gbp-show');
         document.body.style.overflow = 'hidden';
-        const cta = document.getElementById('bvp-cta');
-        if (cta) cta.focus({ preventScroll: true });
+        /* Erst im naechsten Bild fokussieren. Solange der Uebergang von
+           visibility noch bei null steht, gilt der Dialog als versteckt
+           und nimmt den Fokus gar nicht an. */
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                const cta = document.getElementById('gbp-cta');
+                if (cta) cta.focus({ preventScroll: true });
+                pruefeAuslauf();
+            });
+        });
     }
 
     function close() {
         if (!isOpen) return;
         isOpen = false;
         markSeen();
-        backdrop.classList.remove('bvp-show');
-        modal.classList.remove('bvp-show');
+        backdrop.classList.remove('gbp-show');
+        modal.classList.remove('gbp-show');
         document.body.style.overflow = '';
         if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus({ preventScroll: true });
+        modal.setAttribute('aria-hidden', 'true');
     }
 
-    function jumpToCard() {
-        close();
-        if (!target) return;
-        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        setTimeout(() => {
-            target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
-            target.classList.remove('bvp-flash');
-            void target.offsetWidth;   // Reflow erzwingen, damit die Animation neu startet
-            target.classList.add('bvp-flash');
-            setTimeout(() => target.classList.remove('bvp-flash'), 1800);
-        }, 280);
-    }
+    /* Wer sich bewirbt oder die Bedingungen liest, hat den Hinweis
+       verstanden. Der Dialog geht zu, der Link laeuft normal weiter. */
+    modal.querySelectorAll('a[href]').forEach((a) => {
+        a.addEventListener('click', () => { markSeen(); if (a.target !== '_blank') close(); });
+    });
 
-    document.getElementById('bvp-cta').addEventListener('click', jumpToCard);
-    document.getElementById('bvp-dismiss').addEventListener('click', close);
-    document.getElementById('bvp-close').addEventListener('click', close);
+    document.getElementById('gbp-close').addEventListener('click', close);
     backdrop.addEventListener('click', close);
 
     document.addEventListener('keydown', (e) => {
@@ -3593,9 +3739,9 @@ function initBirdviewPromo() {
 }
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initBirdviewPromo);
+    document.addEventListener('DOMContentLoaded', initGeburtstagsAktion);
 } else {
-    initBirdviewPromo();
+    initGeburtstagsAktion();
 }
 </script>
 
@@ -3684,48 +3830,65 @@ if (document.readyState === 'loading') {
 
 
 <!-- ═══════════════════════════════════════════════
-     BIRDVIEW KOOPERATIONS POPUP
+     GEBURTSTAGSAKTION: ZWEI ONEPAGER FUER GRUENDER
 ════════════════════════════════════════════════ -->
-<div id="bvp-backdrop" class="bvp-backdrop"></div>
-<div id="bvp-modal" class="bvp-modal" role="dialog" aria-modal="true" aria-labelledby="bvp-title" aria-describedby="bvp-desc">
+<div id="gbp-backdrop" class="gbp-backdrop"></div>
+<div id="gbp-modal" class="gbp-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="gbp-title" aria-describedby="gbp-desc">
 
-    <button type="button" id="bvp-close" class="bvp-close" aria-label="Hinweis schließen">
+    <button type="button" id="gbp-close" class="gbp-close" aria-label="Hinweis schließen">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
     </button>
 
-    <span class="bvp-tag">
-        <svg width="7" height="7" viewBox="0 0 7 7" aria-hidden="true"><circle cx="3.5" cy="3.5" r="3.5" fill="currentColor"/></svg>
-        Neue Kooperation
-    </span>
+    <div class="gbp-body">
 
-    <h2 id="bvp-title" class="bvp-title f-display">Videoproduktion &amp; Business-Fotografie</h2>
-
-    <div id="bvp-desc">
-        <p class="bvp-text">Ab sofort arbeiten wir mit Birdview Studios zusammen. Damit ergänzen wir unser Angebot um professionellen Video Content und Business-Fotografie für Unternehmen und KMU.</p>
-        <p class="bvp-text">Content, der nicht nur gut aussieht, sondern im Marketing einen konkreten Zweck erfüllt: Sichtbarkeit aufbauen, Vertrauen schaffen und neue Kunden ansprechen.</p>
+    <div class="gbp-marke">
+        <img class="gbp-bild" src="./2-jahre-upprime-connect.webp" alt="Zwei Jahre Upprime Connect, Torte mit zwei Kerzen" width="240" height="240" decoding="async" fetchpriority="low">
+        <span class="gbp-marke-text"><b>2 Jahre</b>Upprime Connect</span>
     </div>
 
-    <div class="bvp-pills">
-        <span class="pill pill-purple">B2B-Videografie</span>
-        <span class="pill pill-purple">Business-Fotografie</span>
-        <span class="pill pill-purple">Authentischer Content</span>
-        <span class="pill pill-muted">Social-Media-Management</span>
+    <h2 id="gbp-title" class="gbp-title f-display">Zum Geburtstag verschenken wir zwei Websites.</h2>
+
+    <div id="gbp-desc">
+        <p class="gbp-text">Wir werden zwei Jahre alt. Zwei junge Unternehmen bekommen deshalb je einen fertigen Onepager im Wert von 1.500 Euro. Kostenlos, ohne Kaufverpflichtung.</p>
     </div>
 
-    <div class="bvp-partner">
-        <span class="bvp-partner-label">Gemeinsam mit</span>
-        <div class="vid-mark f-display">
-            <span class="vid-mark-a">BIRDVIEW</span><span class="vid-mark-b">STUDIOS</span>
+    <dl class="gbp-fakten">
+        <div class="gbp-zeile">
+            <dt>Wer</dt>
+            <dd>Unternehmen aus Österreich, gegründet nach dem 6.10.2025</dd>
         </div>
+        <div class="gbp-zeile">
+            <dt>Was</dt>
+            <dd>Individueller Onepager mit SEO Grundeinrichtung und Kontaktformular</dd>
+        </div>
+        <div class="gbp-zeile">
+            <dt>Bis</dt>
+            <dd>Bewerbung bis 20.10.2026, Gewinner am 27.10.2026</dd>
+        </div>
+    </dl>
+
+    </div><!-- /gbp-body -->
+
+    <div class="gbp-fuss">
+
+    <div class="gbp-frist" id="gbp-frist" hidden>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
+        <span id="gbp-frist-text"></span>
     </div>
 
-    <div class="bvp-actions">
-        <button type="button" id="bvp-cta" class="bvp-btn bvp-btn-primary">
-            Mehr erfahren
-            <svg class="bvp-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M12.5 6.5L19 12l-6.5 5.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <button type="button" id="bvp-dismiss" class="bvp-btn bvp-btn-ghost">Vielleicht später</button>
+    <div class="gbp-actions">
+        <a id="gbp-cta" class="gbp-btn gbp-btn-primary" href="mailto:support@upprime-connect.at?subject=Bewerbung%202%20Jahre%20Upprime%20Connect&amp;body=Hallo%20Upprime%20Connect%20Team%2C%0A%0Aich%20bewerbe%20mich%20um%20einen%20der%20beiden%20Onepager.%0A%0A1.%20Name%20des%20Unternehmens%20und%20Gr%C3%BCndungsdatum%3A%0A%0A2.%20Kurze%20Beschreibung%20meiner%20Gesch%C3%A4ftsidee%3A%0A%0A3.%20Was%20die%20Website%20erreichen%20soll%20und%20warum%20jetzt%3A%0A%0A4.%20Ansprechperson%20mit%20Kontaktdaten%3A%0A%0ALiebe%20Gr%C3%BC%C3%9Fe%0A">
+            Jetzt bewerben
+            <svg class="gbp-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M12.5 6.5L19 12l-6.5 5.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a id="gbp-fb" class="gbp-btn gbp-btn-ghost" href="https://www.facebook.com/upprimeconnect" target="_blank" rel="noopener noreferrer">Über Facebook</a>
     </div>
+
+    <p class="gbp-klein">
+        Es gelten die <a href="./teilnahmebedingungen.html">Teilnahmebedingungen</a>. Die Auswahl erfolgt nach freiem Ermessen, es ist keine Verlosung. Diese Aktion steht in keiner Verbindung zu Facebook oder Meta und wird in keiner Weise von Facebook gesponsert, unterstützt oder organisiert.
+    </p>
+
+    </div><!-- /gbp-fuss -->
 
 </div>
 

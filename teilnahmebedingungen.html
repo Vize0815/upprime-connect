@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teilnahmebedingungen zur Aktion 2 Jahre Upprime Connect: zwei kostenlose Onepager für junge Unternehmen aus Österreich. Bewerbung vom 6. bis 20. Oktober 2026.">
+    <title>Teilnahmebedingungen zur Aktion 2 Jahre Upprime Connect</title>
+    <link rel="canonical" href="https://upprime-connect.at/teilnahmebedingungen.html">
+    <meta name="robots" content="index, follow">
+    <style>
+        @font-face {
+            font-family: 'DM Sans';
+            src: url('./fonts/dm-sans-latin-ext.woff2') format('woff2');
+            font-weight: 100 1000;
+            font-style: normal;
+            font-display: swap;
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        @font-face {
+            font-family: 'DM Sans';
+            src: url('./fonts/dm-sans-latin.woff2') format('woff2');
+            font-weight: 100 1000;
+            font-style: normal;
+            font-display: swap;
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'Syne';
+            src: url('./fonts/syne-latin-ext.woff2') format('woff2');
+            font-weight: 400 800;
+            font-style: normal;
+            font-display: swap;
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        @font-face {
+            font-family: 'Syne';
+            src: url('./fonts/syne-latin.woff2') format('woff2');
+            font-weight: 400 800;
+            font-style: normal;
+            font-display: swap;
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'Kiona';
+            src: url('./fonts/Kiona-Regular.ttf') format('truetype');
+            font-weight: 400 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --bg-primary: #05050A;
+            --bg-secondary: #0A0A16;
+            --accent: #9333EA;
+            --accent-light: #C084FC;
+            --accent-blue: #4F8EF7;
+            --text-primary: #F0F0FF;
+            --text-muted: #7878A0;
+            --text-body: #B4B4CC;
+            --border: rgba(255,255,255,0.07);
+            --card-bg: rgba(255,255,255,0.028);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: rgba(147,51,234,0.4); border-radius: 3px; }
+
+        .f-display { font-family: 'Kiona', 'Syne', sans-serif; letter-spacing: 0.02em; }
+
+        a {
+            color: var(--accent-light);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover { color: var(--accent); }
+
+        /* Top bar */
+        .imp-topbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(5,5,10,0.72);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+        .imp-topbar-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .imp-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+        .imp-back:hover {
+            color: var(--text-primary);
+            border-color: rgba(147,51,234,0.35);
+            background: rgba(147,51,234,0.05);
+        }
+        .imp-brand {
+            font-family: 'Kiona', 'Syne', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+        }
+
+        /* Hero header */
+        .imp-hero {
+            position: relative;
+            padding: 88px 24px 64px;
+            overflow: hidden;
+        }
+        .imp-hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .imp-blob-a {
+            position: absolute;
+            top: -160px;
+            left: -140px;
+            width: 460px;
+            height: 460px;
+            background: radial-gradient(circle, rgba(147,51,234,0.18) 0%, transparent 65%);
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .imp-blob-b {
+            position: absolute;
+            top: 40px;
+            right: -180px;
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(79,142,247,0.11) 0%, transparent 65%);
+            filter: blur(70px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .imp-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 16px;
+            border: 1px solid rgba(147,51,234,0.28);
+            background: rgba(147,51,234,0.06);
+            border-radius: 999px;
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            margin-bottom: 22px;
+        }
+        .imp-pill svg { width: 8px; height: 8px; }
+        h1.imp-title {
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .imp-lede {
+            color: var(--text-body);
+            font-size: 1.05rem;
+            max-width: 620px;
+            line-height: 1.72;
+        }
+        .imp-updated {
+            margin-top: 22px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            font-family: 'Kiona','Syne',sans-serif;
+            font-weight: 600;
+        }
+
+        /* Main content */
+        main.imp-main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px 24px 120px;
+        }
+        section.imp-section {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+        }
+        section.imp-section:first-child { border-top: none; padding-top: 8px; }
+
+        h2.imp-h2 {
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        h2.imp-h2::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: rgba(192,132,252,0.55);
+        }
+
+        h3.imp-h3 {
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        p.imp-p {
+            color: var(--text-body);
+            font-size: 1rem;
+            line-height: 1.75;
+            max-width: 70ch;
+            margin-bottom: 14px;
+        }
+        p.imp-p:last-child { margin-bottom: 0; }
+
+        /* Definition list card */
+        .imp-dl {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 0;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 8px 4px;
+            margin-bottom: 20px;
+        }
+        .imp-dl-row {
+            display: contents;
+        }
+        .imp-dl dt, .imp-dl dd {
+            padding: 14px 22px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .imp-dl dt {
+            color: var(--text-muted);
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+        .imp-dl dd {
+            color: var(--text-primary);
+            font-size: 0.98rem;
+            font-weight: 500;
+        }
+        .imp-dl-row:last-child dt, .imp-dl-row:last-child dd { border-bottom: none; }
+
+        @media (max-width: 620px) {
+            .imp-dl { grid-template-columns: 1fr; padding: 4px; }
+            .imp-dl dt { padding: 14px 16px 4px; border-bottom: none; }
+            .imp-dl dd { padding: 0 16px 14px; }
+        }
+
+        /* Placeholder highlight */
+        .imp-todo {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 6px;
+            background: rgba(147,51,234,0.12);
+            border: 1px dashed rgba(192,132,252,0.45);
+            color: var(--accent-light);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        /* Footer2 (matches Startseite) */
+        .ft2-grid { display: grid; gap: 48px; padding: 56px 0 40px; grid-template-columns: 1.4fr 1fr 1fr; }
+        @media (max-width: 768px) { .ft2-grid { grid-template-columns: 1fr 1fr !important; } }
+        @media (max-width: 520px) { .ft2-grid { grid-template-columns: 1fr !important; } }
+        .ft2-link {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: color 0.2s;
+            cursor: pointer;
+            display: block;
+        }
+        .ft2-link:hover { color: var(--text-primary); }
+
+        /* ── Teilnahmebedingungen: Ergaenzungen zum Impressum Stil ── */
+
+        /* Laufzeitanzeige. Der Text kommt aus dem Skript unten, damit die
+           Seite nicht behauptet, die Aktion laufe noch, wenn sie vorbei ist. */
+        .tb-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 22px;
+            padding: 9px 18px;
+            border-radius: 999px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            background: rgba(147,51,234,0.10);
+            border: 1px solid rgba(147,51,234,0.3);
+            color: var(--accent-light);
+        }
+        .tb-status-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: currentColor;
+            flex-shrink: 0;
+        }
+        .tb-status[data-zustand="vorbei"] {
+            background: rgba(255,255,255,0.04);
+            border-color: rgba(255,255,255,0.12);
+            color: var(--text-muted);
+        }
+
+        ul.imp-ul, ol.imp-ol {
+            color: var(--text-body);
+            font-size: 1rem;
+            line-height: 1.75;
+            max-width: 70ch;
+            margin: 0 0 14px;
+            padding-left: 0;
+            list-style: none;
+        }
+        ul.imp-ul li, ol.imp-ol li {
+            position: relative;
+            padding-left: 26px;
+            margin-bottom: 9px;
+        }
+        ul.imp-ul li::before {
+            content: '';
+            position: absolute;
+            left: 4px; top: 13px;
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: rgba(192,132,252,0.75);
+        }
+        ol.imp-ol { counter-reset: tbz; }
+        ol.imp-ol li { counter-increment: tbz; }
+        ol.imp-ol li::before {
+            content: counter(tbz) '.';
+            position: absolute;
+            left: 0; top: 0;
+            font-family: 'Kiona','Syne',sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--accent-light);
+        }
+        ul.imp-ul li:last-child, ol.imp-ol li:last-child { margin-bottom: 0; }
+
+        /* Enthalten und nicht enthalten nebeneinander */
+        .tb-zwei {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 6px;
+        }
+        @media (max-width: 720px) { .tb-zwei { grid-template-columns: 1fr; } }
+        .tb-karte {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 24px 24px 22px;
+        }
+        .tb-karte-titel {
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+        .tb-karte-ja .tb-karte-titel { color: var(--accent-light); }
+        .tb-karte-nein .tb-karte-titel { color: var(--text-muted); }
+        .tb-karte ul.imp-ul { margin-bottom: 0; font-size: 0.96rem; }
+        .tb-karte-nein ul.imp-ul li::before { background: rgba(255,255,255,0.22); }
+
+        /* Hervorgehobener Hinweis, etwa der Facebook Freistellungssatz */
+        .tb-merk {
+            border-left: 2px solid rgba(192,132,252,0.5);
+            background: rgba(147,51,234,0.05);
+            border-radius: 0 14px 14px 0;
+            padding: 18px 22px;
+            margin-bottom: 16px;
+        }
+        .tb-merk p { margin-bottom: 0; }
+
+        /* Bewerbungsknopf */
+        .tb-aktion {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 14px;
+            margin-top: 26px;
+        }
+        .tb-btn {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.96rem;
+            font-weight: 600;
+            padding: 15px 26px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #9333EA 0%, #7C22CE 100%);
+            color: #fff;
+            box-shadow: 0 12px 30px rgba(147,51,234,0.32);
+            transition: box-shadow 200ms cubic-bezier(0.23,1,0.32,1),
+                        transform 150ms cubic-bezier(0.23,1,0.32,1);
+        }
+        .tb-btn:hover { color: #fff; box-shadow: 0 16px 40px rgba(147,51,234,0.46); }
+        .tb-btn:active { transform: scale(0.97); }
+        .tb-btn-geist {
+            background: transparent;
+            color: var(--text-muted);
+            border-color: rgba(255,255,255,0.11);
+            box-shadow: none;
+        }
+        .tb-btn-geist:hover {
+            color: var(--text-primary);
+            border-color: rgba(255,255,255,0.22);
+            box-shadow: none;
+        }
+        .tb-pfeil { transition: transform 200ms cubic-bezier(0.23,1,0.32,1); }
+        .tb-btn:hover .tb-pfeil { transform: translateX(3px); }
+
+        @media (prefers-reduced-motion: reduce) {
+            .tb-btn, .tb-pfeil { transition: none; }
+            .tb-btn:active { transform: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="imp-topbar">
+    <div class="imp-topbar-inner">
+        <a href="./index.html" class="imp-back">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Zurück zur Startseite
+        </a>
+        <div class="imp-brand">Upprime Connect</div>
+    </div>
+</div>
+
+<!-- Hero header -->
+<header class="imp-hero">
+    <div class="imp-blob-a"></div>
+    <div class="imp-blob-b"></div>
+    <div class="imp-hero-inner">
+        <div class="imp-pill">
+            <svg viewBox="0 0 8 8" fill="none"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            2 Jahre Upprime Connect
+        </div>
+        <h1 class="imp-title">Teilnahme&shy;bedingungen.</h1>
+        <p class="imp-lede">
+            Zum zweijährigen Bestehen vergibt Upprime Connect an zwei junge Unternehmen je einen kostenlosen Onepager. Das hier sind die Spielregeln dazu, in voller Länge.
+        </p>
+        <div class="tb-status" id="tb-status">
+            <span class="tb-status-dot" aria-hidden="true"></span>
+            <span id="tb-status-text">Bewerbung vom 6. bis 20. Oktober 2026</span>
+        </div>
+        <div class="imp-updated">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            Stand 6. Oktober 2026
+        </div>
+    </div>
+</header>
+
+<main class="imp-main">
+
+    <!-- 1 -->
+    <section class="imp-section">
+        <h2 class="imp-h2">1. Veranstalter und Aktionszeitraum</h2>
+        <p class="imp-p">
+            Zum zweijährigen Bestehen vergibt Upprime Connect an 2 junge Unternehmen je einen kostenlosen Onepager. Bewerbungen sind vom 6.10.2026 bis 20.10.2026, 23:59 Uhr möglich.
+        </p>
+        <dl class="imp-dl">
+            <div class="imp-dl-row">
+                <dt>Veranstalter</dt>
+                <dd>Upprime Connect, Alexander Kroes e.U., Glatzham 19, 6252 Breitenbach am Inn, Österreich</dd>
+            </div>
+            <div class="imp-dl-row">
+                <dt>Website</dt>
+                <dd><a href="https://upprime-connect.at">upprime-connect.at</a></dd>
+            </div>
+            <div class="imp-dl-row">
+                <dt>Bewerbungsfrist</dt>
+                <dd>6.10.2026 bis 20.10.2026, 23:59 Uhr</dd>
+            </div>
+            <div class="imp-dl-row">
+                <dt>Bekanntgabe der Gewinner</dt>
+                <dd>27.10.2026</dd>
+            </div>
+        </dl>
+        <p class="imp-p">
+            Mit der Bewerbung akzeptieren Teilnehmer diese Teilnahmebedingungen.
+        </p>
+    </section>
+
+    <!-- 2 -->
+    <section class="imp-section">
+        <h2 class="imp-h2">2. Wer teilnehmen darf</h2>
+        <p class="imp-p">
+            Teilnehmen dürfen Unternehmen, die nach dem 6.10.2025 gegründet wurden und ihren Firmensitz in Österreich haben.
+        </p>
+        <ul class="imp-ul">
+            <li>Nachweis der Gründung durch Firmenbuchauszug, GISA Auszug, Gewerbeanmeldung oder vergleichbares Dokument</li>
+            <li>Die Bewerbung erfolgt durch eine volljährige, vertretungsbefugte Person</li>
+            <li>Pro Unternehmen ist nur eine Bewerbung möglich</li>
+            <li>Ausgeschlossen sind Mitarbeiter des Veranstalters, deren Angehörige sowie Unternehmen mit bestehendem Webdesign Auftrag bei Upprime Connect sowie Agenturen mit Schwerpunkt Webdesign</li>
+            <li>Ausgeschlossen sind Unternehmen, deren Tätigkeit gegen geltendes Recht oder die guten Sitten verstößt</li>
+        </ul>
+    </section>
+
+    <!-- 3 -->
+    <section class="imp-section">
+        <h2 class="imp-h2">3. So bewirbst du dich</h2>
+        <p class="imp-p">
+            Die Bewerbung erfolgt per Nachricht an die Facebook Seite von Upprime Connect oder per Mail an <a href="mailto:support@upprime-connect.at">support@upprime-connect.at</a>. Schick uns dabei bitte:
+        </p>
+        <ol class="imp-ol">
+            <li>Name des Unternehmens und Gründungsdatum</li>
+            <li>Kurze Beschreibung deiner Geschäftsidee</li>
+            <li>Was die Website erreichen soll und warum jetzt</li>
+            <li>Ansprechperson mit Kontaktdaten</li>
+        </ol>
+        <p class="imp-p">
+            Der Gründungsnachweis wird erst bei Auswahl angefordert. Die Teilnahme ist kostenlos und an keinen Kauf gebunden.
+        </p>
+        <div class="tb-aktion">
+            <a class="tb-btn" id="tb-mail" href="mailto:support@upprime-connect.at?subject=Bewerbung%202%20Jahre%20Upprime%20Connect&amp;body=Hallo%20Upprime%20Connect%20Team%2C%0A%0Aich%20bewerbe%20mich%20um%20einen%20der%20beiden%20Onepager.%0A%0A1.%20Name%20des%20Unternehmens%20und%20Gr%C3%BCndungsdatum%3A%0A%0A2.%20Kurze%20Beschreibung%20meiner%20Gesch%C3%A4ftsidee%3A%0A%0A3.%20Was%20die%20Website%20erreichen%20soll%20und%20warum%20jetzt%3A%0A%0A4.%20Ansprechperson%20mit%20Kontaktdaten%3A%0A%0ALiebe%20Gr%C3%BC%C3%9Fe%0A">
+                Bewerbung per Mail schreiben
+                <svg class="tb-pfeil" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M12.5 6.5L19 12l-6.5 5.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="tb-btn tb-btn-geist" href="https://www.facebook.com/upprimeconnect" target="_blank" rel="noopener noreferrer">
+                Über Facebook bewerben
+            </a>
+        </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="imp-section">
+        <h2 class="imp-h2">4. Auswahl und Bekanntgabe</h2>
+        <p class="imp-p">
+            Upprime Connect wählt 2 Gewinner nach freiem Ermessen aus, es handelt sich nicht um eine Verlosung. Kriterien sind Klarheit der Idee, Bedarf an einer Website und Umsetzbarkeit.
+        </p>
+        <ul class="imp-ul">
+            <li>Die Gewinner werden am 27.10.2026 persönlich benachrichtigt</li>
+            <li>Bestätigt ein Gewinner nicht binnen 7 Tagen und legt den Gründungsnachweis vor, kann ein Ersatz ausgewählt werden</li>
+            <li>Mit Zustimmung der Gewinner erfolgt eine Bekanntgabe auf Facebook</li>
+            <li>Ein Rechtsanspruch auf Auswahl besteht nicht, der Rechtsweg ist ausgeschlossen</li>
+        </ul>
+    </section>
+
+    <!-- 5 -->
+    <section class="imp-section">
+        <h2 class="imp-h2">5. Was der Onepager umfasst</h2>
+        <p class="imp-p">
+            Jeder Gewinner erhält einen professionellen Onepager im Wert von 1.500 Euro.
+        </p>
+        <div class="tb-zwei">
+            <div class="tb-karte tb-karte-ja">
+                <div class="tb-karte-titel">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Enthalten
+                </div>
+                <ul class="imp-ul">
+                    <li>Individuelles Design einer Seite mit bis zu 4 Inhaltsbereichen</li>
+                    <li>Mobile Optimierung für Smartphone und Tablet</li>
+                    <li>SEO Grundeinrichtung (Seitentitel, Beschreibung, Indexierung)</li>
+                    <li>Anmeldung bei Google Search Console und Bing Webmaster mit der aktuellen Sitemap</li>
+                    <li>Kontaktformular</li>
+                    <li>Datenschutz Ausstattung: Cookie Banner, Vorlagen für Impressum und Datenschutzerklärung</li>
+                    <li>1 Korrekturschleife</li>
+                </ul>
+            </div>
+            <div class="tb-karte tb-karte-nein">
+                <div class="tb-karte-titel">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+                    Nicht enthalten
+                </div>
+                <ul class="imp-ul">
+                    <li>Domain, Hosting und Lizenzen für Bilder oder Plugins</li>
+                    <li>Texterstellung, Fotos, Logo und Übersetzungen</li>
+                    <li>Unterseiten, Shop, Buchungssystem oder Mehrsprachigkeit</li>
+                    <li>Laufende Wartung und Pflege nach Fertigstellung</li>
+                </ul>
+            </div>
+        </div>
+        <p class="imp-p" style="margin-top:20px;">
+            Der Gewinn ist nicht übertragbar und nicht in bar ablösbar. Zusätzliche Leistungen können gesondert beauftragt werden.
+        </p>
+    </section>
+
+    <!-- 6 -->
+    <section class="imp-section">
+        <h2 class="imp-h2">6. Mitwirkung der Gewinner</h2>
+        <p class="imp-p">
+            Die Umsetzung startet, sobald alle Inhalte vorliegen, und dauert in der Regel 4 bis 6 Wochen.
+        </p>
+        <ul class="imp-ul">
+            <li>Fertige Texte, Bilder und Logo liefern die Gewinner binnen 30 Tagen nach Bestätigung</li>
+            <li>Domain und Hosting stellen die Gewinner selbst oder beauftragen diese bei Upprime Connect zu den regulären Konditionen</li>
+            <li>Für Texte und Bilder sind die Gewinner verantwortlich, inklusive der Rechte daran</li>
+            <li>Werden die Inhalte nicht bis 16.11.2026 geliefert, verfällt der Gewinn ersatzlos</li>
+            <li>Für die Inhalte von Impressum und Datenschutzerklärung ist der Gewinner auf Richtigkeit für sein Unternehmen selbst verantwortlich</li>
+        </ul>
+    </section>
+
+    <!-- 7 -->
+    <section class="imp-section">
+        <h2 class="imp-h2">7. Nutzungsrechte und Referenz</h2>
+        <p class="imp-p">
+            Nach Fertigstellung erhalten die Gewinner das zeitlich unbegrenzte Nutzungsrecht am Onepager für ihr Unternehmen.
+        </p>
+        <ul class="imp-ul">
+            <li>Upprime Connect darf den Onepager als Referenz nennen, auf der eigenen Website und in sozialen Medien</li>
+            <li>Ein dezenter Hinweis „Webdesign by Upprime Connect“ im Fußbereich bleibt bestehen</li>
+            <li>Die Gewinner stimmen zu, auf Anfrage ein ehrliches Feedback zu geben, eine Bewertung ist freiwillig</li>
+        </ul>
+    </section>
+
+    <!-- 8 -->
+    <section class="imp-section">
+        <h2 class="imp-h2">8. Datenschutz</h2>
+        <p class="imp-p">
+            Verantwortlich für die Verarbeitung der Bewerbungsdaten ist Upprime Connect.
+        </p>
+        <ul class="imp-ul">
+            <li><strong>Daten:</strong> Name, Kontaktdaten, Unternehmensdaten und Inhalte der Bewerbung</li>
+            <li><strong>Zweck:</strong> Durchführung der Aktion, Auswahl und Benachrichtigung der Gewinner, Umsetzung des Onepagers</li>
+            <li><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Teilnahme an der Aktion); Veröffentlichung von Namen und Fotos nur mit Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO</li>
+            <li><strong>Speicherdauer:</strong> Daten nicht ausgewählter Bewerber werden 3 Monate nach Aktionsende gelöscht; Daten der Gewinner für die Dauer der Zusammenarbeit und gesetzlicher Aufbewahrungsfristen</li>
+            <li><strong>Werbung:</strong> Angebote an Bewerber erfolgen nur mit gesonderter, jederzeit widerrufbarer Einwilligung</li>
+            <li><strong>Facebook:</strong> Bei Bewerbung über den Facebook Messenger verarbeitet auch Meta Platforms Ireland Ltd. Daten in eigener Verantwortung, siehe Datenschutzrichtlinie von Meta</li>
+            <li><strong>Deine Rechte:</strong> Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerspruch und Widerruf einer Einwilligung</li>
+            <li><strong>Beschwerde:</strong> Österreichische Datenschutzbehörde, Barichgasse 40 bis 42, 1030 Wien, <a href="https://www.dsb.gv.at" target="_blank" rel="noopener">dsb.gv.at</a></li>
+        </ul>
+        <p class="imp-p">
+            Weitere Angaben findest du in unserer <a href="./datenschutz.html">Datenschutzerklärung</a>.
+        </p>
+    </section>
+
+    <!-- 9 -->
+    <section class="imp-section">
+        <h2 class="imp-h2">9. Haftung und Schlussbestimmungen</h2>
+        <div class="tb-merk">
+            <p class="imp-p" style="color:var(--text-primary); font-weight:600;">
+                Diese Aktion steht in keiner Verbindung zu Facebook oder Meta und wird in keiner Weise von Facebook gesponsert, unterstützt oder organisiert.
+            </p>
+        </div>
+        <ul class="imp-ul">
+            <li>Upprime Connect haftet nur für Vorsatz und grobe Fahrlässigkeit, ausgenommen Personenschäden</li>
+            <li>Für Inhalte, die Gewinner bereitstellen, übernimmt Upprime Connect keine Haftung</li>
+            <li>Upprime Connect kann die Aktion aus wichtigem Grund ändern oder beenden, etwa bei Manipulation oder technischen Problemen</li>
+            <li>Es gilt österreichisches Recht unter Ausschluss der Verweisungsnormen</li>
+            <li>Ist eine Bestimmung unwirksam, bleiben die übrigen gültig</li>
+        </ul>
+    </section>
+
+</main>
+
+<!-- Dotted grid transition -->
+<div style="position:relative; height:100px; overflow:hidden; background:var(--bg-secondary);">
+    <div aria-hidden="true" style="pointer-events:none; position:absolute; inset:0;
+        background-image: radial-gradient(rgba(255,255,255,0.07) 0.8px, transparent 0.8px);
+        background-size: 14px 14px;
+        -webkit-mask-image: radial-gradient(circle at 50% 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 80%);
+        mask-image: radial-gradient(circle at 50% 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 80%);">
+    </div>
+</div>
+
+<footer style="background:rgba(10,10,20,0.6); backdrop-filter:blur(12px); border-top:1px solid rgba(255,255,255,0.07);">
+    <div style="max-width:1180px; margin:0 auto; padding:0 24px;">
+
+        <div class="ft2-grid">
+
+            <div>
+                <img src="./upprime-connect-logo.png" alt="Upprime Connect" width="500" height="500" style="height:96px; width:auto; aspect-ratio:1/1; display:block; margin-bottom:20px;" loading="lazy" decoding="async">
+                <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.7; max-width:340px;">
+                    Webdesign, SEO und Branding Agentur aus Österreich. Wir bauen digitale Auftritte, die verkaufen und dauerhaft sichtbar bleiben.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="f-display" style="font-size:0.72rem; font-weight:700; color:var(--text-primary); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:20px;">Agentur</h3>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
+                    <li><a href="./index.html#services" class="ft2-link">Leistungen</a></li>
+                    <li><a href="./index.html#portfolio" class="ft2-link">Kundenstimmen</a></li>
+                    <li><a href="./index.html#about" class="ft2-link">Über uns</a></li>
+                    <li><a href="./index.html#contact" class="ft2-link">Kontakt</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="f-display" style="font-size:0.72rem; font-weight:700; color:var(--text-primary); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:20px;">Kontakt</h3>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
+                    <li><a href="mailto:support@upprime-connect.at" class="ft2-link">support@upprime-connect.at</a></li>
+                    <li><a href="tel:+43533820105" class="ft2-link">+43 (0) 5338 20105</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div style="height:1px; background:rgba(255,255,255,0.07);"></div>
+
+        <div style="padding:20px 0; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; color:var(--text-muted); font-size:0.78rem;">
+            <div>
+                © 2026 Upprime Connect. Alle Rechte vorbehalten.
+            </div>
+            <div style="display:flex; gap:28px; flex-wrap:wrap;">
+                <a href="./AGB_Upprime_Connect_Stand_15-04-2026.pdf" class="ft2-link" style="font-size:0.78rem;" download target="_blank" rel="noopener">AGB</a>
+                <a href="./impressum.html" class="ft2-link" style="font-size:0.78rem;">Impressum</a>
+                <a href="./datenschutz.html" class="ft2-link" style="font-size:0.78rem;">Datenschutz</a>
+                <a href="./index.html#cookie-settings" class="ft2-link" style="font-size:0.78rem;">Cookie Einstellungen</a>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+<script>
+/* Die Laufzeit steht an genau einer Stelle, hier. Die Startseite rechnet
+   mit denselben Zeitpunkten. Angaben in UTC, weil Besucher aus jeder
+   Zeitzone kommen koennen: Oesterreich liegt im Oktober bis zum 25. auf
+   UTC+2, also ist der 6.10. um 00:01 Uhr Wiener Zeit der 5.10. um
+   22:01 Uhr UTC. */
+(function () {
+    var START = Date.UTC(2026, 9, 5, 22, 1, 0);     /* 6.10.2026, 00:01 Uhr */
+    var ENDE  = Date.UTC(2026, 9, 20, 21, 59, 59);  /* 20.10.2026, 23:59 Uhr */
+
+    var kasten = document.getElementById('tb-status');
+    var text   = document.getElementById('tb-status-text');
+    if (!kasten || !text) return;
+
+    var jetzt = Date.now();
+
+    if (jetzt < START) {
+        text.textContent = 'Bewerbung ab 6. Oktober 2026 möglich';
+        return;
+    }
+    if (jetzt > ENDE) {
+        kasten.setAttribute('data-zustand', 'vorbei');
+        text.textContent = 'Die Bewerbungsfrist ist abgelaufen';
+        return;
+    }
+
+    var tage = Math.ceil((ENDE - jetzt) / 86400000);
+    text.textContent = tage > 1
+        ? 'Bewerbung läuft, noch ' + tage + ' Tage Zeit'
+        : 'Letzter Tag, Bewerbung bis 23:59 Uhr';
+})();
+</script>
+
+</body>
+</html>
