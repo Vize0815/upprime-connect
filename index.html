@@ -697,23 +697,40 @@
         .hero-trust {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            /* Untereinander stehen die drei Punkte auf einer gemeinsamen
+               linken Kante. Jede Zeile einzeln zu zentrieren schiebt die
+               Symbole um bis zu 92px gegeneinander. */
+            align-items: flex-start;
             gap: 11px;
-            max-width: 700px;
+            width: max-content;
+            max-width: 100%;
             margin: 0 auto 22px;
             animation: heroFadeUp 0.8s 0.68s both;
         }
         .hero-trust span {
             display: inline-flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 9px;
             font-size: 0.94rem;
             line-height: 1.4;
+            /* Der Kopfbereich ist zentriert, die umbrechende zweite Zeile
+               soll das nicht sein. */
+            text-align: left;
             color: rgba(255,255,255,0.48);
         }
-        .hero-trust svg { flex-shrink: 0; color: var(--accent-light); }
-        @media (min-width: 620px) {
-            .hero-trust { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 12px 30px; }
+        /* Das Symbol sitzt auf der ersten Textzeile, nicht mittig zum Block. */
+        .hero-trust svg { flex-shrink: 0; margin-top: 3px; color: var(--accent-light); }
+        /* Alle drei nebeneinander brauchen 745px. Darunter bleibt die
+           ausgerichtete Liste, sonst haengt der dritte Punkt allein
+           unter den anderen beiden. */
+        @media (min-width: 820px) {
+            .hero-trust {
+                flex-direction: row; flex-wrap: wrap;
+                justify-content: center; align-items: center;
+                gap: 12px 30px; width: auto; max-width: 780px;
+            }
+            .hero-trust span { align-items: center; }
+            .hero-trust svg { margin-top: 0; }
         }
 
         /* Technische Belege, zweite Reihe unter der Vertrauensleiste.
