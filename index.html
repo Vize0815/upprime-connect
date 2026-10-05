@@ -749,6 +749,27 @@
         /* ─── Keine fertigen Vorlagen ───
            Mobile first aufgebaut: der Grundzustand gilt fuer das kleinste
            Telefon, jede Abfrage darunter baut nur noch auf. */
+
+        /* Ueberschrift des Abschnitts. Die Zeilen sind gesetzt, nicht dem
+           Zufall ueberlassen: am Telefon drei Zeilen, ab 640px zwei.
+           Keine Silbentrennung, sonst zerfaellt "Website" in "Web-site". */
+        h2.nv-h2 {
+            font-size: clamp(1.35rem, 7.5vw, 1.9rem);
+            line-height: 1.12;
+            margin-bottom: 16px;
+            hyphens: manual;
+            -webkit-hyphens: manual;
+            text-wrap: balance;
+        }
+        /* Zusaetzlicher Umbruch nach "keine", nur solange der Platz fehlt. */
+        .nv-h2-br { display: inline; }
+        @media (min-width: 461px) {
+            h2.nv-h2 { font-size: clamp(1.9rem, 5vw, 3.4rem); }
+        }
+        @media (min-width: 640px) {
+            .nv-h2-br { display: none; }
+        }
+
         .nv-split {
             display: grid;
             grid-template-columns: 1fr;
@@ -2577,8 +2598,8 @@
                 <svg width="7" height="7" viewBox="0 0 7 7"><circle cx="3.5" cy="3.5" r="3.5" fill="var(--accent-light)"/></svg>
                 Unser Unterschied
             </div>
-            <h2 class="f-display reveal d1" style="font-size:clamp(1.9rem, 5vw, 3.4rem); font-weight:800; letter-spacing:-0.03em; line-height:1.1; margin-bottom:16px;">
-                Bei uns gibt es keine<br>fertigen Website Vorlagen.
+            <h2 class="f-display nv-h2 reveal d1">
+                Bei uns gibt es<br class="nv-h2-br"> keine fertigen<br>Website Vorlagen.
             </h2>
             <p class="reveal d2" style="color:var(--text-muted); font-size:1.08rem; max-width:620px; margin:0 auto; line-height:1.7;">
                 Viele Anbieter werben mit fertigen Branchenvorlagen. Branche auswählen, Logo tauschen, online stellen. Das geht schnell. Es geht für deinen Mitbewerber aber genauso schnell.
