@@ -1120,6 +1120,12 @@
             animation: heroFadeUp 0.7s 0.15s both;
         }
         .hero-badge span { font-size: 0.9rem; color: rgba(255,255,255,0.6); letter-spacing: 0.04em; }
+        /* Auf den schmalsten Telefonen fehlt der Pille sonst genau ein
+           Pixel und der Satz rutscht auf zwei Zeilen. */
+        @media (max-width: 380px) {
+            .hero-badge { padding: 6px 13px; }
+            .hero-badge span { letter-spacing: 0.02em; }
+        }
         .hero-h1-kw {
             display: block;
             margin-top: clamp(14px, 1.6vw, 26px);
@@ -2209,7 +2215,7 @@
         <!-- Badge -->
         <div class="hero-badge">
             <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="rgba(244,63,94,0.8)"/></svg>
-            <span>Individuell statt Vorlage</span>
+            <span>Digitale Unikate statt Vorlage</span>
         </div>
 
         <!-- Heading -->
