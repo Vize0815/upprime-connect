@@ -1195,12 +1195,24 @@
             letter-spacing: 0.01em;
             text-transform: none;
             color: rgba(192,132,252,0.82);
+            hyphens: manual;
+            -webkit-hyphens: manual;
+        }
+        /* Umbruch nach "und", solange die Zeile nicht am Stueck passt.
+           Ab 470px steht sie ohnehin auf einer Zeile. */
+        .hero-h1-kw-br { display: inline; }
+        @media (min-width: 470px) {
+            .hero-h1-kw-br { display: none; }
         }
         .hero-h1-line1, .hero-h1-line2 {
             color: #FFFFFF;
             text-transform: uppercase;
             letter-spacing: 0.04em;
             font-weight: 400;
+            /* Der Anspruch wird nicht getrennt. Sonst steht auf dem iPhone
+               "WIR BAUEN MAR-" und darunter "KEN,". */
+            hyphens: manual;
+            -webkit-hyphens: manual;
         }
 
         /* ─── Responsive ─── */
@@ -2269,7 +2281,7 @@
         <h1 class="f-display" style="font-size:clamp(2.2rem,6.5vw,5.6rem); font-weight:400; line-height:1.05; margin-bottom:28px; animation:heroRise 0.9s 0s both;">
             <span class="hero-h1-line1">Wir bauen Marken,</span><br>
             <span class="hero-h1-line2">die bleiben.</span>
-            <span class="hero-h1-kw">Webdesign, SEO und Branding Agentur aus Tirol</span>
+            <span class="hero-h1-kw">Webdesign, SEO und<br class="hero-h1-kw-br"> Branding Agentur aus Tirol</span>
         </h1>
 
         <!-- Subtitle -->
