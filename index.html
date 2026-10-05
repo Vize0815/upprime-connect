@@ -1214,6 +1214,11 @@
             .stats-grid { grid-template-columns: 1fr 1fr !important; }
             .port-grid { grid-template-columns: 1fr !important; }
             .svc-grid { grid-template-columns: 1fr !important; }
+        }
+
+        /* Drei Kundenstimmen nebeneinander brauchen Platz. Darunter werden
+           die Spalten so schmal, dass der Text in Schnipseln steht. */
+        @media (max-width: 880px) {
             .testi-grid { grid-template-columns: 1fr !important; }
         }
 
@@ -2959,7 +2964,7 @@
             </h2>
         </div>
 
-        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:22px;" class="testi-grid">
+        <div style="display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:22px;" class="testi-grid">
 
             <div class="testi-card reveal d1">
                 <div class="f-display" style="font-size:3.8rem; line-height:1; color:rgba(147,51,234,0.2); font-weight:800; margin-bottom:-4px;">"</div>
