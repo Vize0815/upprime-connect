@@ -19,16 +19,17 @@ jobs:
         run: |
           set -e
           mkdir -p dist/fonts
-          cp index.html impressum.html datenschutz.html dist/
+          cp index.html impressum.html datenschutz.html teilnahmebedingungen.html dist/
           cp .htaccess dist/
           cp robots.txt sitemap.xml dist/
-          cp AGB_Upprime_Connect_Stand_15-04-2026.pdf dist/
+          cp AGB_Upprime_Connect_Stand_12-10-2026.pdf dist/
           cp upprime-connect-logo.png \
              alexander-kroes.webp \
              bernadette-artmann.webp \
              dk.webp \
              MS.webp \
              rs-aero.webp \
+             2-jahre-upprime-connect.webp \
              provenexpert.webp \
              dist/
           cp fonts/Kiona-Regular.ttf fonts/Kiona-Itallic.ttf dist/fonts/
@@ -81,8 +82,9 @@ jobs:
           set -e
           sleep 5
           fehler=0
-          for p in "" impressum.html datenschutz.html upprime-connect-logo.png \
-                   AGB_Upprime_Connect_Stand_15-04-2026.pdf \
+          for p in "" impressum.html datenschutz.html teilnahmebedingungen.html \
+                   upprime-connect-logo.png 2-jahre-upprime-connect.webp \
+                   AGB_Upprime_Connect_Stand_12-10-2026.pdf \
                    alexander-kroes.webp bernadette-artmann.webp dk.webp MS.webp \
                    rs-aero.webp provenexpert.webp fonts/Kiona-Regular.ttf \
                    fonts/Kiona-Itallic.ttf \
