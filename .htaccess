@@ -5,7 +5,8 @@
 # Vorlagen oeffentlich abrufbar. Diese Datei sperrt sie wieder.
 #
 # Die Website selbst braucht nur index.html, impressum.html, datenschutz.html,
-# die AGB als PDF, sieben Bilder und den Ordner fonts. Alles andere darf zu.
+# die AGB als PDF, sieben Bilder, die drei Symboldateien und den Ordner
+# fonts. Alles andere darf zu.
 
 # Verzeichnislisten aus, falls sie je eingeschaltet werden
 Options -Indexes
