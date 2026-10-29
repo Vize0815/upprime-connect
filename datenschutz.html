@@ -437,7 +437,7 @@
         strong { color: var(--text-primary); font-weight: 600; }
 
         /* Footer2 (matches Startseite) */
-        .ft2-grid { display: grid; gap: 48px; padding: 56px 0 40px; grid-template-columns: 1.4fr 1fr 1fr; }
+        .ft2-grid { display: grid; gap: 48px; padding: 56px 0 40px; grid-template-columns: 1.3fr 1fr 1fr auto; }
         @media (max-width: 768px) { .ft2-grid { grid-template-columns: 1fr 1fr !important; } }
         @media (max-width: 520px) { .ft2-grid { grid-template-columns: 1fr !important; } }
         .ft2-link {
@@ -457,6 +457,33 @@
             text-decoration: none; transition: border-color 0.2s, color 0.2s, background 0.2s;
         }
         .ft2-social:hover { border-color: rgba(147,51,234,0.4); color: var(--text-primary); background: rgba(147,51,234,0.06); }
+
+        /* ─── ProvenExpert Bewertungssiegel ─── */
+        .pe-karte {
+            display: inline-flex; flex-direction: column; gap: 8px;
+            width: 200px; padding: 16px 18px 18px;
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
+            background: rgba(255,255,255,0.03);
+            text-decoration: none; color: var(--text-muted);
+            transition: border-color 0.2s, background 0.2s, transform 0.2s;
+        }
+        .pe-karte:hover {
+            border-color: rgba(147,51,234,0.4);
+            background: rgba(147,51,234,0.06);
+            transform: translateY(-2px);
+        }
+        .pe-marke {
+            font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .pe-wert {
+            font-family: 'Kiona','Syne',sans-serif; font-size: 1.5rem; font-weight: 700;
+            color: var(--text-primary); line-height: 1;
+        }
+        .pe-wert span { font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 400; color: var(--text-muted); text-transform: none; }
+        .pe-sterne { display: block; line-height: 0; }
+        .pe-zahl { font-size: 0.82rem; }
+
     </style>
 </head>
 <body>
@@ -828,6 +855,17 @@
                         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.19 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22c4.78-.75 8.44-4.92 8.44-9.94z"/></svg>
                     </a>
                 </div>
+            </div>
+
+            <!-- Bewertungen -->
+            <div>
+                <h3 class="f-display" style="font-size:0.8rem; font-weight:700; color:var(--text-primary); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:20px;">Bewertungen</h3>
+                <a href="https://www.provenexpert.com/upprime-connect/" target="_blank" rel="noopener noreferrer" class="pe-karte" aria-label="Kundenbewertungen zu Upprime Connect auf ProvenExpert, 4,54 von 5 Sternen aus 5 Bewertungen">
+                    <span class="pe-marke">ProvenExpert</span>
+                    <span class="pe-wert">4,54 <span>von 5</span></span>
+                    <svg class="pe-sterne" width="86" height="16" viewBox="0 0 86 16" role="img" aria-hidden="true" focusable="false"><defs><linearGradient id="peTeil" x1="0" x2="1" y1="0" y2="0"><stop offset="54%" stop-color="#F5B50A"/><stop offset="54%" stop-color="rgba(255,255,255,0.16)"/></linearGradient></defs><path transform="translate(0 0)" fill="#F5B50A" d="M8 0.9l2.18 4.42 4.88.71-3.53 3.44.83 4.86L8 12.04l-4.36 2.29.83-4.86L.94 6.03l4.88-.71z"/><path transform="translate(17.5 0)" fill="#F5B50A" d="M8 0.9l2.18 4.42 4.88.71-3.53 3.44.83 4.86L8 12.04l-4.36 2.29.83-4.86L.94 6.03l4.88-.71z"/><path transform="translate(35 0)" fill="#F5B50A" d="M8 0.9l2.18 4.42 4.88.71-3.53 3.44.83 4.86L8 12.04l-4.36 2.29.83-4.86L.94 6.03l4.88-.71z"/><path transform="translate(52.5 0)" fill="#F5B50A" d="M8 0.9l2.18 4.42 4.88.71-3.53 3.44.83 4.86L8 12.04l-4.36 2.29.83-4.86L.94 6.03l4.88-.71z"/><path transform="translate(70 0)" fill="url(#peTeil)" d="M8 0.9l2.18 4.42 4.88.71-3.53 3.44.83 4.86L8 12.04l-4.36 2.29.83-4.86L.94 6.03l4.88-.71z"/></svg>
+                    <span class="pe-zahl">5 Bewertungen</span>
+                </a>
             </div>
 
         </div>
