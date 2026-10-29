@@ -65,7 +65,7 @@
         }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; font-size: 106.25%; } /* 1rem = 17px, wie auf der Startseite */
 
         body {
             background: var(--bg-primary);
@@ -330,6 +330,8 @@
             color: var(--text-primary);
             margin-bottom: 20px;
             line-height: 1.2;
+            overflow-wrap: break-word;
+            hyphens: auto;
         }
 
         h4.imp-h4 {
@@ -439,14 +441,22 @@
         @media (max-width: 768px) { .ft2-grid { grid-template-columns: 1fr 1fr !important; } }
         @media (max-width: 520px) { .ft2-grid { grid-template-columns: 1fr !important; } }
         .ft2-link {
-            color: var(--text-muted);
-            font-size: 0.875rem;
-            text-decoration: none;
-            transition: color 0.2s;
-            cursor: pointer;
-            display: block;
+            color: var(--text-muted); font-size: 0.9rem; text-decoration: none;
+            transition: color 0.2s; cursor: pointer; display: block;
+            padding: 9px 8px; margin: -9px -8px;
         }
         .ft2-link:hover { color: var(--text-primary); }
+
+        /* Footer2 social icon button (matches Startseite) */
+        .ft2-socials { display: flex; gap: 12px; margin-top: 18px; }
+        .ft2-social {
+            width: 40px; height: 40px; border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: transparent; display: inline-flex; align-items: center;
+            justify-content: center; color: var(--text-muted); cursor: pointer;
+            text-decoration: none; transition: border-color 0.2s, color 0.2s, background 0.2s;
+        }
+        .ft2-social:hover { border-color: rgba(147,51,234,0.4); color: var(--text-primary); background: rgba(147,51,234,0.06); }
     </style>
 </head>
 <body>
@@ -791,14 +801,14 @@
             <!-- Logo + description -->
             <div>
                 <img src="./upprime-connect-logo.png" alt="Upprime Connect" width="500" height="500" style="height:96px; width:auto; aspect-ratio:1/1; display:block; margin-bottom:20px;" loading="lazy" decoding="async">
-                <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.7; max-width:340px;">
+                <p style="color:var(--text-muted); font-size:0.94rem; line-height:1.7; max-width:340px;">
                     Webdesign, SEO und Branding Agentur aus Kufstein. Eine jungdynamische und verlässliche Agentur im Herzen Tirols. Für Unternehmen in der Region und darüber hinaus.
                 </p>
             </div>
 
             <!-- Agentur -->
             <div>
-                <h3 class="f-display" style="font-size:0.72rem; font-weight:700; color:var(--text-primary); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:20px;">Agentur</h3>
+                <h3 class="f-display" style="font-size:0.8rem; font-weight:700; color:var(--text-primary); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:20px;">Agentur</h3>
                 <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
                     <li><a href="./index.html#services" class="ft2-link">Leistungen</a></li>
                     <li><a href="./index.html#portfolio" class="ft2-link">Kundenstimmen</a></li>
@@ -809,10 +819,15 @@
 
             <!-- Kontakt -->
             <div>
-                <h3 class="f-display" style="font-size:0.72rem; font-weight:700; color:var(--text-primary); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:20px;">Kontakt</h3>
+                <h3 class="f-display" style="font-size:0.8rem; font-weight:700; color:var(--text-primary); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:20px;">Kontakt</h3>
                 <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
                     <li><a href="mailto:support@upprime-connect.at" class="ft2-link">support@upprime-connect.at</a></li>
                 </ul>
+                <div class="ft2-socials">
+                    <a href="https://www.facebook.com/upprimeconnect" target="_blank" rel="noopener noreferrer" class="ft2-social" aria-label="Facebook">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.19 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22c4.78-.75 8.44-4.92 8.44-9.94z"/></svg>
+                    </a>
+                </div>
             </div>
 
         </div>
@@ -821,15 +836,15 @@
         <div style="height:1px; background:rgba(255,255,255,0.07);"></div>
 
         <!-- Bottom bar: Copyright + legal links -->
-        <div style="padding:20px 0; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; color:var(--text-muted); font-size:0.78rem;">
+        <div style="padding:20px 0; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; color:var(--text-muted); font-size:0.84rem;">
             <div>
                 © 2026 Upprime Connect. Alle Rechte vorbehalten.
             </div>
             <div style="display:flex; gap:28px; flex-wrap:wrap;">
-                <a href="./AGB_Upprime_Connect_Stand_12-10-2026.pdf" class="ft2-link" style="font-size:0.78rem;" download target="_blank" rel="noopener">AGB</a>
-                <a href="./impressum.html" class="ft2-link" style="font-size:0.78rem;">Impressum</a>
-                <a href="./datenschutz.html" class="ft2-link" style="font-size:0.78rem;">Datenschutz</a>
-                <a href="./index.html#cookie-settings" class="ft2-link" style="font-size:0.78rem;">Cookie Einstellungen</a>
+                <a href="./AGB_Upprime_Connect_Stand_12-10-2026.pdf" class="ft2-link" style="font-size:0.84rem;" download target="_blank" rel="noopener">AGB</a>
+                <a href="./impressum.html" class="ft2-link" style="font-size:0.84rem;">Impressum</a>
+                <a href="./datenschutz.html" class="ft2-link" style="font-size:0.84rem;">Datenschutz</a>
+                <a href="./index.html#cookie-settings" class="ft2-link" style="font-size:0.84rem;">Cookie Einstellungen</a>
             </div>
         </div>
 
