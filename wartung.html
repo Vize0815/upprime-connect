@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wartung und Pflege für WordPress Websites von Upprime Connect aus Kufstein. Drei Pakete ab 45 € netto im Monat, monatlich kündbar, mit Uptime Monitoring, Sicherungen und Updates.">
+    <title>WordPress Wartung | Upprime Connect</title>
+    <link rel="canonical" href="https://upprime-connect.at/wartung.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="WordPress Wartung | Upprime Connect">
+    <meta property="og:description" content="Drei Wartungspakete für WordPress Websites. Klare Preise, monatlich kündbar.">
+    <meta property="og:url" content="https://upprime-connect.at/wartung.html">
+    <meta property="og:locale" content="de_AT">
+    <!-- Symbol der Seite, es erscheint im Browsertab und im Google Ergebnis -->
+    <link rel="icon" href="./favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/png" href="./favicon-96.png" sizes="96x96">
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "WordPress Wartung und Pflege",
+        "serviceType": "Website Wartung",
+        "url": "https://upprime-connect.at/wartung.html",
+        "areaServed": "AT",
+        "provider": { "@type": "Organization", "name": "Upprime Connect", "url": "https://upprime-connect.at/" },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Wartungspakete",
+            "itemListElement": [
+                { "@type": "Offer", "name": "Content", "priceCurrency": "EUR", "priceSpecification": { "@type": "UnitPriceSpecification", "price": 45.00, "priceCurrency": "EUR", "unitCode": "MON", "valueAddedTaxIncluded": false } },
+                { "@type": "Offer", "name": "Content Plus", "priceCurrency": "EUR", "priceSpecification": { "@type": "UnitPriceSpecification", "price": 129.00, "priceCurrency": "EUR", "unitCode": "MON", "valueAddedTaxIncluded": false } },
+                { "@type": "Offer", "name": "Business", "priceCurrency": "EUR", "priceSpecification": { "@type": "UnitPriceSpecification", "price": 215.00, "priceCurrency": "EUR", "unitCode": "MON", "valueAddedTaxIncluded": false } }
+            ]
+        }
+    }
+    </script>
+    <style>
+        @font-face {
+            font-family: 'DM Sans';
+            src: url('./fonts/dm-sans-latin-ext.woff2') format('woff2');
+            font-weight: 100 1000;
+            font-style: normal;
+            font-display: swap;
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        @font-face {
+            font-family: 'DM Sans';
+            src: url('./fonts/dm-sans-latin.woff2') format('woff2');
+            font-weight: 100 1000;
+            font-style: normal;
+            font-display: swap;
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'Syne';
+            src: url('./fonts/syne-latin-ext.woff2') format('woff2');
+            font-weight: 400 800;
+            font-style: normal;
+            font-display: swap;
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        @font-face {
+            font-family: 'Syne';
+            src: url('./fonts/syne-latin.woff2') format('woff2');
+            font-weight: 400 800;
+            font-style: normal;
+            font-display: swap;
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'Kiona';
+            src: url('./fonts/Kiona-Regular.ttf') format('truetype');
+            font-weight: 400 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --bg-primary: #05050A;
+            --bg-secondary: #0A0A16;
+            --accent: #9333EA;
+            --accent-light: #C084FC;
+            --accent-blue: #4F8EF7;
+            --text-primary: #F0F0FF;
+            --text-muted: #7878A0;
+            --text-body: #B4B4CC;
+            --border: rgba(255,255,255,0.07);
+            --card-bg: rgba(255,255,255,0.028);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 106.25%; } /* 1rem = 17px, wie auf der Startseite */
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: rgba(147,51,234,0.4); border-radius: 3px; }
+
+        .f-display { font-family: 'Kiona', 'Syne', sans-serif; letter-spacing: 0.02em; }
+
+        a {
+            color: var(--accent-light);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover { color: var(--accent); }
+
+        /* Top bar */
+        .imp-topbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(5,5,10,0.72);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+        .imp-topbar-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .imp-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+        .imp-back:hover {
+            color: var(--text-primary);
+            border-color: rgba(147,51,234,0.35);
+            background: rgba(147,51,234,0.05);
+        }
+        .imp-brand {
+            font-family: 'Kiona', 'Syne', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+        }
+
+        /* Hero header */
+        .imp-hero {
+            position: relative;
+            padding: 88px 24px 64px;
+            overflow: hidden;
+        }
+        .imp-hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .imp-blob-a {
+            position: absolute;
+            top: -160px;
+            left: -140px;
+            width: 460px;
+            height: 460px;
+            background: radial-gradient(circle, rgba(147,51,234,0.18) 0%, transparent 65%);
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .imp-blob-b {
+            position: absolute;
+            top: 40px;
+            right: -180px;
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(79,142,247,0.11) 0%, transparent 65%);
+            filter: blur(70px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .imp-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 16px;
+            border: 1px solid rgba(147,51,234,0.28);
+            background: rgba(147,51,234,0.06);
+            border-radius: 999px;
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            margin-bottom: 22px;
+        }
+        .imp-pill svg { width: 8px; height: 8px; }
+        h1.imp-title {
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .imp-lede {
+            color: var(--text-body);
+            font-size: 1.05rem;
+            max-width: 620px;
+            line-height: 1.72;
+        }
+        .imp-updated {
+            margin-top: 22px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            font-family: 'Kiona','Syne',sans-serif;
+            font-weight: 600;
+        }
+
+        /* Main content */
+        main.imp-main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px 24px 120px;
+        }
+        section.imp-section {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+        }
+        section.imp-section:first-child { border-top: none; padding-top: 8px; }
+
+        h2.imp-h2 {
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        h2.imp-h2::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: rgba(192,132,252,0.55);
+        }
+
+        h3.imp-h3 {
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        p.imp-p {
+            color: var(--text-body);
+            font-size: 1rem;
+            line-height: 1.75;
+            max-width: 70ch;
+            margin-bottom: 14px;
+        }
+        p.imp-p:last-child { margin-bottom: 0; }
+
+        /* Definition list card */
+        .imp-dl {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 0;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 8px 4px;
+            margin-bottom: 20px;
+        }
+        .imp-dl-row {
+            display: contents;
+        }
+        .imp-dl dt, .imp-dl dd {
+            padding: 14px 22px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .imp-dl dt {
+            color: var(--text-muted);
+            font-family: 'Kiona','Syne',sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+        .imp-dl dd {
+            color: var(--text-primary);
+            font-size: 0.98rem;
+            font-weight: 500;
+        }
+        .imp-dl-row:last-child dt, .imp-dl-row:last-child dd { border-bottom: none; }
+
+        @media (max-width: 620px) {
+            .imp-dl { grid-template-columns: 1fr; padding: 4px; }
+            .imp-dl dt { padding: 14px 16px 4px; border-bottom: none; }
+            .imp-dl dd { padding: 0 16px 14px; }
+        }
+
+        /* Placeholder highlight */
+        .imp-todo {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 6px;
+            background: rgba(147,51,234,0.12);
+            border: 1px dashed rgba(192,132,252,0.45);
+            color: var(--accent-light);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        /* Footer2 (matches Startseite) */
+        .ft2-grid { display: grid; gap: 48px; padding: 56px 0 40px; grid-template-columns: 1.3fr 1fr 1fr auto; }
+        @media (max-width: 768px) { .ft2-grid { grid-template-columns: 1fr 1fr !important; } }
+        @media (max-width: 520px) { .ft2-grid { grid-template-columns: 1fr !important; } }
+        .ft2-link {
+            color: var(--text-muted); font-size: 0.9rem; text-decoration: none;
+            transition: color 0.2s; cursor: pointer; display: block;
+            padding: 9px 8px; margin: -9px -8px;
+        }
+        .ft2-link:hover { color: var(--text-primary); }
+
+        /* Footer2 social icon button (matches Startseite) */
+        .ft2-socials { display: flex; gap: 12px; margin-top: 18px; }
+        .ft2-social {
+            width: 40px; height: 40px; border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: transparent; display: inline-flex; align-items: center;
+            justify-content: center; color: var(--text-muted); cursor: pointer;
+            text-decoration: none; transition: border-color 0.2s, color 0.2s, background 0.2s;
+        }
+        .ft2-social:hover { border-color: rgba(147,51,234,0.4); color: var(--text-primary); background: rgba(147,51,234,0.06); }
+
+        /* ─── ProvenExpert Bewertungssiegel ─── */
+        .pe-karte {
+            display: inline-flex; flex-direction: column; gap: 8px;
+            width: 200px; padding: 16px 18px 18px;
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
+            background: rgba(255,255,255,0.03);
+            text-decoration: none; color: var(--text-muted);
+            transition: border-color 0.2s, background 0.2s, transform 0.2s;
+        }
+        .pe-karte:hover {
+            border-color: rgba(147,51,234,0.4);
+            background: rgba(147,51,234,0.06);
+            transform: translateY(-2px);
+        }
+        .pe-wert {
+            font-family: 'Kiona','Syne',sans-serif; font-size: 1.5rem; font-weight: 700;
+            color: var(--text-primary); line-height: 1;
+        }
+        .pe-wert span { font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 400; color: var(--text-muted); text-transform: none; }
+        .pe-sterne { display: block; line-height: 0; }
+        .pe-zahl { font-size: 0.82rem; }
+
+        /* ═══ Wartungsseite ═══ */
+        :root {
+            --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+            --gold: #F5B50A;
+        }
+        .imp-topbar-inner, .imp-hero-inner { max-width: 1120px; }
+        .w-wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+        .w-hero { padding-bottom: 40px; }
+        .w-hero h1.imp-title { font-size: clamp(2.5rem, 7vw, 5.2rem); max-width: 14ch; }
+        .w-hero h1 .grad {
+            background: linear-gradient(130deg, #C084FC 0%, #9333EA 45%, #4F8EF7 100%);
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .w-hero .imp-lede { max-width: 640px; font-size: 1.08rem; }
+        .w-facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; list-style: none; }
+        .w-facts li {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 8px 14px; border-radius: 999px;
+            border: 1px solid var(--border); background: rgba(255,255,255,0.025);
+            color: var(--text-body); font-size: 0.86rem;
+        }
+        .w-facts svg { flex-shrink: 0; }
+
+        /* Abrechnungsschalter */
+        .w-toggle-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; margin: 8px 0 28px; }
+        .w-toggle-row p { color: var(--text-muted); font-size: 0.9rem; }
+        .w-toggle {
+            position: relative; display: inline-grid; grid-template-columns: 1fr 1fr;
+            padding: 4px; border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);
+        }
+        .w-toggle::before {
+            content: ''; position: absolute; top: 4px; bottom: 4px; left: 4px;
+            width: calc(50% - 4px); border-radius: 999px;
+            background: linear-gradient(135deg, #9333EA 0%, #7C3AED 100%);
+            box-shadow: 0 6px 24px rgba(147,51,234,0.35);
+            transition: transform 260ms var(--ease-out);
+        }
+        .w-toggle[data-mode="jahr"]::before { transform: translateX(100%); }
+        .w-toggle button {
+            position: relative; z-index: 1; border: 0; background: none; cursor: pointer;
+            padding: 10px 22px; border-radius: 999px;
+            font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.9rem;
+            color: var(--text-muted); transition: color 200ms ease;
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap;
+        }
+        .w-toggle button[aria-pressed="true"] { color: #fff; }
+        .w-toggle button:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+        .w-toggle .w-gratis {
+            font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 600;
+            padding: 2px 8px; border-radius: 999px;
+            background: rgba(245,181,10,0.14); color: var(--gold); letter-spacing: 0.02em;
+        }
+
+        /* Paketkarten */
+        .w-pakete { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
+        .w-karte {
+            position: relative; display: flex; flex-direction: column;
+            padding: 30px 28px 28px; border-radius: 22px;
+            background: var(--card-bg); border: 1px solid var(--border);
+            transition: border-color 0.3s, transform 0.3s var(--ease-out), box-shadow 0.3s;
+        }
+        .w-karte:hover { border-color: rgba(147,51,234,0.3); transform: translateY(-4px); box-shadow: 0 24px 60px rgba(0,0,0,0.3); }
+        .w-karte.is-top {
+            background:
+                linear-gradient(180deg, rgba(147,51,234,0.14) 0%, rgba(147,51,234,0.02) 60%) padding-box,
+                linear-gradient(#0B0A18, #0B0A18) padding-box,
+                linear-gradient(160deg, rgba(192,132,252,0.75), rgba(79,142,247,0.35) 60%, rgba(255,255,255,0.06)) border-box;
+            border: 1px solid transparent;
+            box-shadow: 0 30px 80px rgba(147,51,234,0.16);
+        }
+        .w-karte.is-top:hover { box-shadow: 0 34px 90px rgba(147,51,234,0.24); }
+        .w-badge {
+            position: absolute; top: -13px; left: 28px;
+            padding: 5px 12px; border-radius: 999px;
+            background: linear-gradient(135deg, #9333EA, #4F8EF7);
+            font-family: 'Kiona','Syne',sans-serif; font-size: 0.66rem; font-weight: 700;
+            letter-spacing: 0.14em; text-transform: uppercase; color: #fff;
+        }
+        .w-name {
+            font-family: 'Kiona','Syne',sans-serif; font-size: 0.8rem; font-weight: 700;
+            letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-light);
+        }
+        .w-fuer { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 10px 0 22px; min-height: 3.2em; }
+        .w-preis { display: flex; align-items: baseline; gap: 8px; min-height: 4.2rem; }
+        .w-betrag {
+            font-family: 'Kiona','Syne',sans-serif; font-weight: 700; line-height: 1;
+            font-size: clamp(2.6rem, 4.4vw, 3.4rem); letter-spacing: -0.02em; color: var(--text-primary);
+            font-variant-numeric: tabular-nums;
+        }
+        .w-einheit { color: var(--text-muted); font-size: 0.92rem; }
+        .w-preis-sub { color: var(--text-muted); font-size: 0.82rem; min-height: 1.4em; margin-top: 4px; }
+        .w-swap { transition: opacity 180ms ease, filter 180ms ease, transform 180ms var(--ease-out); }
+        .w-swap.is-out { opacity: 0; filter: blur(3px); transform: translateY(4px); }
+
+        .w-kontingent {
+            display: flex; align-items: center; gap: 14px;
+            margin: 24px 0 20px; padding: 14px 16px; border-radius: 14px;
+            background: rgba(147,51,234,0.08); border: 1px solid rgba(147,51,234,0.2);
+        }
+        .w-kontingent strong { font-family: 'Kiona','Syne',sans-serif; font-size: 1.5rem; line-height: 1; color: var(--text-primary); white-space: nowrap; }
+        .w-kontingent span { color: var(--text-body); font-size: 0.86rem; line-height: 1.4; }
+
+        .w-liste { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; flex: 1; }
+        .w-liste li { display: grid; grid-template-columns: 20px 1fr; gap: 10px; align-items: start; color: var(--text-body); font-size: 0.94rem; line-height: 1.5; }
+        .w-liste li.nein { color: rgba(120,120,160,0.75); }
+        .w-liste svg { margin-top: 2px; }
+        .w-liste em { font-style: normal; color: var(--text-primary); font-weight: 600; }
+
+        .w-btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.94rem;
+            padding: 14px 22px; border-radius: 12px; text-decoration: none; cursor: pointer;
+            color: var(--text-primary); border: 1px solid rgba(255,255,255,0.14); background: transparent;
+            transition: border-color 0.2s, background 0.2s, transform 160ms var(--ease-out), box-shadow 0.2s;
+        }
+        .w-btn:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.32); background: rgba(255,255,255,0.04); }
+        .w-btn:active { transform: scale(0.97); }
+        .w-btn.prim { background: var(--accent); border-color: var(--accent); color: #fff; }
+        .w-btn.prim:hover { color: #fff; background: var(--accent); box-shadow: 0 10px 36px rgba(147,51,234,0.42); transform: translateY(-2px); }
+        .w-btn.prim:active { transform: scale(0.97); }
+
+        .w-hinweis { margin-top: 18px; color: var(--text-muted); font-size: 0.84rem; line-height: 1.6; }
+
+        /* Abschnitte */
+        .w-sec { padding: 96px 0 0; }
+        .w-kopf { max-width: 640px; margin-bottom: 40px; }
+        .w-kopf .w-titel {
+            font-family: 'Kiona','Syne',sans-serif; font-size: clamp(1.8rem, 4.2vw, 2.8rem);
+            font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 14px;
+        }
+        .w-kopf p { color: var(--text-body); font-size: 1rem; line-height: 1.72; }
+
+        .w-erkl { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+        .w-erkl article {
+            padding: 28px; border-radius: 20px; background: var(--card-bg); border: 1px solid var(--border);
+        }
+        .w-icon {
+            width: 48px; height: 48px; border-radius: 12px; background: rgba(147,51,234,0.12);
+            display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+        }
+        .w-erkl h3 { font-family: 'Kiona','Syne',sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+        .w-erkl p { color: var(--text-body); font-size: 0.96rem; line-height: 1.7; }
+        .w-erkl .w-tag {
+            display: inline-block; margin-top: 14px; padding: 4px 10px; border-radius: 999px;
+            font-size: 0.76rem; color: var(--accent-light); background: rgba(147,51,234,0.1); border: 1px solid rgba(147,51,234,0.22);
+        }
+
+        .w-achtung {
+            margin-top: 22px; display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: start;
+            padding: 22px 24px; border-radius: 18px;
+            background: rgba(245,181,10,0.05); border: 1px solid rgba(245,181,10,0.22);
+        }
+        .w-achtung p { color: var(--text-body); font-size: 0.95rem; line-height: 1.7; }
+        .w-achtung strong { color: var(--text-primary); }
+
+        /* Zusatzaufwand */
+        .w-extra { display: grid; grid-template-columns: 1.15fr 1fr; gap: 22px; }
+        .w-box { padding: 30px; border-radius: 20px; background: var(--card-bg); border: 1px solid var(--border); }
+        .w-box h3 { font-family: 'Kiona','Syne',sans-serif; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 20px; }
+        .w-punkte { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .w-punkte li { display: grid; grid-template-columns: 14px 1fr; gap: 12px; color: var(--text-body); font-size: 0.95rem; line-height: 1.55; }
+        .w-punkte li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: rgba(192,132,252,0.6); margin-top: 0.6em; }
+        .w-satz { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .w-satz:first-of-type { padding-top: 0; }
+        .w-satz span { color: var(--text-body); font-size: 0.95rem; }
+        .w-satz strong { font-family: 'Kiona','Syne',sans-serif; font-size: 1.3rem; color: var(--text-primary); white-space: nowrap; }
+        .w-satz-fuss { color: var(--text-muted); font-size: 0.84rem; line-height: 1.65; margin-top: 16px; }
+
+        /* Ablauf */
+        .w-schritte { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; counter-reset: s; }
+        .w-schritte li { position: relative; padding: 26px 24px; border-radius: 20px; background: var(--card-bg); border: 1px solid var(--border); counter-increment: s; }
+        .w-schritte li::before {
+            content: '0' counter(s); display: block; margin-bottom: 18px;
+            font-family: 'Kiona','Syne',sans-serif; font-size: 2rem; font-weight: 700; line-height: 1;
+            background: linear-gradient(130deg, #C084FC, #4F8EF7); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .w-schritte h3 { font-family: 'Kiona','Syne',sans-serif; font-size: 1.05rem; margin-bottom: 8px; }
+        .w-schritte p { color: var(--text-body); font-size: 0.92rem; line-height: 1.65; }
+
+        /* Fragen */
+        .w-fragen { display: flex; flex-direction: column; gap: 12px; max-width: 860px; }
+        .w-fragen details { border-radius: 16px; background: var(--card-bg); border: 1px solid var(--border); transition: border-color 0.2s; }
+        .w-fragen details[open] { border-color: rgba(147,51,234,0.3); }
+        .w-fragen summary {
+            list-style: none; cursor: pointer; padding: 20px 24px;
+            display: flex; justify-content: space-between; align-items: center; gap: 16px;
+            font-family: 'Kiona','Syne',sans-serif; font-size: 1.02rem; font-weight: 700; color: var(--text-primary);
+        }
+        .w-fragen summary::-webkit-details-marker { display: none; }
+        .w-fragen summary::after {
+            content: ''; flex-shrink: 0; width: 10px; height: 10px;
+            border-right: 1.5px solid var(--accent-light); border-bottom: 1.5px solid var(--accent-light);
+            transform: rotate(45deg) translateY(-3px); transition: transform 220ms var(--ease-out);
+        }
+        .w-fragen details[open] summary::after { transform: rotate(225deg) translateY(-3px); }
+        .w-fragen summary:focus-visible { outline: 2px solid var(--accent-light); outline-offset: -2px; border-radius: 16px; }
+        .w-fragen .w-antwort { padding: 0 24px 22px; color: var(--text-body); font-size: 0.96rem; line-height: 1.72; max-width: 72ch; }
+
+        /* Abschluss */
+        .w-cta {
+            position: relative; overflow: hidden; margin: 96px 0 110px;
+            padding: 56px 48px; border-radius: 28px; text-align: center;
+            background: linear-gradient(160deg, rgba(147,51,234,0.16), rgba(79,142,247,0.06) 70%);
+            border: 1px solid rgba(147,51,234,0.28);
+        }
+        .w-cta::before {
+            content: ''; position: absolute; width: 420px; height: 420px; top: -220px; left: 50%; transform: translateX(-50%);
+            background: radial-gradient(circle, rgba(192,132,252,0.28), transparent 65%); filter: blur(40px); pointer-events: none;
+        }
+        .w-cta > * { position: relative; }
+        .w-cta h2 { font-family: 'Kiona','Syne',sans-serif; font-size: clamp(1.7rem, 4vw, 2.6rem); line-height: 1.12; margin-bottom: 14px; }
+        .w-cta p { color: var(--text-body); max-width: 540px; margin: 0 auto 28px; }
+        .w-cta-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+        .w-recht { color: var(--text-muted); font-size: 0.82rem; line-height: 1.7; margin-top: 26px; max-width: 900px; }
+
+        @media (max-width: 980px) {
+            .w-pakete { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; gap: 30px; }
+            .w-fuer { min-height: 0; }
+            .w-schritte { grid-template-columns: repeat(2, 1fr); }
+            .w-extra { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            .w-erkl, .w-schritte { grid-template-columns: 1fr; }
+            .w-sec { padding-top: 72px; }
+            .w-cta { padding: 44px 22px; margin: 72px 0 88px; }
+            .w-toggle-row { justify-content: flex-start; }
+            .w-toggle button { padding: 10px 16px; }
+            .w-karte { padding: 28px 22px 24px; }
+            .w-box { padding: 24px 20px; }
+        }
+        @media (max-width: 640px) {
+            .w-toggle { width: 100%; grid-template-columns: minmax(0,1fr) minmax(0,1fr); margin-top: 10px; }
+            .w-toggle .w-gratis { position: absolute; top: -13px; right: 8px; background: #2A2208; border: 1px solid rgba(245,181,10,0.35); }
+            .imp-back { white-space: nowrap; }
+        }
+        @media (max-width: 400px) {
+            .imp-brand { font-size: 0.72rem; letter-spacing: 0.1em; }
+            .imp-back { padding: 8px 12px; font-size: 0.8rem; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .w-toggle::before, .w-swap, .w-karte, .w-btn, .w-fragen summary::after { transition: none; }
+        }
+
+        .w-eyebrow {
+            font-family: 'Kiona','Syne',sans-serif; font-size: 0.78rem; font-weight: 700;
+            letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-light);
+            margin-bottom: 18px; display: flex; align-items: center; gap: 14px;
+        }
+        .w-eyebrow::before { content: ''; width: 24px; height: 1px; background: rgba(192,132,252,0.55); }
+        .sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    </style>
+</head>
+<body>
+
+
+<!-- Top bar -->
+<div class="imp-topbar">
+    <div class="imp-topbar-inner">
+        <a href="./index.html" class="imp-back">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Zurück zur Startseite
+        </a>
+        <div class="imp-brand">Upprime Connect</div>
+    </div>
+</div>
+
+
+<!-- Hero header -->
+<header class="imp-hero w-hero">
+    <div class="imp-blob-a"></div>
+    <div class="imp-blob-b"></div>
+    <div class="imp-hero-inner">
+        <div class="imp-pill">
+            <svg viewBox="0 0 8 8" fill="none"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            WordPress Wartung
+        </div>
+        <h1 class="imp-title">Wartung <span class="grad">und Pflege.</span></h1>
+        <p class="imp-lede">
+            Wir pflegen die Inhalte deiner WordPress Website, halten die Technik aktuell und sichern sie regelmäßig. Drei Pakete, klare Preise, monatlich kündbar.
+        </p>
+        <ul class="w-facts">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Monatlich kündbar</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Ein Monat gratis bei jährlicher Zahlung</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Stündliches Uptime Monitoring in jedem Paket</li>
+        </ul>
+    </div>
+</header>
+
+<main>
+<div class="w-wrap">
+
+    <!-- Pakete -->
+    <section id="pakete" aria-labelledby="pakete-titel">
+        <h2 id="pakete-titel" class="imp-h2">Die Pakete</h2>
+        <div class="w-toggle-row">
+            <p>Alle Preise netto, zzgl. gesetzlicher USt.</p>
+            <div class="w-toggle" role="group" aria-label="Abrechnung wählen" data-mode="monat">
+                <button type="button" data-mode="monat" aria-pressed="true">Monatlich</button>
+                <button type="button" data-mode="jahr" aria-pressed="false">Jährlich <span class="w-gratis">1 Monat gratis</span></button>
+            </div>
+        </div>
+
+        <div class="w-pakete">
+
+            <!-- Content -->
+            <article class="w-karte" aria-labelledby="p1">
+                <div class="w-name" id="p1">Content</div>
+                <p class="w-fuer">Für Websites, deren Inhalte aktuell bleiben sollen und deren Technik du selbst betreust.</p>
+                <div class="w-swap" aria-live="polite">
+                    <div class="w-preis"><span class="w-betrag" data-m="45" data-j="495">45</span><span class="w-einheit" data-m="€ / Monat" data-j="€ / Jahr">€ / Monat</span></div>
+                    <div class="w-preis-sub" data-m="netto, monatlich im Vorhinein" data-j="41,25 € im Monat, 45 € gespart">netto, monatlich im Vorhinein</div>
+                </div>
+                <div class="w-kontingent"><strong>30 Min.</strong><span>Pflegekontingent pro Monat</span></div>
+                <ul class="w-liste">
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Einpflege von Texten, Bildern und Dateien</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Support für Systemfragen</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Uptime Monitoring, stündlich</li>
+                    <li class="nein"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg><span><span class="sr">Nicht enthalten: </span>Vollsicherung der Website</span></li>
+                    <li class="nein"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg><span><span class="sr">Nicht enthalten: </span>WordPress Wartung und Updates</span></li>
+                </ul>
+                <a href="./index.html#contact" class="w-btn">Content anfragen</a>
+            </article>
+
+            <!-- Content Plus -->
+            <article class="w-karte is-top" aria-labelledby="p2">
+                <span class="w-badge">Empfohlen</span>
+                <div class="w-name" id="p2">Content Plus</div>
+                <p class="w-fuer">Für Unternehmen, die Pflege und Technik ihrer Website komplett abgeben möchten.</p>
+                <div class="w-swap" aria-live="polite">
+                    <div class="w-preis"><span class="w-betrag" data-m="129" data-j="1.419">129</span><span class="w-einheit" data-m="€ / Monat" data-j="€ / Jahr">€ / Monat</span></div>
+                    <div class="w-preis-sub" data-m="netto, monatlich im Vorhinein" data-j="118,25 € im Monat, 129 € gespart">netto, monatlich im Vorhinein</div>
+                </div>
+                <div class="w-kontingent"><strong>60 Min.</strong><span>Pflegekontingent pro Monat</span></div>
+                <ul class="w-liste">
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Einpflege von Texten, Bildern und Dateien</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Support für Systemfragen</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Uptime Monitoring, stündlich</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Vollsicherung der Website, <em>1 × pro Monat</em></span></li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>WordPress Wartung mit Sicherung vor jedem Update</li>
+                </ul>
+                <a href="./index.html#contact" class="w-btn prim">Content Plus anfragen</a>
+            </article>
+
+            <!-- Business -->
+            <article class="w-karte" aria-labelledby="p3">
+                <div class="w-name" id="p3">Business</div>
+                <p class="w-fuer">Für Websites, an denen regelmäßig gearbeitet wird und auf die sich dein Geschäft stützt.</p>
+                <div class="w-swap" aria-live="polite">
+                    <div class="w-preis"><span class="w-betrag" data-m="215" data-j="2.365">215</span><span class="w-einheit" data-m="€ / Monat" data-j="€ / Jahr">€ / Monat</span></div>
+                    <div class="w-preis-sub" data-m="netto, monatlich im Vorhinein" data-j="197,08 € im Monat, 215 € gespart">netto, monatlich im Vorhinein</div>
+                </div>
+                <div class="w-kontingent"><strong>90 Min.</strong><span>Pflegekontingent pro Monat</span></div>
+                <ul class="w-liste">
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Einpflege von Texten, Bildern und Dateien</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Support für Systemfragen</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Uptime Monitoring, stündlich</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Vollsicherung der Website, <em>2 × pro Monat</em></span></li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>WordPress Wartung mit Sicherung vor jedem Update</li>
+                </ul>
+                <a href="./index.html#contact" class="w-btn">Business anfragen</a>
+            </article>
+
+        </div>
+
+        <p class="w-hinweis">Für die Einrichtung von Zugängen, Monitoring und Sicherungen verrechnen wir einmalig eine Pauschale, die du vorab in deinem Angebot siehst.</p>
+    </section>
+
+    <!-- Leistungen erklärt -->
+    <section class="w-sec" aria-labelledby="inhalt-titel">
+        <div class="w-kopf">
+            <p class="w-eyebrow">Was in den Paketen steckt</p>
+            <h2 class="w-titel" id="inhalt-titel">Vier Bausteine, klar beschrieben.</h2>
+            <p>Damit du weißt, wofür du zahlst. Genau so steht es auch in deinem Wartungsvertrag.</p>
+        </div>
+
+        <div class="w-erkl">
+            <article>
+                <div class="w-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3z"/><path d="M13.5 6.5l3 3"/></svg></div>
+                <h3>Pflegekontingent</h3>
+                <p>Wir pflegen Texte, Bilder und Dateien in dein bestehendes Layout ein und beantworten deine Fragen zum System. Abgerechnet wird pro angefangene 15 Minuten. Nicht verbrauchte Minuten verfallen am Monatsende.</p>
+                <span class="w-tag">In allen Paketen</span>
+            </article>
+            <article>
+                <div class="w-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2.5-6 5 12 2.5-6h4"/></svg></div>
+                <h3>Uptime Monitoring</h3>
+                <p>Ein automatischer Check prüft jede Stunde, ob deine Website erreichbar ist. Bei einer Störung informieren wir dich per Mail und beginnen innerhalb unserer Arbeitszeit mit der Analyse. Die Behebung ist in Content Plus und Business enthalten, im Paket Content läuft sie über das Pflegekontingent.</p>
+                <span class="w-tag">In allen Paketen</span>
+            </article>
+            <article>
+                <div class="w-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="2.5"/><path d="M5 6v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><path d="M5 12v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-6"/></svg></div>
+                <h3>Datensicherung</h3>
+                <p>Vollsicherung von Dateien und Datenbank, je nach Paket einmal oder zweimal im Monat. Endet der Vertrag, bekommst du auf Wunsch eine aktuelle Vollsicherung deiner Website.</p>
+                <span class="w-tag">Content Plus und Business</span>
+            </article>
+            <article>
+                <div class="w-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.6-4.5M4 4v3h3"/><path d="M4 13a8 8 0 0 0 14.6 4.5M20 20v-3h-3"/></svg></div>
+                <h3>WordPress Wartung</h3>
+                <p>Wir aktualisieren den WordPress Kern, alle kostenlosen und Premium Plugins sowie das Theme. Vor jedem Update entsteht eine Sicherung. Stört ein Update die Website, stellen wir den letzten funktionierenden Stand wieder her oder beheben den Fehler. Lizenzkosten für Premium Plugins trägst du.</p>
+                <span class="w-tag">Content Plus und Business</span>
+            </article>
+        </div>
+
+        <div class="w-achtung" role="note">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5B50A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9.5 16.5h-19L12 3z"/><path d="M12 10v4.5M12 17.5v.01"/></svg>
+            <p><strong>Gut zu wissen beim Paket Content.</strong> Hier spielen wir keine Updates ein. Du bist dann selbst für Aktualität und Sicherheit deiner Website verantwortlich. Veraltete Plugins gehören zu den häufigsten Einfallstoren für Angriffe, deshalb empfehlen wir für die meisten Websites Content Plus.</p>
+        </div>
+    </section>
+
+    <!-- Zusatzaufwand -->
+    <section class="w-sec" aria-labelledby="extra-titel">
+        <div class="w-kopf">
+            <p class="w-eyebrow">Ehrlich gesagt</p>
+            <h2 class="w-titel" id="extra-titel">Was nicht im Paket steckt.</h2>
+            <p>Manche Arbeiten lassen sich nicht pauschal planen. Die erledigen wir gerne, nach deiner Beauftragung und zu festen Sätzen.</p>
+        </div>
+
+        <div class="w-extra">
+            <div class="w-box">
+                <h3>Nicht enthalten</h3>
+                <ul class="w-punkte">
+                    <li>Pflegeaufwand über das monatliche Kontingent hinaus</li>
+                    <li>Design und Funktionserweiterungen</li>
+                    <li>Updates und Fehlerbehebung im Paket Content</li>
+                    <li>Ersatz eines Plugins, das eingestellt wird oder nicht mehr kompatibel ist</li>
+                    <li>Bereinigung nach Hackerangriffen oder Schadsoftware</li>
+                    <li>Störungen, die durch dich oder Dritte verursacht wurden</li>
+                    <li>Hosting, Domain, Mail Dienste und Lizenzkosten</li>
+                    <li>Rechtliche Prüfung von Impressum, Datenschutzerklärung und Cookie Banner</li>
+                </ul>
+            </div>
+            <div class="w-box">
+                <h3>Unsere Sätze</h3>
+                <div class="w-satz"><span>Inhaltspflege und Webdesign</span><strong>24,90 €</strong></div>
+                <div class="w-satz"><span>Programmierung und Hosting Support</span><strong>32,90 €</strong></div>
+                <p class="w-satz-fuss">Jeweils pro angefangene 15 Minuten, netto zzgl. USt. Außerhalb unserer Arbeitszeit gilt der doppelte Satz. Wird es umfangreicher, holen wir vorher deine schriftliche Freigabe ein.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ablauf -->
+    <section class="w-sec" aria-labelledby="ablauf-titel">
+        <div class="w-kopf">
+            <p class="w-eyebrow">Ablauf</p>
+            <h2 class="w-titel" id="ablauf-titel">So kommst du ins Paket.</h2>
+        </div>
+        <ol class="w-schritte">
+            <li><h3>Gespräch</h3><p>Wir schauen uns deine Website an und finden gemeinsam das passende Paket.</p></li>
+            <li><h3>Vertrag und Zugänge</h3><p>Du bekommst den Wartungsvertrag und übergibst uns einen WordPress Administratorzugang.</p></li>
+            <li><h3>Einrichtung</h3><p>Wir richten Monitoring und, je nach Paket, die regelmäßigen Sicherungen ein.</p></li>
+            <li><h3>Laufende Betreuung</h3><p>Du schickst uns deine Änderungswünsche per Mail, wir pflegen sie ein.</p></li>
+        </ol>
+    </section>
+
+    <!-- Fragen -->
+    <section class="w-sec" aria-labelledby="fragen-titel">
+        <div class="w-kopf">
+            <p class="w-eyebrow">Häufige Fragen</p>
+            <h2 class="w-titel" id="fragen-titel">Bevor du dich entscheidest.</h2>
+        </div>
+        <div class="w-fragen">
+            <details>
+                <summary>Wie kann ich kündigen?</summary>
+                <div class="w-antwort">Bei monatlicher Abrechnung kannst du schriftlich zum Ende jedes Kalendermonats kündigen. Bei jährlicher Abrechnung läuft der Vertrag 12 Monate und verlängert sich jeweils um weitere 12 Monate, wenn du nicht spätestens einen Monat vor Ablauf schriftlich kündigst.</div>
+            </details>
+            <details>
+                <summary>Kann ich das Paket später wechseln?</summary>
+                <div class="w-antwort">Ja. Bei monatlicher Abrechnung wechselst du zum nächsten Monatsersten, im Jahresmodell zum Ende der Laufzeit.</div>
+            </details>
+            <details>
+                <summary>Was passiert mit Minuten, die ich nicht nutze?</summary>
+                <div class="w-antwort">Nicht verbrauchte Minuten verfallen am Monatsende. Sie werden weder in den nächsten Monat übertragen noch gutgeschrieben.</div>
+            </details>
+            <details>
+                <summary>Wann arbeitet ihr an meiner Website?</summary>
+                <div class="w-antwort">Innerhalb unserer Arbeitszeit, Montag bis Donnerstag von 9 bis 12 und von 13 bis 18 Uhr, Freitag von 9 bis 12 Uhr. Monitoring und Sicherungen laufen automatisch. Eine feste Reaktionszeit ist nicht Teil der Pakete.</div>
+            </details>
+            <details>
+                <summary>Meine Website liegt nicht bei euch. Geht das trotzdem?</summary>
+                <div class="w-antwort">Ja. Zusätzlich zum WordPress Zugang brauchen wir dann einen Zugang zum Hosting über SFTP und zur Datenbank. Hosting und Domain selbst sind nicht Teil der Wartungspakete.</div>
+            </details>
+            <details>
+                <summary>Darf ich selbst noch Updates oder Plugins installieren?</summary>
+                <div class="w-antwort">Bitte stimm Updates, neue Plugins und Änderungen am Code vorher mit uns ab. Folgen von Änderungen, die ohne Abstimmung passieren, sind nicht vom Wartungsvertrag umfasst.</div>
+            </details>
+            <details>
+                <summary>Bleiben die Preise gleich?</summary>
+                <div class="w-antwort">Die Preise verstehen sich netto zzgl. USt und sind nach dem Verbraucherpreisindex wertgesichert. Sie werden einmal im Jahr an den Index angepasst.</div>
+            </details>
+        </div>
+    </section>
+
+    <!-- Abschluss -->
+    <section class="w-cta" aria-labelledby="cta-titel">
+        <h2 id="cta-titel">Welches Paket passt zu deiner Website?</h2>
+        <p>Schreib uns kurz, um welche Website es geht. Wir schauen sie uns an und empfehlen dir ein Paket, das wirklich passt.</p>
+        <div class="w-cta-btns">
+            <a href="./index.html#contact" class="w-btn prim">Beratung anfragen</a>
+            <a href="mailto:support@upprime-connect.at?subject=Anfrage%20Wartungspaket" class="w-btn">support@upprime-connect.at</a>
+        </div>
+        <p class="w-recht" style="margin:26px auto 0;">Es gelten unsere <a href="./AGB_Upprime_Connect_Stand_12-10-2026.pdf" target="_blank" rel="noopener">AGB</a> und der Wartungsvertrag. Alle Preise in Euro, netto zzgl. gesetzlicher USt.</p>
+    </section>
+
+</div>
+</main>
+
+<!-- Dotted grid transition -->
+<div style="position:relative; height:100px; overflow:hidden; background:var(--bg-secondary);">
+    <div aria-hidden="true" style="pointer-events:none; position:absolute; inset:0;
+        background-image: radial-gradient(rgba(255,255,255,0.07) 0.8px, transparent 0.8px);
+        background-size: 14px 14px;
+        -webkit-mask-image: radial-gradient(circle at 50% 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 80%);
+        mask-image: radial-gradient(circle at 50% 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 80%);">
+    </div>
+</div>
+
+<footer style="background:rgba(10,10,20,0.6); backdrop-filter:blur(12px); border-top:1px solid rgba(255,255,255,0.07);">
+    <div style="max-width:1180px; margin:0 auto; padding:0 24px;">
+
+        <!-- 3-column layout: Logo/Desc | Agentur | Kontakt -->
+        <div class="ft2-grid">
+
+            <!-- Logo + description -->
+            <div>
+                <img src="./upprime-connect-logo.png" alt="Upprime Connect" width="500" height="500" style="height:124px; width:auto; aspect-ratio:1/1; display:block; margin:-8px 0 16px -6px;" loading="lazy" decoding="async">
+                <p style="color:var(--text-muted); font-size:0.94rem; line-height:1.7; max-width:340px;">
+                    Webdesign, SEO und Branding aus Kufstein. Wir bauen Websites, die gefunden werden und verkaufen. Für Unternehmen in Tirol und darüber hinaus.
+                </p>
+            </div>
+
+            <!-- Agentur -->
+            <div>
+                <h3 class="f-display" style="font-size:0.8rem; font-weight:700; color:var(--text-primary); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:20px;">Agentur</h3>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
+                    <li><a href="./index.html#services" class="ft2-link">Leistungen</a></li>
+                    <li><a href="./wartung.html" class="ft2-link">Wartung</a></li>
+                    <li><a href="./index.html#portfolio" class="ft2-link">Kundenstimmen</a></li>
+                    <li><a href="./index.html#about" class="ft2-link">Über uns</a></li>
+                    <li><a href="./index.html#contact" class="ft2-link">Kontakt</a></li>
+                </ul>
+            </div>
+
+            <!-- Kontakt -->
+            <div>
+                <h3 class="f-display" style="font-size:0.8rem; font-weight:700; color:var(--text-primary); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:20px;">Kontakt</h3>
+                <address style="font-style:normal; color:var(--text-muted); font-size:0.9rem; line-height:1.7; margin-bottom:16px;">
+                    Innovationsraum Kufstein KISS<br>
+                    Unterer Stadtplatz 11<br>
+                    6330 Kufstein, Tirol
+                </address>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:12px;">
+                    <li><a href="mailto:support@upprime-connect.at" class="ft2-link">support@upprime-connect.at</a></li>
+                </ul>
+                <div class="ft2-socials">
+                    <a href="https://www.facebook.com/upprimeconnect" target="_blank" rel="noopener noreferrer" class="ft2-social" aria-label="Facebook">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.19 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22c4.78-.75 8.44-4.92 8.44-9.94z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bewertungen -->
+            <div>
+                <h3 class="f-display" style="font-size:0.8rem; font-weight:700; color:var(--text-primary); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:20px;">Kundenstimmen</h3>
+                <a href="https://www.provenexpert.com/upprime-connect/" target="_blank" rel="noopener noreferrer" class="pe-karte" aria-label="Kundenbewertungen zu Upprime Connect auf ProvenExpert, 4,54 von 5 Sternen aus 5 Bewertungen">
+                    <img src="./provenexpert-empfehlung.webp" alt="ProvenExpert Empfehlung" width="300" height="150" style="width:164px; height:auto; display:block; margin:0 0 4px;" loading="lazy" decoding="async">
+                    <span class="pe-wert">4,54 <span>von 5</span></span>
+                    <svg class="pe-sterne" width="86" height="16" viewBox="0 0 86 16" role="img" aria-hidden="true" focusable="false"><defs><linearGradient id="peTeil" x1="0" x2="1" y1="0" y2="0"><stop offset="54%" stop-color="#F5B50A"/><stop offset="54%" stop-color="rgba(255,255,255,0.16)"/></linearGradient></defs><path transform="translate(0 0)" fill="#F5B50A" d="M8 0.9l2.18 4.42 4.88.71-3.53 3.44.83 4.86L8 12.04l-4.36 2.29.83-4.86L.94 6.03l4.88-.71z"/><path transform="translate(17.5 0)" fill="#F5B50A" d="M8 0.9l2.18 4.42 4.88.71-3.53 3.44.83 4.86L8 12.04l-4.36 2.29.83-4.86L.94 6.03l4.88-.71z"/><path transform="translate(35 0)" fill="#F5B50A" d="M8 0.9l2.18 4.42 4.88.71-3.53 3.44.83 4.86L8 12.04l-4.36 2.29.83-4.86L.94 6.03l4.88-.71z"/><path transform="translate(52.5 0)" fill="#F5B50A" d="M8 0.9l2.18 4.42 4.88.71-3.53 3.44.83 4.86L8 12.04l-4.36 2.29.83-4.86L.94 6.03l4.88-.71z"/><path transform="translate(70 0)" fill="url(#peTeil)" d="M8 0.9l2.18 4.42 4.88.71-3.53 3.44.83 4.86L8 12.04l-4.36 2.29.83-4.86L.94 6.03l4.88-.71z"/></svg>
+                    <span class="pe-zahl">5 Bewertungen</span>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Divider -->
+        <div style="height:1px; background:rgba(255,255,255,0.07);"></div>
+
+        <!-- Bottom bar: Copyright + legal links -->
+        <div style="padding:20px 0; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; color:var(--text-muted); font-size:0.84rem;">
+            <div>
+                © 2026 Upprime Connect. Alle Rechte vorbehalten.
+            </div>
+            <div style="display:flex; gap:28px; flex-wrap:wrap;">
+                <a href="./AGB_Upprime_Connect_Stand_12-10-2026.pdf" class="ft2-link" style="font-size:0.84rem;" download target="_blank" rel="noopener">AGB</a>
+                <a href="./impressum.html" class="ft2-link" style="font-size:0.84rem;">Impressum</a>
+                <a href="./datenschutz.html" class="ft2-link" style="font-size:0.84rem;">Datenschutz</a>
+                <a href="./index.html#cookie-settings" class="ft2-link" style="font-size:0.84rem;">Cookie Einstellungen</a>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+
+<script>
+(function () {
+    var t = document.querySelector('.w-toggle');
+    if (!t) return;
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function setze(modus) {
+        if (t.getAttribute('data-mode') === modus) return;
+        t.setAttribute('data-mode', modus);
+        t.querySelectorAll('button').forEach(function (b) {
+            b.setAttribute('aria-pressed', b.getAttribute('data-mode') === modus ? 'true' : 'false');
+        });
+        var key = modus === 'jahr' ? 'j' : 'm';
+        document.querySelectorAll('.w-swap').forEach(function (box) {
+            function tausche() {
+                box.querySelectorAll('[data-m]').forEach(function (el) { el.textContent = el.getAttribute('data-' + key); });
+            }
+            if (still) { tausche(); return; }
+            box.classList.add('is-out');
+            setTimeout(function () { tausche(); box.classList.remove('is-out'); }, 170);
+        });
+    }
+    t.addEventListener('click', function (e) {
+        var b = e.target.closest('button');
+        if (b) setze(b.getAttribute('data-mode'));
+    });
+})();
+</script>
+
+</body>
+</html>
