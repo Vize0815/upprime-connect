@@ -423,18 +423,20 @@
         .w-toggle-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; margin: 8px 0 28px; }
         .w-toggle-row p { color: var(--text-muted); font-size: 0.9rem; }
         .w-toggle {
-            position: relative; display: inline-grid; grid-template-columns: 1fr 1fr;
+            position: relative; display: inline-grid; grid-template-columns: 1fr 1fr 1fr;
             padding: 4px; border-radius: 999px;
             border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);
         }
         .w-toggle::before {
             content: ''; position: absolute; top: 4px; bottom: 4px; left: 4px;
-            width: calc(50% - 4px); border-radius: 999px;
+            width: calc((100% - 8px) / 3); border-radius: 999px;
+            transform: translateX(100%);
             background: linear-gradient(135deg, #9333EA 0%, #7C3AED 100%);
             box-shadow: 0 6px 24px rgba(147,51,234,0.35);
             transition: transform 260ms var(--ease-out);
         }
-        .w-toggle[data-mode="jahr"]::before { transform: translateX(100%); }
+        .w-toggle[data-mode="tag"]::before { transform: translateX(0); }
+        .w-toggle[data-mode="jahr"]::before { transform: translateX(200%); }
         .w-toggle button {
             position: relative; z-index: 1; border: 0; background: none; cursor: pointer;
             padding: 10px 22px; border-radius: 999px;
@@ -479,7 +481,7 @@
             font-family: 'Kiona','Syne',sans-serif; font-size: 0.8rem; font-weight: 700;
             letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-light);
         }
-        .w-fuer { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 10px 0 22px; min-height: 3.2em; }
+        .w-fuer { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 10px 0 22px; min-height: 4.8em; }
         .w-preis { display: flex; align-items: baseline; gap: 8px; min-height: 4.2rem; }
         .w-betrag {
             font-family: 'Kiona','Syne',sans-serif; font-weight: 700; line-height: 1;
@@ -624,12 +626,12 @@
             .w-sec { padding-top: 72px; }
             .w-cta { padding: 44px 22px; margin: 72px 0 88px; }
             .w-toggle-row { justify-content: flex-start; }
-            .w-toggle button { padding: 10px 16px; }
+            .w-toggle button { padding: 10px 6px; }
             .w-karte { padding: 28px 22px 24px; }
             .w-box { padding: 24px 20px; }
         }
         @media (max-width: 640px) {
-            .w-toggle { width: 100%; grid-template-columns: minmax(0,1fr) minmax(0,1fr); margin-top: 10px; }
+            .w-toggle { width: 100%; grid-template-columns: repeat(3, minmax(0,1fr)); margin-top: 10px; }
             .w-toggle .w-gratis { position: absolute; top: -13px; right: 8px; background: #2A2208; border: 1px solid rgba(245,181,10,0.35); }
             .imp-back { white-space: nowrap; }
         }
@@ -695,6 +697,7 @@
         <div class="w-toggle-row">
             <p>Alle Preise netto, zzgl. gesetzlicher USt.</p>
             <div class="w-toggle" role="group" aria-label="Abrechnung wählen" data-mode="monat">
+                <button type="button" data-mode="tag" aria-pressed="false">Täglich</button>
                 <button type="button" data-mode="monat" aria-pressed="true">Monatlich</button>
                 <button type="button" data-mode="jahr" aria-pressed="false">Jährlich <span class="w-gratis">1 Monat gratis</span></button>
             </div>
@@ -707,8 +710,8 @@
                 <div class="w-name" id="p1">Content</div>
                 <p class="w-fuer">Für Websites, deren Inhalte aktuell bleiben sollen und deren Technik du selbst betreust.</p>
                 <div class="w-swap" aria-live="polite">
-                    <div class="w-preis"><span class="w-betrag" data-m="45" data-j="495">45</span><span class="w-einheit" data-m="€ / Monat" data-j="€ / Jahr">€ / Monat</span></div>
-                    <div class="w-preis-sub" data-m="netto, monatlich im Vorhinein" data-j="41,25 € im Monat, 45 € gespart">netto, monatlich im Vorhinein</div>
+                    <div class="w-preis"><span class="w-betrag" data-t="1,48" data-m="45" data-j="495">45</span><span class="w-einheit" data-t="€ / Tag" data-m="€ / Monat" data-j="€ / Jahr">€ / Monat</span></div>
+                    <div class="w-preis-sub" data-t="rechnerisch, bei monatlicher Zahlung" data-m="netto, monatlich im Vorhinein" data-j="41,25 € im Monat, 45 € gespart">netto, monatlich im Vorhinein</div>
                 </div>
                 <div class="w-kontingent"><strong>30 Min.</strong><span>Pflegekontingent pro Monat</span></div>
                 <ul class="w-liste">
@@ -727,8 +730,8 @@
                 <div class="w-name" id="p2">Content Plus</div>
                 <p class="w-fuer">Für Unternehmen, die Pflege und Technik ihrer Website komplett abgeben möchten.</p>
                 <div class="w-swap" aria-live="polite">
-                    <div class="w-preis"><span class="w-betrag" data-m="129" data-j="1.419">129</span><span class="w-einheit" data-m="€ / Monat" data-j="€ / Jahr">€ / Monat</span></div>
-                    <div class="w-preis-sub" data-m="netto, monatlich im Vorhinein" data-j="118,25 € im Monat, 129 € gespart">netto, monatlich im Vorhinein</div>
+                    <div class="w-preis"><span class="w-betrag" data-t="4,24" data-m="129" data-j="1.419">129</span><span class="w-einheit" data-t="€ / Tag" data-m="€ / Monat" data-j="€ / Jahr">€ / Monat</span></div>
+                    <div class="w-preis-sub" data-t="rechnerisch, bei monatlicher Zahlung" data-m="netto, monatlich im Vorhinein" data-j="118,25 € im Monat, 129 € gespart">netto, monatlich im Vorhinein</div>
                 </div>
                 <div class="w-kontingent"><strong>60 Min.</strong><span>Pflegekontingent pro Monat</span></div>
                 <ul class="w-liste">
@@ -746,8 +749,8 @@
                 <div class="w-name" id="p3">Business</div>
                 <p class="w-fuer">Für Websites, an denen regelmäßig gearbeitet wird und auf die sich dein Geschäft stützt.</p>
                 <div class="w-swap" aria-live="polite">
-                    <div class="w-preis"><span class="w-betrag" data-m="215" data-j="2.365">215</span><span class="w-einheit" data-m="€ / Monat" data-j="€ / Jahr">€ / Monat</span></div>
-                    <div class="w-preis-sub" data-m="netto, monatlich im Vorhinein" data-j="197,08 € im Monat, 215 € gespart">netto, monatlich im Vorhinein</div>
+                    <div class="w-preis"><span class="w-betrag" data-t="7,07" data-m="215" data-j="2.365">215</span><span class="w-einheit" data-t="€ / Tag" data-m="€ / Monat" data-j="€ / Jahr">€ / Monat</span></div>
+                    <div class="w-preis-sub" data-t="rechnerisch, bei monatlicher Zahlung" data-m="netto, monatlich im Vorhinein" data-j="197,08 € im Monat, 215 € gespart">netto, monatlich im Vorhinein</div>
                 </div>
                 <div class="w-kontingent"><strong>90 Min.</strong><span>Pflegekontingent pro Monat</span></div>
                 <ul class="w-liste">
@@ -830,9 +833,10 @@
             </div>
             <div class="w-box">
                 <h3>Unsere Sätze</h3>
-                <div class="w-satz"><span>Inhaltspflege und Webdesign</span><strong>24,90 €</strong></div>
-                <div class="w-satz"><span>Programmierung und Hosting Support</span><strong>32,90 €</strong></div>
-                <p class="w-satz-fuss">Jeweils pro angefangene 15 Minuten, netto zzgl. USt. Außerhalb unserer Arbeitszeit gilt der doppelte Satz. Wird es umfangreicher, holen wir vorher deine schriftliche Freigabe ein.</p>
+                <div class="w-satz"><span>Webdesign</span><strong>49,80 €</strong></div>
+                <div class="w-satz"><span>Programmierung und Hosting Support</span><strong>65,80 €</strong></div>
+                <div class="w-satz"><span>Consulting</span><strong>75,80 €</strong></div>
+                <p class="w-satz-fuss">Jeweils pro angefangene 30 Minuten, netto zzgl. USt. Außerhalb unserer Arbeitszeit gilt der doppelte Satz. Wird es umfangreicher, holen wir vorher deine schriftliche Freigabe ein.</p>
             </div>
         </div>
     </section>
@@ -1001,7 +1005,7 @@
         t.querySelectorAll('button').forEach(function (b) {
             b.setAttribute('aria-pressed', b.getAttribute('data-mode') === modus ? 'true' : 'false');
         });
-        var key = modus === 'jahr' ? 'j' : 'm';
+        var key = modus === 'jahr' ? 'j' : (modus === 'tag' ? 't' : 'm');
         document.querySelectorAll('.w-swap').forEach(function (box) {
             function tausche() {
                 box.querySelectorAll('[data-m]').forEach(function (el) { el.textContent = el.getAttribute('data-' + key); });
