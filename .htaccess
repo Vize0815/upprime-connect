@@ -27,7 +27,7 @@ AddCharset utf-8 .txt
 # (llms.txt) und auf die Sitemap, damit Agenten sie ohne Suchen finden.
 <IfModule mod_headers.c>
     <Files "index.html">
-        Header set Link "</llms.txt>; rel=\"alternate\"; type=\"text/markdown\", </llms.txt>; rel=\"describedby\", </sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\""
+        Header set Link "</llms.txt>; rel=alternate, </llms.txt>; rel=describedby, </sitemap.xml>; rel=sitemap"
         Header merge Vary "Accept"
     </Files>
     <Files "llms.txt">
