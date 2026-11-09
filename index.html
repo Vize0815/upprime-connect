@@ -1807,7 +1807,7 @@
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "ProfessionalService",
+          "@type": "LocalBusiness",
           "@id": "https://upprime-connect.at/#organisation",
           "name": "Upprime Connect",
           "legalName": "Alexander Kroes e.U.",
@@ -2980,7 +2980,7 @@
         </div>
 
         <div class="reveal d2" style="background:rgba(255,255,255,0.025); border:1px solid rgba(147,51,234,0.14); border-radius:22px; padding:44px;">
-            <form id="contact-form" onsubmit="submitForm(event)" novalidate>
+            <form id="contact-form" onsubmit="submitForm(event)" novalidate toolname="projektanfrage_senden" tooldescription="Sendet eine Projektanfrage an Upprime Connect, Webdesign, SEO und Branding aus Kufstein in Tirol. Benötigt Name, E-Mail und eine Beschreibung des Vorhabens, die Firma ist optional.">
                 <input type="hidden" name="_subject" value="Neue Anfrage über upprime-connect.at">
                 <input type="hidden" name="_template" value="table">
                 <input type="hidden" name="_captcha" value="false">
@@ -2988,20 +2988,20 @@
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;" class="form-row">
                     <div>
                         <label for="inp-name" style="display:block; font-family:'Syne',sans-serif; font-weight:700; font-size:0.8rem; color:#8888AA; margin-bottom:7px; letter-spacing:0.07em; text-transform:uppercase;">Name *</label>
-                        <input type="text" id="inp-name" name="name" class="inp" placeholder="Max Mustermann" required>
+                        <input type="text" id="inp-name" name="name" toolparamdescription="Vor und Nachname der anfragenden Person" class="inp" placeholder="Max Mustermann" required>
                     </div>
                     <div>
                         <label for="inp-email" style="display:block; font-family:'Syne',sans-serif; font-weight:700; font-size:0.8rem; color:#8888AA; margin-bottom:7px; letter-spacing:0.07em; text-transform:uppercase;">E-Mail *</label>
-                        <input type="email" id="inp-email" name="email" class="inp" placeholder="max@unternehmen.de" required>
+                        <input type="email" id="inp-email" name="email" toolparamdescription="E-Mail Adresse für die Antwort" class="inp" placeholder="max@unternehmen.de" required>
                     </div>
                 </div>
                 <div style="margin-bottom:18px;">
                     <label for="inp-company" style="display:block; font-family:'Syne',sans-serif; font-weight:700; font-size:0.8rem; color:#8888AA; margin-bottom:7px; letter-spacing:0.07em; text-transform:uppercase;">Unternehmen</label>
-                    <input type="text" id="inp-company" name="company" class="inp" placeholder="Musterfirma GmbH">
+                    <input type="text" id="inp-company" name="company" toolparamdescription="Name des Unternehmens, optional" class="inp" placeholder="Musterfirma GmbH">
                 </div>
                 <div style="margin-bottom:30px;">
                     <label for="inp-msg" style="display:block; font-family:'Syne',sans-serif; font-weight:700; font-size:0.8rem; color:#8888AA; margin-bottom:7px; letter-spacing:0.07em; text-transform:uppercase;">Dein Projekt *</label>
-                    <textarea id="inp-msg" name="message" class="inp" placeholder="Erzähl uns von deinem Projekt — was möchtest du erreichen?" required></textarea>
+                    <textarea id="inp-msg" name="message" toolparamdescription="Beschreibung des Projekts und was erreicht werden soll" class="inp" placeholder="Erzähl uns von deinem Projekt — was möchtest du erreichen?" required></textarea>
                 </div>
                 <button type="submit" id="submit-btn" class="btn-primary" style="width:100%; justify-content:center; font-size:1rem; padding:16px;">
                     Kostenlose Beratung anfragen

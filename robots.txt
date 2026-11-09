@@ -3,6 +3,8 @@
 # Arbeitsdateien, die zusaetzlich per .htaccess gesperrt sind.
 
 User-agent: *
+# Content Signals (contentsignals.org): Suche, KI Antworten und KI Training erlaubt
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
 # Interne Dateien und Ordner gar nicht erst abrufen

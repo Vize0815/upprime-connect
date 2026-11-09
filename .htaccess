@@ -17,6 +17,24 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.upprime-connect\.at$ [NC]
 RewriteRule ^(.*)$ https://upprime-connect.at/$1 [R=301,L]
 
+# KI Agenten, die ausdruecklich Markdown anfragen (Accept: text/markdown),
+# bekommen auf der Startseite die llms.txt. Browser fragen nie danach.
+RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
+RewriteRule ^(index\.html)?$ /llms.txt [T=text/markdown,L]
+AddCharset utf-8 .txt
+
+# Die Startseite verweist im HTTP Kopf auf die Kurzbeschreibung fuer KI
+# (llms.txt) und auf die Sitemap, damit Agenten sie ohne Suchen finden.
+<IfModule mod_headers.c>
+    <Files "index.html">
+        Header set Link "</llms.txt>; rel=\"alternate\"; type=\"text/markdown\", </llms.txt>; rel=\"describedby\", </sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\""
+        Header merge Vary "Accept"
+    </Files>
+    <Files "llms.txt">
+        Header merge Vary "Accept"
+    </Files>
+</IfModule>
+
 # Die Geburtstagsaktion ist beendet, die Teilnahmebedingungen sind entfernt.
 # Alte Links sollen nicht ins Leere laufen, sie landen auf der Startseite.
 Redirect 301 /teilnahmebedingungen.html /
